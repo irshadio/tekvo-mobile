@@ -1,0 +1,22 @@
+{
+  "@@locale": "ar",
+  "commonRetry": "Retry",
+  "errorCancelled": "The request was cancelled",
+  "errorConflict": "That has already been updated. Please refresh and try again.",
+  "errorForbidden": "You don't have permission to do that.",
+  "errorNetwork": "We could not reach the server. Please check your connection and try again.",
+  "errorNoConnection": "No internet connection",
+  "errorNotFound": "We could not find what you were looking for.",
+  "errorServer": "Something went wrong on our end. Please try again in a moment.",
+  "errorServiceUnavailable": "The service is temporarily unavailable. Please try again shortly.",
+  "errorSessionExpired": "Your session has expired",
+  "errorStorage": "Couldn't save your changes. Please try again.",
+  "errorTimeout": "The server took too long to respond. Please try again.",
+  "errorTooManyRequests": "Too many requests. Please wait a moment and try again.",
+  "errorUnexpected": "Something went wrong",
+  "errorValidation": "We could not process that. Please check the details and try again.",
+  "offlineBanner": "Network Offline",
+  "onlineBanner": "Online",
+  "startupFailed": "The app could not start. Please close it and try again. If this keeps happening, reinstall the app.",
+  "routeNotFound": "Page not found"
+}

@@ -1,0 +1,27 @@
+name: tekvo_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.13.4
+
+workspace:
+  - packages/core
+
+dev_dependencies:
+  melos: ^7.8.0
+
+melos:
+  name: tekvo
+
+  scripts:
+    gen:
+      description: Run build_runner in every package that uses it.
+      run: melos exec --depends-on="build_runner" --order-dependents -- dart run build_runner build --delete-conflicting-outputs
+
+    l10n:
+      description: Generate localizations in every package with an l10n.yaml.
+      run: melos exec --file-exists="l10n.yaml" -- flutter gen-l10n
+
+    test:
+      description: Run tests in every package that has a test/ dir.
+      run: melos exec --dir-exists="test" -- flutter test

@@ -1,0 +1,79 @@
+{
+  "@@locale": "en",
+  "commonRetry": "Retry",
+  "@commonRetry": {
+    "description": "Button that repeats a failed request."
+  },
+  "errorCancelled": "The request was cancelled",
+  "@errorCancelled": {
+    "description": "A request was cancelled."
+  },
+  "errorConflict": "That has already been updated. Please refresh and try again.",
+  "@errorConflict": {
+    "description": "The server answered 409."
+  },
+  "errorForbidden": "You don't have permission to do that.",
+  "@errorForbidden": {
+    "description": "Signed in, but not allowed to do this."
+  },
+  "errorNetwork": "We could not reach the server. Please check your connection and try again.",
+  "@errorNetwork": {
+    "description": "The server could not be reached."
+  },
+  "errorNoConnection": "No internet connection",
+  "@errorNoConnection": {
+    "description": "The device is offline."
+  },
+  "errorNotFound": "We could not find what you were looking for.",
+  "@errorNotFound": {
+    "description": "The server answered 404."
+  },
+  "errorServer": "Something went wrong on our end. Please try again in a moment.",
+  "@errorServer": {
+    "description": "Any other server error."
+  },
+  "errorServiceUnavailable": "The service is temporarily unavailable. Please try again shortly.",
+  "@errorServiceUnavailable": {
+    "description": "The server answered 503."
+  },
+  "errorSessionExpired": "Your session has expired",
+  "@errorSessionExpired": {
+    "description": "The session is no longer valid."
+  },
+  "errorStorage": "Couldn't save your changes. Please try again.",
+  "@errorStorage": {
+    "description": "Saving on the device failed."
+  },
+  "errorTimeout": "The server took too long to respond. Please try again.",
+  "@errorTimeout": {
+    "description": "A request timed out."
+  },
+  "errorTooManyRequests": "Too many requests. Please wait a moment and try again.",
+  "@errorTooManyRequests": {
+    "description": "The server answered 429."
+  },
+  "errorUnexpected": "Something went wrong",
+  "@errorUnexpected": {
+    "description": "An unexpected error."
+  },
+  "errorValidation": "We could not process that. Please check the details and try again.",
+  "@errorValidation": {
+    "description": "The server rejected the input without saying why."
+  },
+  "offlineBanner": "Network Offline",
+  "@offlineBanner": {
+    "description": "The strip at the bottom of every screen while the device is offline."
+  },
+  "onlineBanner": "Online",
+  "@onlineBanner": {
+    "description": "The strip at the bottom of every screen once the device reconnects."
+  },
+  "startupFailed": "The app could not start. Please close it and try again. If this keeps happening, reinstall the app.",
+  "@startupFailed": {
+    "description": "Shown when start-up fails before the app can run."
+  },
+  "routeNotFound": "Page not found",
+  "@routeNotFound": {
+    "description": "Shown for a route the app does not know."
+  }
+}

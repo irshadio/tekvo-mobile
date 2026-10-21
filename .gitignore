@@ -1,0 +1,35 @@
+# Local reference material and working notes (never tracked)
+local_dev/
+
+# Generated code
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+**/lib/l10n/generated/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+**/build/
+/coverage/
+**/ios/Flutter/.last_build_id
+**/doc/api/
+app.*.symbols
+app.*.map.json
+
+# IDE and OS
+.idea/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+*.log
+*.swp
