@@ -26,8 +26,11 @@ abstract final class Assets {
   static const String chipTruck = 'packages/core/assets/icons/chip/truck.svg';
   static const String heroBell = 'packages/core/assets/icons/hero/bell.svg';
   static const String heroPin = 'packages/core/assets/icons/hero/pin.svg';
+  static const String iconsCheck = 'packages/core/assets/icons/check.svg';
+  static const String iconsClose = 'packages/core/assets/icons/close.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
+  static const String iconsSearch = 'packages/core/assets/icons/search.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';
   static const String onboardingFast =
       'packages/core/assets/images/onboarding/fast.jpg';
