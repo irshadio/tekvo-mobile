@@ -109,10 +109,9 @@ class _FilterChipsState extends State<FilterChips> {
           decoration: BoxDecoration(
             color: on ? colors.inverseSurface : colors.surfaceContainerLowest,
             borderRadius: radius,
-            border: Border.all(
-              color: on ? colors.inverseSurface : colors.outlineVariant,
-              width: _border,
-            ),
+            border: on
+                ? null
+                : Border.all(color: colors.outlineVariant, width: _border),
           ),
           child: Text(
             widget.labels[index],
