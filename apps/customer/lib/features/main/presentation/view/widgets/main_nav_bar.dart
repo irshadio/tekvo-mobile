@@ -1,6 +1,6 @@
 import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
-import 'package:core/presentation/view_model/cart_count_view_model.dart';
+import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/widgets/count_badge.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
@@ -29,7 +29,9 @@ class MainNavBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = context.colors;
-    final cartCount = ref.watch(cartCountViewModelProvider);
+    final cartCount = ref.watch(
+      cartViewModelProvider.select((cart) => cart.count),
+    );
     return DecoratedBox(
       decoration: BoxDecoration(
         color: colors.surfaceContainerLowest,

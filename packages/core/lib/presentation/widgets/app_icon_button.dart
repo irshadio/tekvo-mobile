@@ -1,4 +1,5 @@
 import 'package:core/presentation/extensions/context_extensions.dart';
+import 'package:core/theme/app_effects.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,7 +55,7 @@ class AppIconButton extends StatelessWidget {
         colors.onSurface,
       ),
     };
-    return IconButton(
+    final button = IconButton(
       onPressed: onPressed,
       tooltip: tooltip,
       style: IconButton.styleFrom(
@@ -77,6 +78,14 @@ class AppIconButton extends StatelessWidget {
           BlendMode.srcIn,
         ),
       ),
+    );
+    if (variant != AppIconButtonVariant.glass) return button;
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: AppEffects.glassButton,
+      ),
+      child: button,
     );
   }
 }

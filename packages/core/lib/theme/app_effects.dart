@@ -30,4 +30,13 @@ abstract final class AppEffects {
       blurRadius: 9.53,
     ),
   ];
+
+  /// A white button floating over a photo (Figma: y 2, blur 8, 8%).
+  static const List<BoxShadow> glassButton = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x140D1433),
+      offset: Offset(0, 2),
+      blurRadius: 6.06,
+    ),
+  ];
 }

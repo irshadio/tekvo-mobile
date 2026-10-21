@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/ref_extensions.dart';
-import 'package:core/presentation/view_model/cart_count_view_model.dart';
+import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/view_ready_mixin.dart';
 import 'package:core/presentation/view_state_switcher.dart';
 import 'package:core/state/view_state.dart';
@@ -71,7 +71,9 @@ class _HomeViewState extends ConsumerState<HomeView>
   }
 
   Widget _page(HomeFeed feed) {
-    final cartCount = ref.watch(cartCountViewModelProvider);
+    final cartCount = ref.watch(
+      cartViewModelProvider.select((cart) => cart.count),
+    );
     final headerHeight = context.viewPadding.top + HomeHeader.height.h;
     return Stack(
       children: <Widget>[

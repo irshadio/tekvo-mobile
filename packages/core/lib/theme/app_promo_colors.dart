@@ -9,6 +9,9 @@ abstract final class AppPromoColors {
   static const Color onNightMuted = AppPalette.brand200;
   static const Color onNight = AppPalette.neutral0;
 
+  /// The offer line under a photo tile's title.
+  static const Color onPhotoAccent = AppPalette.volt300;
+
   /// A countdown cell on the night background (Figma: white at 16%).
   static const Color onNightCell = Color(0x29FFFFFF);
 

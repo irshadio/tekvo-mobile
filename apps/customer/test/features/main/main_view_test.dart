@@ -1,4 +1,4 @@
-import 'package:core/presentation/view_model/cart_count_view_model.dart';
+import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:customer/features/main/presentation/view/main_view.dart';
 import 'package:customer/features/main/presentation/view_model/main_tab_view_model.dart';
@@ -71,11 +71,11 @@ void main() {
   testWidgets('the cart tab counts the items in the cart', (tester) async {
     final container = await _pump(tester);
 
-    expect(find.text('${CartCountViewModel.sample}'), findsOneWidget);
+    expect(find.text('${CartViewModel.sample}'), findsOneWidget);
 
-    container.read(cartCountViewModelProvider.notifier).add();
+    container.read(cartViewModelProvider.notifier).add('sample');
     await tester.pumpAndSettle();
 
-    expect(find.text('${CartCountViewModel.sample + 1}'), findsOneWidget);
+    expect(find.text('${CartViewModel.sample + 1}'), findsOneWidget);
   });
 }
