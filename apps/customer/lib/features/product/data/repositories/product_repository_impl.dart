@@ -4,6 +4,7 @@ import 'package:customer/features/product/data/sources/reviews_local_data_source
 import 'package:customer/features/product/domain/entities/product_details.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
+import 'package:customer/features/product/domain/entities/review_form.dart';
 import 'package:customer/features/product/domain/repositories/product_repository.dart';
 import 'package:fpdart/fpdart.dart';
 
@@ -39,4 +40,14 @@ class ProductRepositoryImpl implements ProductRepository {
   /// The sample product every id shows.
   static ProductDetails get sample =>
       const ProductLocalDataSource().details('');
+
+  @override
+  Future<Either<Failure, ReviewForm>> reviewForm(String id) async =>
+      right(_reviews.form(id));
+
+  @override
+  Future<Either<Failure, ReviewReceipt>> submitReview(
+    String id,
+    ReviewDraft draft,
+  ) async => right(_reviews.submit(id, draft));
 }

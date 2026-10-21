@@ -1,5 +1,6 @@
 import 'package:core/assets/assets.gen.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
+import 'package:customer/features/product/domain/entities/review_form.dart';
 
 /// Stand-in until reviews are served: the design's reviews of the Nova X
 /// Pro, filtered, sorted and paged here as the server will.
@@ -36,6 +37,31 @@ class ReviewsLocalDataSource {
     );
   }
 
+  ReviewForm form(String id) => ReviewForm(
+    productId: id,
+    name: 'Nova X Pro 5G',
+    purchase: 'Delivered 16 Oct · #TK-19876',
+    image: Assets.productsNovaXPro,
+    author: 'Sam R.',
+    likes: const <String>[
+      'Camera',
+      'Battery life',
+      'Display',
+      'Performance',
+      'Build quality',
+      'Value for money',
+    ],
+    maxLength: 1000,
+    maxPhotos: 6,
+    rewardPoints: 50,
+  );
+
+  /// Accepts any review, as the server will after its check.
+  ReviewReceipt submit(String id, ReviewDraft draft) => ReviewReceipt(
+    rewardPoints: form(id).rewardPoints,
+    next: id == _nextPrompt.productId ? null : _nextPrompt,
+  );
+
   static bool _keeps(ReviewFilter filter, Review review) => switch (filter) {
     ReviewFilter.all => true,
     ReviewFilter.withPhotos => review.photos > 0,
@@ -52,6 +78,12 @@ class ReviewsLocalDataSource {
     ReviewSort.lowest => a.stars.compareTo(b.stars),
   };
 }
+
+const ReviewPrompt _nextPrompt = ReviewPrompt(
+  productId: 'buds-air-3',
+  name: 'Buds Air 3 · ANC',
+  image: Assets.productsBudsAir3,
+);
 
 const List<ReviewTopic> _topics = <ReviewTopic>[
   ReviewTopic(label: 'Battery life', count: 412, positive: true),

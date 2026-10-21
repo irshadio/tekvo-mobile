@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProductPageBar extends StatelessWidget {
   const ProductPageBar({
     required this.title,
+    this.closes = false,
     this.subtitle,
     this.actions = const <Widget>[],
     this.bottom,
@@ -19,6 +20,9 @@ class ProductPageBar extends StatelessWidget {
   });
 
   final String title;
+
+  /// Shows a close button in place of back, for a screen that is a task.
+  final bool closes;
 
   /// A line under a smaller title, such as the product's name.
   final String? subtitle;
@@ -66,8 +70,10 @@ class ProductPageBar extends StatelessWidget {
               spacing: AppSpacing.xs.w,
               children: <Widget>[
                 action(
-                  icon: Assets.iconsChevronLeft,
-                  tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                  icon: closes ? Assets.iconsClose : Assets.iconsChevronLeft,
+                  tooltip: closes
+                      ? MaterialLocalizations.of(context).closeButtonTooltip
+                      : MaterialLocalizations.of(context).backButtonTooltip,
                   onPressed: () => Navigator.of(context).maybePop(),
                 ),
                 Expanded(child: _titles(context)),

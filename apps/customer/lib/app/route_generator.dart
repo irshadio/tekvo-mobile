@@ -11,9 +11,12 @@ import 'package:customer/features/main/presentation/view_model/main_tab_view_mod
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
+import 'package:customer/features/product/domain/entities/review_form.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
+import 'package:customer/features/product/presentation/view/review_submitted_view.dart';
 import 'package:customer/features/product/presentation/view/reviews_view.dart';
 import 'package:customer/features/product/presentation/view/specifications_view.dart';
+import 'package:customer/features/product/presentation/view/write_review_view.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
 import 'package:customer/routing/app_routes.dart';
@@ -91,6 +94,20 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     Routes.reviews => switch (settings.arguments) {
       final ReviewsRequest request => pushRoute<void>(
         ReviewsView(id: request.id, filter: request.filter),
+        settings,
+      ),
+      _ => materialRoute<void>(const NotFoundView(), settings),
+    },
+    Routes.writeReview => switch (settings.arguments) {
+      final String id => pushRoute<void>(WriteReviewView(id: id), settings),
+      _ => materialRoute<void>(const NotFoundView(), settings),
+    },
+    Routes.reviewSubmitted => switch (settings.arguments) {
+      final ReviewReceipt receipt => fadeRoute(
+        ReviewSubmittedView(
+          receipt: receipt,
+          onContinueShopping: (context) => openShellTab(context, MainTab.home),
+        ),
         settings,
       ),
       _ => materialRoute<void>(const NotFoundView(), settings),
