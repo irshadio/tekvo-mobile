@@ -36,6 +36,7 @@ abstract final class Assets {
   static const String iconsCart = 'packages/core/assets/icons/cart.svg';
   static const String iconsCategories =
       'packages/core/assets/icons/categories.svg';
+  static const String iconsChat = 'packages/core/assets/icons/chat.svg';
   static const String iconsCheck = 'packages/core/assets/icons/check.svg';
   static const String iconsCheckBadge =
       'packages/core/assets/icons/check_badge.svg';
@@ -49,6 +50,7 @@ abstract final class Assets {
       'packages/core/assets/icons/chevron_right.svg';
   static const String iconsClock = 'packages/core/assets/icons/clock.svg';
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
+  static const String iconsEdit = 'packages/core/assets/icons/edit.svg';
   static const String iconsEye = 'packages/core/assets/icons/eye.svg';
   static const String iconsFilter = 'packages/core/assets/icons/filter.svg';
   static const String iconsGamepad = 'packages/core/assets/icons/gamepad.svg';
