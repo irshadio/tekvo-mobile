@@ -6,6 +6,8 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your photos are used only when you add them to a review.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is used to show delivery times and pre-fill your address.</string>
 	<key>CFBundleDisplayName</key>
