@@ -1012,5 +1012,262 @@
   "productSpecsNote": "Specifications come from the manufacturer and may vary by region.",
   "@productSpecsNote": {
     "description": "Specifications: the note under the list."
+  },
+  "productReviewFilterAll": "All · {count}",
+  "@productReviewFilterAll": {
+    "description": "Reviews: the filter that shows every review, with the count already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productReviewFilterPhotos": "With photos · {count}",
+  "@productReviewFilterPhotos": {
+    "description": "Reviews: the filter for reviews with photos, with the count already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productReviewFilterStars": "{stars}★",
+  "@productReviewFilterStars": {
+    "description": "Reviews: the filter for one star rating.",
+    "placeholders": {
+      "stars": {
+        "type": "int"
+      }
+    }
+  },
+  "productReviewFilterLow": "3★ & below",
+  "@productReviewFilterLow": {
+    "description": "Reviews: the filter for three stars or fewer."
+  },
+  "productReviewFilterVerified": "Verified only",
+  "@productReviewFilterVerified": {
+    "description": "Reviews: the filter for verified purchases."
+  },
+  "productWriteReview": "Write a review",
+  "@productWriteReview": {
+    "description": "Reviews: opens the review form."
+  },
+  "productWhatBuyersSay": "What buyers say",
+  "@productWhatBuyersSay": {
+    "description": "Reviews: the summary of topics."
+  },
+  "productTopicsNote": "Summarised from {count} verified reviews",
+  "@productTopicsNote": {
+    "description": "Reviews: where the topics come from, with the count already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productCustomerPhotos": "Customer photos",
+  "@productCustomerPhotos": {
+    "description": "Reviews: buyers' photos."
+  },
+  "productMorePhotos": "{count} more photos",
+  "@productMorePhotos": {
+    "description": "Reviews: the last photo tile, read aloud.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productReviewsCount": "{count} reviews",
+  "@productReviewsCount": {
+    "description": "Reviews: how many reviews the filter keeps, already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productSortTitle": "Sort by",
+  "@productSortTitle": {
+    "description": "Reviews: the sort sheet's title."
+  },
+  "productSortHelpful": "Most helpful",
+  "@productSortHelpful": {
+    "description": "Reviews: sort by helpful votes."
+  },
+  "productSortNewest": "Newest",
+  "@productSortNewest": {
+    "description": "Reviews: sort by date."
+  },
+  "productSortHighest": "Highest rated",
+  "@productSortHighest": {
+    "description": "Reviews: sort by stars, high first."
+  },
+  "productSortLowest": "Lowest rated",
+  "@productSortLowest": {
+    "description": "Reviews: sort by stars, low first."
+  },
+  "productSellerReply": "Reply from {store}",
+  "@productSellerReply": {
+    "description": "Reviews: the store's answer to a review.",
+    "placeholders": {
+      "store": {
+        "type": "String"
+      }
+    }
+  },
+  "productMoreReviews": "Show more reviews",
+  "@productMoreReviews": {
+    "description": "Reviews: loads the next page."
+  },
+  "productNoReviewsMatch": "No reviews match this filter yet.",
+  "@productNoReviewsMatch": {
+    "description": "Reviews: a filter that keeps none."
+  },
+  "productReviewStars": "{stars, plural, =1{1 star} other{{stars} stars}}",
+  "@productReviewStars": {
+    "description": "Reviews: a review's rating read aloud.",
+    "placeholders": {
+      "stars": {
+        "type": "int"
+      }
+    }
+  },
+  "productRateQuestion": "How would you rate it?",
+  "@productRateQuestion": {
+    "description": "Write a review: above the stars."
+  },
+  "productRatingWord": "{stars, select, 1{Poor} 2{Fair} 3{Good} 4{Very good} other{Excellent}}",
+  "@productRatingWord": {
+    "description": "Write a review: the word for the chosen stars.",
+    "placeholders": {
+      "stars": {
+        "type": "String"
+      }
+    }
+  },
+  "productRateStars": "{stars, plural, =1{Rate 1 star} other{Rate {stars} stars}}",
+  "@productRateStars": {
+    "description": "Write a review: a star button read aloud.",
+    "placeholders": {
+      "stars": {
+        "type": "int"
+      }
+    }
+  },
+  "productLikedQuestion": "What did you like?",
+  "@productLikedQuestion": {
+    "description": "Write a review: above the like chips."
+  },
+  "productHeadline": "Headline",
+  "@productHeadline": {
+    "description": "Write a review: the headline field's label."
+  },
+  "productHeadlineHint": "Sum it up in a few words",
+  "@productHeadlineHint": {
+    "description": "Write a review: the headline field's hint."
+  },
+  "productYourReview": "Your review",
+  "@productYourReview": {
+    "description": "Write a review: the review field's label."
+  },
+  "productReviewHint": "What stood out? How do you use it?",
+  "@productReviewHint": {
+    "description": "Write a review: the review field's hint."
+  },
+  "productReviewCounter": "{count} / {max}",
+  "@productReviewCounter": {
+    "description": "Write a review: characters used of the most allowed, already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "productReviewTip": "Tip: mention what you use it for and how long you’ve had it.",
+  "@productReviewTip": {
+    "description": "Write a review: under the review field."
+  },
+  "productAddPhotos": "Add photos",
+  "@productAddPhotos": {
+    "description": "Write a review: the photos section."
+  },
+  "productPhotosOf": "{count} of {max}",
+  "@productPhotosOf": {
+    "description": "Write a review: photos added of the most allowed.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddPhoto": "Add",
+  "@productAddPhoto": {
+    "description": "Write a review: the add photo tile."
+  },
+  "productRemovePhoto": "Remove photo",
+  "@productRemovePhoto": {
+    "description": "Write a review: removes a picked photo."
+  },
+  "productShowName": "Show my name",
+  "@productShowName": {
+    "description": "Write a review: whether the review shows the buyer's name."
+  },
+  "productPostedAs": "Posted as {name}",
+  "@productPostedAs": {
+    "description": "Write a review: the name shown on the review.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productPostedAnonymously": "Posted as a verified buyer",
+  "@productPostedAnonymously": {
+    "description": "Write a review: when the name is hidden."
+  },
+  "productReviewReward": "Earn {points} Tekvo Rewards points when your review goes live.",
+  "@productReviewReward": {
+    "description": "Write a review: the reward note.",
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "productSubmitReview": "Submit review",
+  "@productSubmitReview": {
+    "description": "Write a review: sends the review."
+  },
+  "productReviewThanks": "Thanks for your review!",
+  "@productReviewThanks": {
+    "description": "Review submitted: the title."
+  },
+  "productReviewThanksBody": "It goes live after a quick check, usually within 24 hours. We’ll add {points} points to your Tekvo Rewards then.",
+  "@productReviewThanksBody": {
+    "description": "Review submitted: what happens next.",
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "productRateAnother": "Rate another purchase",
+  "@productRateAnother": {
+    "description": "Review submitted: the next purchase to review."
+  },
+  "productBackToOrders": "Back to My orders",
+  "@productBackToOrders": {
+    "description": "Review submitted: opens the orders."
+  },
+  "productContinueShopping": "Continue shopping",
+  "@productContinueShopping": {
+    "description": "Review submitted: back to the shop."
   }
 }

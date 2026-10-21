@@ -4,6 +4,7 @@ import 'package:core/config/app_environment_provider.dart';
 import 'package:core/config/secure_url.dart';
 import 'package:core/error/error_reporter.dart';
 import 'package:core/logging/app_logger.dart';
+import 'package:core/media/photo_picker.dart';
 import 'package:core/network/app_foreground.dart';
 import 'package:core/network/connectivity.dart';
 import 'package:core/network/idempotent_retry_policy.dart';
@@ -62,6 +63,7 @@ Future<List<Override>> buildCoreOverrides({
     ),
     permissionServiceProvider.overrideWith((ref) => PermissionServiceImpl()),
     shareServiceProvider.overrideWith((ref) => const ShareServiceImpl()),
+    photoPickerProvider.overrideWith((ref) => const PhotoPickerImpl()),
 
     // Host names only: literal IPs "resolve" without a network. Uncached
     // so a probe after a network change sees the change.

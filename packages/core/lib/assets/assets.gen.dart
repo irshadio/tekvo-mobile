@@ -36,6 +36,7 @@ abstract final class Assets {
   static const String iconsCart = 'packages/core/assets/icons/cart.svg';
   static const String iconsCategories =
       'packages/core/assets/icons/categories.svg';
+  static const String iconsChat = 'packages/core/assets/icons/chat.svg';
   static const String iconsCheck = 'packages/core/assets/icons/check.svg';
   static const String iconsCheckBadge =
       'packages/core/assets/icons/check_badge.svg';
@@ -49,9 +50,11 @@ abstract final class Assets {
       'packages/core/assets/icons/chevron_right.svg';
   static const String iconsClock = 'packages/core/assets/icons/clock.svg';
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
+  static const String iconsEdit = 'packages/core/assets/icons/edit.svg';
   static const String iconsEye = 'packages/core/assets/icons/eye.svg';
   static const String iconsFilter = 'packages/core/assets/icons/filter.svg';
   static const String iconsGamepad = 'packages/core/assets/icons/gamepad.svg';
+  static const String iconsGift = 'packages/core/assets/icons/gift.svg';
   static const String iconsGlobe = 'packages/core/assets/icons/globe.svg';
   static const String iconsHeadphones =
       'packages/core/assets/icons/headphones.svg';
@@ -74,6 +77,7 @@ abstract final class Assets {
   static const String iconsShare = 'packages/core/assets/icons/share.svg';
   static const String iconsShield = 'packages/core/assets/icons/shield.svg';
   static const String iconsSpeaker = 'packages/core/assets/icons/speaker.svg';
+  static const String iconsStar = 'packages/core/assets/icons/star.svg';
   static const String iconsStarFilled =
       'packages/core/assets/icons/star_filled.svg';
   static const String iconsTag = 'packages/core/assets/icons/tag.svg';

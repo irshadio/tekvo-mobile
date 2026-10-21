@@ -1,6 +1,8 @@
 import 'package:core/error/failure.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
+import 'package:customer/features/product/domain/entities/review_form.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -11,6 +13,22 @@ abstract interface class ProductRepository {
   Future<Either<Failure, ProductDetails>> details(String id);
 
   Future<Either<Failure, ProductSpecifications>> specifications(String id);
+
+  /// The first [pages] pages of reviews that [filter] keeps, in [sort]
+  /// order.
+  Future<Either<Failure, ReviewsPage>> reviews(
+    String id, {
+    required ReviewFilter filter,
+    required ReviewSort sort,
+    required int pages,
+  });
+
+  Future<Either<Failure, ReviewForm>> reviewForm(String id);
+
+  Future<Either<Failure, ReviewReceipt>> submitReview(
+    String id,
+    ReviewDraft draft,
+  );
 }
 
 /// Bound in `product_overrides.dart`.

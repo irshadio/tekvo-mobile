@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:core/assets/assets.gen.dart';
 import 'package:core/utils/mobile_contact.dart';
 import 'package:core/utils/social_account.dart';
 import 'package:country/country.dart';
@@ -12,8 +13,12 @@ import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
+import 'package:customer/features/product/domain/entities/review_form.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
+import 'package:customer/features/product/presentation/view/review_submitted_view.dart';
+import 'package:customer/features/product/presentation/view/reviews_view.dart';
 import 'package:customer/features/product/presentation/view/specifications_view.dart';
+import 'package:customer/features/product/presentation/view/write_review_view.dart';
 import 'package:customer/features/product/product_overrides.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/registration/registration_overrides.dart';
@@ -46,6 +51,19 @@ final Map<String, Widget> _screens = {
   'home': const CustomerShell(),
   'product': ProductView(id: 'nova-x-pro', onOpenCart: (_) {}),
   'specifications': const SpecificationsView(id: 'nova-x-pro'),
+  'reviews': const ReviewsView(id: 'nova-x-pro'),
+  'write-review': const WriteReviewView(id: 'nova-x-pro'),
+  'review-sent': ReviewSubmittedView(
+    receipt: const ReviewReceipt(
+      rewardPoints: 50,
+      next: ReviewPrompt(
+        productId: 'buds-air-3',
+        name: 'Buds Air 3 · ANC',
+        image: Assets.productsBudsAir3,
+      ),
+    ),
+    onContinueShopping: (_) {},
+  ),
 };
 
 const Map<String, Size> _sizes = <String, Size>{

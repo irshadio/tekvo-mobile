@@ -3,9 +3,9 @@ import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:core/sharing/share_service.dart';
 import 'package:customer/features/product/data/repositories/product_repository_impl.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
-import 'package:customer/features/product/presentation/view/specifications_view.dart';
 import 'package:customer/features/product/presentation/view_model/added_toast_view_model.dart';
 import 'package:customer/features/product/presentation/view_model/product_choices_view_model.dart';
 import 'package:customer/features/product/product_overrides.dart';
@@ -251,7 +251,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(pumped.opened.last.name, Routes.reviews);
-    expect(pumped.opened.last.arguments, _sample.id);
+    expect(
+      pumped.opened.last.arguments,
+      (id: _sample.id, filter: ReviewFilter.all),
+    );
   });
 
   testWidgets('a highlight opens the specification at its group', (
@@ -266,7 +269,21 @@ void main() {
     expect(pumped.opened.last.name, Routes.specifications);
     expect(
       pumped.opened.last.arguments,
-      (id: _sample.id, start: SpecGroupKind.camera) as SpecificationsRequest,
+      (id: _sample.id, start: SpecGroupKind.camera),
+    );
+  });
+
+  testWidgets('the photos mention opens reviews with photos', (tester) async {
+    final pumped = await _pump(tester);
+    final photos = _en.productMention('With photos', '186');
+
+    await _reveal(tester, find.text(photos));
+    await tester.tap(find.text(photos));
+    await tester.pumpAndSettle();
+
+    expect(
+      pumped.opened.last.arguments,
+      (id: _sample.id, filter: ReviewFilter.withPhotos),
     );
   });
 }
