@@ -1,3 +1,4 @@
+import 'package:core/theme/app_brand_colors.dart';
 import 'package:core/theme/app_color_schemes.dart';
 import 'package:core/theme/app_colors.dart';
 import 'package:core/theme/app_fonts.dart';
@@ -11,9 +12,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// Read them inside `DesignScale`: `.sp` and `.r` need ScreenUtil.
 abstract final class AppTheme {
   static ThemeData get light =>
-      _themeFrom(appLightColorScheme, AppColors.light);
+      _themeFrom(appLightColorScheme, AppColors.light, AppBrandColors.light);
 
-  static ThemeData get dark => _themeFrom(appDarkColorScheme, AppColors.dark);
+  static ThemeData get dark =>
+      _themeFrom(appDarkColorScheme, AppColors.dark, AppBrandColors.dark);
 
   static TextTheme textTheme(Color color) {
     TextStyle s(TextStyle style) => style.copyWith(color: color);
@@ -37,7 +39,11 @@ abstract final class AppTheme {
     );
   }
 
-  static ThemeData _themeFrom(ColorScheme scheme, AppColors colors) {
+  static ThemeData _themeFrom(
+    ColorScheme scheme,
+    AppColors colors,
+    AppBrandColors brand,
+  ) {
     final text = textTheme(scheme.onSurface);
     final controlShape = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppRadius.md.r),
@@ -57,7 +63,7 @@ abstract final class AppTheme {
       fontFamily: AppFonts.inter,
       package: 'core',
       scaffoldBackgroundColor: scheme.surface,
-      extensions: <ThemeExtension<dynamic>>[colors],
+      extensions: <ThemeExtension<dynamic>>[colors, brand],
       appBarTheme: AppBarTheme(
         backgroundColor: scheme.surface,
         foregroundColor: scheme.onSurface,

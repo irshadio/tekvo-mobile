@@ -1,4 +1,5 @@
 import 'package:core/presentation/widgets/design_scale.dart';
+import 'package:core/theme/app_brand_colors.dart';
 import 'package:core/theme/app_colors.dart';
 import 'package:core/theme/app_palette.dart';
 import 'package:core/theme/app_theme.dart';
@@ -36,6 +37,9 @@ void main() {
     expect(dark.colorScheme.surface, AppPalette.neutral975);
     expect(light.extension<AppColors>(), AppColors.light);
     expect(dark.extension<AppColors>(), AppColors.dark);
+    expect(light.extension<AppBrandColors>(), AppBrandColors.light);
+    expect(dark.extension<AppBrandColors>(), AppBrandColors.dark);
+    expect(AppBrandColors.dark.background, AppPalette.brand950);
   });
 
   testWidgets('text follows the Figma text styles', (tester) async {

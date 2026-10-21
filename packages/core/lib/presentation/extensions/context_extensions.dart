@@ -1,4 +1,5 @@
 import 'package:core/l10n/generated/core_localizations.dart';
+import 'package:core/theme/app_brand_colors.dart';
 import 'package:core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ extension BuildContextX on BuildContext {
   ColorScheme get colors => Theme.of(this).colorScheme;
   CoreLocalizations get coreL10n => CoreLocalizations.of(this);
   AppColors get appColors => Theme.of(this).extension<AppColors>()!;
+  AppBrandColors get brandColors => Theme.of(this).extension<AppBrandColors>()!;
   TextTheme get textTheme => Theme.of(this).textTheme;
 
   Size get screenSize => MediaQuery.sizeOf(this);
