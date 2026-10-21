@@ -405,5 +405,314 @@
   "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout.",
   "@verifyMobileLater": {
     "description": "Add mobile: note under the button; Skip leaves the number for later."
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Bottom navigation: the home tab."
+  },
+  "navExplore": "Explore",
+  "@navExplore": {
+    "description": "Bottom navigation: the categories tab."
+  },
+  "navCart": "Cart",
+  "@navCart": {
+    "description": "Bottom navigation: the cart tab."
+  },
+  "navWishlist": "Wishlist",
+  "@navWishlist": {
+    "description": "Bottom navigation: the wishlist tab."
+  },
+  "navProfile": "Profile",
+  "@navProfile": {
+    "description": "Bottom navigation: the account tab."
+  },
+  "navCartCount": "{tab}, {count, plural, =1{1 item} other{{count} items}}",
+  "@navCartCount": {
+    "description": "Bottom navigation: screen-reader label of the cart tab with its item count.",
+    "placeholders": {
+      "tab": {
+        "type": "String",
+        "example": "Cart"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mainComingSoon": "This screen is on its way.",
+  "@mainComingSoon": {
+    "description": "A tab whose screen is not built yet: the note under its name."
+  },
+  "homeDeliverTo": "Deliver to · {eta}",
+  "@homeDeliverTo": {
+    "description": "Home header: when orders arrive, above the delivery area.",
+    "placeholders": {
+      "eta": {
+        "type": "String",
+        "example": "Today by 9 PM"
+      }
+    }
+  },
+  "homeNotifications": "Notifications",
+  "@homeNotifications": {
+    "description": "Home header: the notifications button."
+  },
+  "homeCart": "{count, plural, =0{Cart} =1{Cart, 1 item} other{Cart, {count} items}}",
+  "@homeCart": {
+    "description": "Home header: the cart button's screen-reader label.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeSearchHint": "Search phones, laptops, audio…",
+  "@homeSearchHint": {
+    "description": "Home: the search bar's hint."
+  },
+  "homeFilters": "Filters",
+  "@homeFilters": {
+    "description": "Home: the search bar's filter button."
+  },
+  "homeFreeDelivery": "Free delivery over {amount}",
+  "@homeFreeDelivery": {
+    "description": "Home trust strip: the free delivery threshold.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "AED 200"
+      }
+    }
+  },
+  "homeSameDay": "Same-day in {city}",
+  "@homeSameDay": {
+    "description": "Home trust strip: same-day delivery.",
+    "placeholders": {
+      "city": {
+        "type": "String",
+        "example": "Dubai"
+      }
+    }
+  },
+  "homeWarranty": "2-year warranty",
+  "@homeWarranty": {
+    "description": "Home trust strip: the warranty."
+  },
+  "homeReturns": "14-day returns",
+  "@homeReturns": {
+    "description": "Home trust strip: the returns window."
+  },
+  "homeSeeAll": "See all",
+  "@homeSeeAll": {
+    "description": "Home: link beside a section title to its full list."
+  },
+  "homeShopByCategory": "Shop by category",
+  "@homeShopByCategory": {
+    "description": "Home: the categories section's title."
+  },
+  "categoryPhones": "Phones",
+  "@categoryPhones": {
+    "description": "Category name."
+  },
+  "categoryLaptops": "Laptops",
+  "@categoryLaptops": {
+    "description": "Category name."
+  },
+  "categoryAudio": "Audio",
+  "@categoryAudio": {
+    "description": "Category name."
+  },
+  "categoryWatches": "Watches",
+  "@categoryWatches": {
+    "description": "Category name."
+  },
+  "categoryCameras": "Cameras",
+  "@categoryCameras": {
+    "description": "Category name."
+  },
+  "categoryGaming": "Gaming",
+  "@categoryGaming": {
+    "description": "Category name."
+  },
+  "categoryTvs": "TVs",
+  "@categoryTvs": {
+    "description": "Category name."
+  },
+  "categorySpeakers": "Speakers",
+  "@categorySpeakers": {
+    "description": "Category name."
+  },
+  "homeFlashDeals": "Flash deals",
+  "@homeFlashDeals": {
+    "description": "Home: the flash sale section's title."
+  },
+  "homeSold": "{percent}% sold",
+  "@homeSold": {
+    "description": "Home flash deals: how much of a deal's stock has sold.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "homeAlmostGone": "Almost gone · {percent}% sold",
+  "@homeAlmostGone": {
+    "description": "Home flash deals: a deal about to sell out.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDealsByCategory": "Deals by category",
+  "@homeDealsByCategory": {
+    "description": "Home: the category deals section's title."
+  },
+  "productDiscount": "-{percent}%",
+  "@productDiscount": {
+    "description": "Product tag: the discount.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "productNew": "NEW",
+  "@productNew": {
+    "description": "Product tag: a new product; upper case in English."
+  },
+  "productBestseller": "Bestseller",
+  "@productBestseller": {
+    "description": "Product tag: a bestseller."
+  },
+  "productLowStock": "{left, plural, =1{Only 1 left} other{Only {left} left}}",
+  "@productLowStock": {
+    "description": "Product tag: little stock left.",
+    "placeholders": {
+      "left": {
+        "type": "int"
+      }
+    }
+  },
+  "productFreeDelivery": "Free delivery",
+  "@productFreeDelivery": {
+    "description": "Product tag: delivered free."
+  },
+  "productThousands": "{value}k",
+  "@productThousands": {
+    "description": "A count in thousands, such as 3.2k ratings.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "3.2"
+      }
+    }
+  },
+  "productRatingCount": "({count})",
+  "@productRatingCount": {
+    "description": "The number of ratings beside the score.",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "example": "3.2k"
+      }
+    }
+  },
+  "productRating": "Rated {score} out of 5 by {count, plural, =1{1 person} other{{count} people}}",
+  "@productRating": {
+    "description": "Screen-reader label of a product's rating.",
+    "placeholders": {
+      "score": {
+        "type": "String",
+        "example": "4.8"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productAdd": "Add to cart",
+  "@productAdd": {
+    "description": "A product card's add button."
+  },
+  "productSave": "Save {name} to wishlist",
+  "@productSave": {
+    "description": "A product card's heart.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productUnsave": "Remove {name} from wishlist",
+  "@productUnsave": {
+    "description": "A product card's filled heart.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeBestInPhones": "Best in phones",
+  "@homeBestInPhones": {
+    "description": "Home: the phones section's title."
+  },
+  "homeAll": "All",
+  "@homeAll": {
+    "description": "Home: the filter chip that shows every product."
+  },
+  "homeNoProducts": "No products match this filter yet.",
+  "@homeNoProducts": {
+    "description": "Home: a filter that keeps no products."
+  },
+  "homeTrendingAudio": "Trending in audio",
+  "@homeTrendingAudio": {
+    "description": "Home: the audio section's title."
+  },
+  "homeRecentlyViewed": "Recently viewed",
+  "@homeRecentlyViewed": {
+    "description": "Home: the recently viewed section's title."
+  },
+  "homeRecommended": "Recommended for you",
+  "@homeRecommended": {
+    "description": "Home: the recommendations section's title."
+  },
+  "homeRecommendedReason": "Based on your browsing and popular picks in {city}",
+  "@homeRecommendedReason": {
+    "description": "Home: why these products are recommended.",
+    "placeholders": {
+      "city": {
+        "type": "String",
+        "example": "Dubai"
+      }
+    }
+  },
+  "homeShowMore": "Show more products",
+  "@homeShowMore": {
+    "description": "Home: button that shows more recommendations."
+  },
+  "homeFooterDelivery": "Fast delivery",
+  "@homeFooterDelivery": {
+    "description": "Home footer: the delivery promise."
+  },
+  "homeFooterDeliveryDetail": "Same day in UAE",
+  "@homeFooterDeliveryDetail": {
+    "description": "Home footer: the delivery promise, detail."
+  },
+  "homeFooterWarrantyDetail": "On every device",
+  "@homeFooterWarrantyDetail": {
+    "description": "Home footer: the warranty promise, detail."
+  },
+  "homeFooterReturns": "Easy returns",
+  "@homeFooterReturns": {
+    "description": "Home footer: the returns promise."
+  },
+  "homeFooterReturnsDetail": "Within 14 days",
+  "@homeFooterReturnsDetail": {
+    "description": "Home footer: the returns promise, detail."
+  },
+  "productInCart": "In your cart, view cart",
+  "@productInCart": {
+    "description": "A product card's check once the product is in the cart; opens the cart."
   }
 }

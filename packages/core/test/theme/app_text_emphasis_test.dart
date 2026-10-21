@@ -8,5 +8,6 @@ void main() {
 
     expect(style.emphasized.fontWeight, FontWeight.w600);
     expect(style.emphasized.fontSize, 12);
+    expect(style.bold.fontWeight, FontWeight.w700);
   });
 }

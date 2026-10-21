@@ -1,9 +1,11 @@
 import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/route_transitions.dart';
 import 'package:core/utils/social_account.dart';
+import 'package:customer/app/customer_shell.dart';
 import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/features/auth/presentation/view/otp_view.dart';
 import 'package:customer/features/auth/presentation/view/verify_mobile_view.dart';
+import 'package:customer/features/main/presentation/view/main_view.dart';
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
@@ -57,6 +59,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       ),
       _ => materialRoute<void>(const NotFoundView(), settings),
     },
+    // Dissolves in after sign-up or Skip, as in the prototype.
+    Routes.home => fadeRoute(
+      const CustomerShell(),
+      settings,
+      duration: MainView.entryFade,
+    ),
     Routes.profile => pushRoute<void>(
       ProfileView(
         account: switch (settings.arguments) {

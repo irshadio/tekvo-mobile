@@ -2,6 +2,7 @@ import 'package:core/l10n/generated/core_localizations.dart';
 import 'package:core/theme/app_brand_colors.dart';
 import 'package:core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// View utilities as [BuildContext] extensions (no `BaseView` superclass).
 extension BuildContextX on BuildContext {
@@ -25,6 +26,12 @@ extension BuildContextX on BuildContext {
   /// size; [length] itself at the default size.
   double textScaled(double length, {required double fontSize}) =>
       length * (MediaQuery.textScalerOf(this).scale(fontSize) / fontSize);
+
+  /// A box for text lines [lineHeight] tall in a style of [size] (both in
+  /// design pixels) at the user's text size, rounded up to the whole pixel
+  /// text layout snaps to.
+  double textBox(double lineHeight, {required double size}) =>
+      textScaled(lineHeight.sp, fontSize: size.sp).ceilToDouble();
 
   void showSnackBar(String message, {bool isError = false}) {
     ScaffoldMessenger.of(this)

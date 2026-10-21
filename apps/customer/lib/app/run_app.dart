@@ -3,6 +3,7 @@ import 'package:core/config/app_environment.dart';
 import 'package:customer/app/app.dart';
 import 'package:customer/config/app_identity.dart';
 import 'package:customer/features/auth/auth_overrides.dart';
+import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/registration/registration_overrides.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart' show Override;
 
@@ -14,6 +15,7 @@ Future<void> runCustomerApp(AppEnvironment env) => startApp(
   appName: appName,
   featureOverrides: <Override>[
     ...authOverrides,
+    ...homeOverrides,
     ...registrationOverrides,
   ],
   app: (title) => App(title: title),

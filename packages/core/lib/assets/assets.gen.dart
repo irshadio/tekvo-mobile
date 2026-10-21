@@ -26,22 +26,53 @@ abstract final class Assets {
   static const String chipTruck = 'packages/core/assets/icons/chip/truck.svg';
   static const String heroBell = 'packages/core/assets/icons/hero/bell.svg';
   static const String heroPin = 'packages/core/assets/icons/hero/pin.svg';
+  static const String iconsBell = 'packages/core/assets/icons/bell.svg';
+  static const String iconsBolt = 'packages/core/assets/icons/bolt.svg';
+  static const String iconsCamera = 'packages/core/assets/icons/camera.svg';
   static const String iconsCaretDown =
       'packages/core/assets/icons/caret_down.svg';
+  static const String iconsCart = 'packages/core/assets/icons/cart.svg';
+  static const String iconsCategories =
+      'packages/core/assets/icons/categories.svg';
   static const String iconsCheck = 'packages/core/assets/icons/check.svg';
   static const String iconsCheckBadge =
       'packages/core/assets/icons/check_badge.svg';
   static const String iconsCheckLarge =
       'packages/core/assets/icons/check_large.svg';
+  static const String iconsChevronDown =
+      'packages/core/assets/icons/chevron_down.svg';
   static const String iconsChevronLeft =
       'packages/core/assets/icons/chevron_left.svg';
+  static const String iconsChevronRight =
+      'packages/core/assets/icons/chevron_right.svg';
   static const String iconsClock = 'packages/core/assets/icons/clock.svg';
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
+  static const String iconsFilter = 'packages/core/assets/icons/filter.svg';
+  static const String iconsGamepad = 'packages/core/assets/icons/gamepad.svg';
+  static const String iconsHeadphones =
+      'packages/core/assets/icons/headphones.svg';
+  static const String iconsHeart = 'packages/core/assets/icons/heart.svg';
+  static const String iconsHeartFilled =
+      'packages/core/assets/icons/heart_filled.svg';
+  static const String iconsHome = 'packages/core/assets/icons/home.svg';
+  static const String iconsLaptop = 'packages/core/assets/icons/laptop.svg';
   static const String iconsMail = 'packages/core/assets/icons/mail.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
   static const String iconsPerson = 'packages/core/assets/icons/person.svg';
+  static const String iconsPhone = 'packages/core/assets/icons/phone.svg';
+  static const String iconsPlus = 'packages/core/assets/icons/plus.svg';
+  static const String iconsReturns = 'packages/core/assets/icons/returns.svg';
   static const String iconsSearch = 'packages/core/assets/icons/search.svg';
+  static const String iconsShield = 'packages/core/assets/icons/shield.svg';
+  static const String iconsSpeaker = 'packages/core/assets/icons/speaker.svg';
+  static const String iconsStarFilled =
+      'packages/core/assets/icons/star_filled.svg';
+  static const String iconsTag = 'packages/core/assets/icons/tag.svg';
+  static const String iconsTruck = 'packages/core/assets/icons/truck.svg';
+  static const String iconsTv = 'packages/core/assets/icons/tv.svg';
+  static const String iconsUser = 'packages/core/assets/icons/user.svg';
+  static const String iconsWatch = 'packages/core/assets/icons/watch.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';
   static const String onboardingFast =
       'packages/core/assets/images/onboarding/fast.jpg';
@@ -49,6 +80,34 @@ abstract final class Assets {
       'packages/core/assets/images/onboarding/genuine.jpg';
   static const String onboardingPay =
       'packages/core/assets/images/onboarding/pay.jpg';
+  static const String productsAeroBook14 =
+      'packages/core/assets/images/products/aero_book_14.jpg';
+  static const String productsAeroBookPro =
+      'packages/core/assets/images/products/aero_book_pro.jpg';
+  static const String productsArcClassic =
+      'packages/core/assets/images/products/arc_classic.jpg';
+  static const String productsArcWatchS2 =
+      'packages/core/assets/images/products/arc_watch_s2.jpg';
+  static const String productsBoomGo =
+      'packages/core/assets/images/products/boom_go.jpg';
+  static const String productsBudsAir3 =
+      'packages/core/assets/images/products/buds_air_3.jpg';
+  static const String productsInstantMini =
+      'packages/core/assets/images/products/instant_mini.jpg';
+  static const String productsNovaSLite =
+      'packages/core/assets/images/products/nova_s_lite.jpg';
+  static const String productsNovaXPro =
+      'packages/core/assets/images/products/nova_x_pro.jpg';
+  static const String productsPlaycore5 =
+      'packages/core/assets/images/products/playcore_5.jpg';
+  static const String productsPulseAncMax =
+      'packages/core/assets/images/products/pulse_anc_max.jpg';
+  static const String productsPulseStudio =
+      'packages/core/assets/images/products/pulse_studio.jpg';
+  static const String productsSlateTab11 =
+      'packages/core/assets/images/products/slate_tab_11.jpg';
+  static const String productsSnapZ5 =
+      'packages/core/assets/images/products/snap_z5.jpg';
   static const String socialApple =
       'packages/core/assets/icons/social/apple.svg';
   static const String socialGoogle =

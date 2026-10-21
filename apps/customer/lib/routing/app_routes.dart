@@ -21,4 +21,12 @@ abstract final class Routes {
   /// `SocialAccount`.
   static const String verifyMobile = '/sign-in/verify-mobile';
   static const String home = '/home';
+  static const String notifications = '/notifications';
+  static const String search = '/search';
+
+  /// Takes the product's id.
+  static const String product = '/product';
+
+  /// Takes the `ShopCategory` to list.
+  static const String productList = '/products';
 }
