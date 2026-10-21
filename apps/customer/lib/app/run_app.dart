@@ -6,6 +6,7 @@ import 'package:customer/features/auth/auth_overrides.dart';
 import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/product/product_overrides.dart';
 import 'package:customer/features/registration/registration_overrides.dart';
+import 'package:customer/features/store/store_overrides.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart' show Override;
 
 /// Composition root shared by every entrypoint. Each feature adds its
@@ -18,6 +19,7 @@ Future<void> runCustomerApp(AppEnvironment env) => startApp(
     ...authOverrides,
     ...homeOverrides,
     ...productOverrides,
+    ...storeOverrides,
     ...registrationOverrides,
   ],
   app: (title) => App(title: title),

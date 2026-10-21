@@ -17,12 +17,16 @@ class ProductCard extends ConsumerWidget {
     required this.product,
     required this.width,
     required this.onOpen,
+    this.flat = false,
     super.key,
   });
 
   final Product product;
   final double width;
   final VoidCallback onOpen;
+
+  /// Square, as in a grid with dividers.
+  final bool flat;
 
   /// The card's height: the photo and gaps in design pixels, and the words
   /// as tall as their text at the user's text size.
@@ -61,7 +65,7 @@ class ProductCard extends ConsumerWidget {
       cartViewModelProvider.select((cart) => cart.added.contains(product.id)),
     );
     final l10n = context.coreL10n;
-    final radius = BorderRadius.circular(_radius.r);
+    final radius = BorderRadius.circular(flat ? 0 : _radius.r);
     return SizedBox(
       width: width.w,
       height: heightOf(context),

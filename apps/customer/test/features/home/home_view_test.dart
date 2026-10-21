@@ -1,7 +1,7 @@
+import 'package:core/catalog/shop_category.dart';
 import 'package:core/l10n/generated/core_localizations_en.dart';
 import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:customer/features/home/data/repositories/home_repository_impl.dart';
-import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/home/presentation/view/home_view.dart';
 import 'package:customer/features/home/presentation/view/widgets/hero_carousel.dart';

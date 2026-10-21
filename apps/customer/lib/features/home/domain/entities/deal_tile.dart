@@ -1,4 +1,4 @@
-import 'package:customer/features/home/domain/entities/shop_category.dart';
+import 'package:core/catalog/shop_category.dart';
 import 'package:flutter/foundation.dart';
 
 /// A category's deal as a photo tile.

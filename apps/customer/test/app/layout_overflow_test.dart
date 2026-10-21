@@ -23,6 +23,8 @@ import 'package:customer/features/product/presentation/view/write_review_view.da
 import 'package:customer/features/product/product_overrides.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/registration/registration_overrides.dart';
+import 'package:customer/features/store/presentation/view/store_view.dart';
+import 'package:customer/features/store/store_overrides.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -54,6 +56,7 @@ final Map<String, Widget> _screens = {
   'specifications': const SpecificationsView(id: 'nova-x-pro'),
   'reviews': const ReviewsView(id: 'nova-x-pro'),
   'questions': const QuestionsView(id: 'nova-x-pro'),
+  'store': const StoreView(brand: 'Nova'),
   'write-review': const WriteReviewView(id: 'nova-x-pro'),
   'review-sent': ReviewSubmittedView(
     receipt: const ReviewReceipt(
@@ -110,6 +113,7 @@ void main() {
                 ...homeOverrides,
                 ...registrationOverrides,
                 ...productOverrides,
+                ...storeOverrides,
               ],
               child: testApp(home: widget),
             ),
