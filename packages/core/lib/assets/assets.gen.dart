@@ -124,4 +124,8 @@ abstract final class Assets {
       'packages/core/assets/icons/social/apple.svg';
   static const String socialGoogle =
       'packages/core/assets/icons/social/google.svg';
+  static const String storesNovaCover =
+      'packages/core/assets/images/stores/nova_cover.jpg';
+  static const String storesNovaLogo =
+      'packages/core/assets/images/stores/nova_logo.jpg';
 }
