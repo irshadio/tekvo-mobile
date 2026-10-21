@@ -22,7 +22,17 @@ abstract final class Routes {
   static const String verifyMobile = '/sign-in/verify-mobile';
   static const String home = '/home';
   static const String notifications = '/notifications';
+
+  /// Takes the words to start with, if any.
   static const String search = '/search';
+
+  /// Takes the search's words.
+  static const String searchResults = '/search/results';
+
+  /// Takes a `FiltersRequest`; pops the chosen `SearchFilters`.
+  static const String searchFilters = '/search/filters';
+  static const String searchByPhoto = '/search/photo';
+  static const String recentlyViewed = '/recently-viewed';
 
   /// Takes the product's id.
   static const String product = '/product';

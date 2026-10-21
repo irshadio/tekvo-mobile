@@ -23,6 +23,9 @@ import 'package:customer/features/product/presentation/view/write_review_view.da
 import 'package:customer/features/product/product_overrides.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/registration/registration_overrides.dart';
+import 'package:customer/features/search/presentation/view/search_results_view.dart';
+import 'package:customer/features/search/presentation/view/search_view.dart';
+import 'package:customer/features/search/search_overrides.dart';
 import 'package:customer/features/store/presentation/view/store_view.dart';
 import 'package:customer/features/store/store_overrides.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +60,10 @@ final Map<String, Widget> _screens = {
   'reviews': const ReviewsView(id: 'nova-x-pro'),
   'questions': const QuestionsView(id: 'nova-x-pro'),
   'store': const StoreView(brand: 'Nova'),
+  'search': const SearchView(),
+  'search-typing': const SearchView(query: 'nova'),
+  'search-results': const SearchResultsView(query: 'nova'),
+  'search-none': const SearchResultsView(query: 'nova x pro max 1tb'),
   'write-review': const WriteReviewView(id: 'nova-x-pro'),
   'review-sent': ReviewSubmittedView(
     receipt: const ReviewReceipt(
@@ -114,6 +121,7 @@ void main() {
                 ...registrationOverrides,
                 ...productOverrides,
                 ...storeOverrides,
+                ...searchOverrides,
               ],
               child: testApp(home: widget),
             ),

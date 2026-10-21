@@ -215,5 +215,37 @@
   "productNoneFound": "No products match this filter yet.",
   "@productNoneFound": {
     "description": "A row of products that a filter left empty."
+  },
+  "categoryPhones": "Phones",
+  "@categoryPhones": {
+    "description": "Category name."
+  },
+  "categoryLaptops": "Laptops",
+  "@categoryLaptops": {
+    "description": "Category name."
+  },
+  "categoryAudio": "Audio",
+  "@categoryAudio": {
+    "description": "Category name."
+  },
+  "categoryWatches": "Watches",
+  "@categoryWatches": {
+    "description": "Category name."
+  },
+  "categoryCameras": "Cameras",
+  "@categoryCameras": {
+    "description": "Category name."
+  },
+  "categoryGaming": "Gaming",
+  "@categoryGaming": {
+    "description": "Category name."
+  },
+  "categoryTvs": "TVs",
+  "@categoryTvs": {
+    "description": "Category name."
+  },
+  "categorySpeakers": "Speakers",
+  "@categorySpeakers": {
+    "description": "Category name."
   }
 }

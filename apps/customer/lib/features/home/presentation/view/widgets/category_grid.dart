@@ -1,7 +1,6 @@
 import 'package:core/catalog/shop_category.dart';
 import 'package:core/presentation/widgets/category_tile.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/features/home/presentation/view/widgets/category_labels.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +25,7 @@ class CategoryGrid extends StatelessWidget {
               for (final category in categories.skip(start).take(_perRow))
                 CategoryTile(
                   icon: category.icon,
-                  label: categoryLabel(context, category),
+                  label: category.label(context),
                   onTap: () => onCategory(category),
                 ),
             ],

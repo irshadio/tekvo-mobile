@@ -506,38 +506,6 @@
   "@homeShopByCategory": {
     "description": "Home: the categories section's title."
   },
-  "categoryPhones": "Phones",
-  "@categoryPhones": {
-    "description": "Category name."
-  },
-  "categoryLaptops": "Laptops",
-  "@categoryLaptops": {
-    "description": "Category name."
-  },
-  "categoryAudio": "Audio",
-  "@categoryAudio": {
-    "description": "Category name."
-  },
-  "categoryWatches": "Watches",
-  "@categoryWatches": {
-    "description": "Category name."
-  },
-  "categoryCameras": "Cameras",
-  "@categoryCameras": {
-    "description": "Category name."
-  },
-  "categoryGaming": "Gaming",
-  "@categoryGaming": {
-    "description": "Category name."
-  },
-  "categoryTvs": "TVs",
-  "@categoryTvs": {
-    "description": "Category name."
-  },
-  "categorySpeakers": "Speakers",
-  "@categorySpeakers": {
-    "description": "Category name."
-  },
   "homeFlashDeals": "Flash deals",
   "@homeFlashDeals": {
     "description": "Home: the flash sale section's title."
@@ -1583,5 +1551,268 @@
   "storeSortOnSale": "On sale",
   "@storeSortOnSale": {
     "description": "Store: only products on sale."
+  },
+  "searchHint": "Search products or brands",
+  "@searchHint": {
+    "description": "Search: the field's hint."
+  },
+  "searchByPhoto": "Search by photo",
+  "@searchByPhoto": {
+    "description": "Search: the camera button."
+  },
+  "searchClear": "Clear search",
+  "@searchClear": {
+    "description": "Search: empties the field."
+  },
+  "searchRecent": "Recent searches",
+  "@searchRecent": {
+    "description": "Search: the user's past searches."
+  },
+  "searchClearRecent": "Clear",
+  "@searchClearRecent": {
+    "description": "Search: forgets the past searches."
+  },
+  "searchTrending": "Trending in UAE",
+  "@searchTrending": {
+    "description": "Search: popular searches now."
+  },
+  "searchPopularCategories": "Popular categories",
+  "@searchPopularCategories": {
+    "description": "Search: the category tiles."
+  },
+  "searchRecentlyViewed": "Recently viewed",
+  "@searchRecentlyViewed": {
+    "description": "Search: products the user looked at."
+  },
+  "searchIn": " in {category}",
+  "@searchIn": {
+    "description": "Search: after a suggestion, the category it is within; starts with a space.",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "searchVisit": "Visit",
+  "@searchVisit": {
+    "description": "Search: opens the store."
+  },
+  "searchStoreLine": "{count} products · {rating} ★ store rating",
+  "@searchStoreLine": {
+    "description": "Search: a store's size and rating, already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "searchProducts": "Products",
+  "@searchProducts": {
+    "description": "Search: the products a query finds."
+  },
+  "searchResultsCount": "{count, plural, =1{1 result for “{query}”} other{{count} results for “{query}”}}",
+  "@searchResultsCount": {
+    "description": "Search: how many results.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchSort": "Sort: {sort}",
+  "@searchSort": {
+    "description": "Search: the sort button.",
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "searchSortTitle": "Sort by",
+  "@searchSortTitle": {
+    "description": "Search: the sort sheet's title."
+  },
+  "searchSortRelevance": "Relevance",
+  "@searchSortRelevance": {
+    "description": "Search: sort by relevance."
+  },
+  "searchSortBestSelling": "Best selling",
+  "@searchSortBestSelling": {
+    "description": "Search: sort by sales."
+  },
+  "searchSortPriceLow": "Price: low to high",
+  "@searchSortPriceLow": {
+    "description": "Search: sort by price, low first."
+  },
+  "searchSortPriceHigh": "Price: high to low",
+  "@searchSortPriceHigh": {
+    "description": "Search: sort by price, high first."
+  },
+  "searchSortRating": "Customer rating",
+  "@searchSortRating": {
+    "description": "Search: sort by rating."
+  },
+  "searchSortNewest": "Newest arrivals",
+  "@searchSortNewest": {
+    "description": "Search: sort by newest."
+  },
+  "searchSortDiscount": "Biggest discount",
+  "@searchSortDiscount": {
+    "description": "Search: sort by discount."
+  },
+  "searchFilters": "Filters",
+  "@searchFilters": {
+    "description": "Search: opens the filters."
+  },
+  "searchQuickUnder": "Under AED 2,000",
+  "@searchQuickUnder": {
+    "description": "Search: a quick filter."
+  },
+  "searchQuickRating": "4★ & up",
+  "@searchQuickRating": {
+    "description": "Search: a quick filter."
+  },
+  "searchQuickFree": "Free delivery",
+  "@searchQuickFree": {
+    "description": "Search: a quick filter."
+  },
+  "searchQuickStock": "In stock",
+  "@searchQuickStock": {
+    "description": "Search: a quick filter."
+  },
+  "searchClearAll": "Clear all",
+  "@searchClearAll": {
+    "description": "Filters: clears every filter."
+  },
+  "searchFacetCategory": "Category",
+  "@searchFacetCategory": {
+    "description": "Filters: a group."
+  },
+  "searchFacetBrand": "Brand",
+  "@searchFacetBrand": {
+    "description": "Filters: a group."
+  },
+  "searchFacetPrice": "Price",
+  "@searchFacetPrice": {
+    "description": "Filters: a group."
+  },
+  "searchFacetRating": "Rating",
+  "@searchFacetRating": {
+    "description": "Filters: a group."
+  },
+  "searchFacetStorage": "Storage",
+  "@searchFacetStorage": {
+    "description": "Filters: a group."
+  },
+  "searchFacetColour": "Colour",
+  "@searchFacetColour": {
+    "description": "Filters: a group."
+  },
+  "searchFacetDelivery": "Delivery",
+  "@searchFacetDelivery": {
+    "description": "Filters: a group."
+  },
+  "searchFacetAvailability": "Availability",
+  "@searchFacetAvailability": {
+    "description": "Filters: a group."
+  },
+  "searchFacetDiscount": "Discount",
+  "@searchFacetDiscount": {
+    "description": "Filters: a group."
+  },
+  "searchPriceRange": "Price range",
+  "@searchPriceRange": {
+    "description": "Filters: the price group's title."
+  },
+  "searchPriceBetween": "{min} – {max}",
+  "@searchPriceBetween": {
+    "description": "Filters: the chosen price range, already formatted.",
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "searchMin": "Min (AED)",
+  "@searchMin": {
+    "description": "Filters: the lowest price box."
+  },
+  "searchMax": "Max (AED)",
+  "@searchMax": {
+    "description": "Filters: the highest price box."
+  },
+  "searchPopularRanges": "Popular ranges",
+  "@searchPopularRanges": {
+    "description": "Filters: preset price ranges."
+  },
+  "searchReset": "Reset",
+  "@searchReset": {
+    "description": "Filters: clears the draft."
+  },
+  "searchShowResults": "{count, plural, =0{No results} =1{Show 1 result} other{Show {count} results}}",
+  "@searchShowResults": {
+    "description": "Filters: applies them.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchDidYouMean": "Did you mean {query}?",
+  "@searchDidYouMean": {
+    "description": "Search: a spelling to try.",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchNoResults": "No results for “{query}”",
+  "@searchNoResults": {
+    "description": "Search: nothing matches.",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchNoResultsBody": "Check the spelling, use fewer words, or search by category instead.",
+  "@searchNoResultsBody": {
+    "description": "Search: what to try."
+  },
+  "searchBrowseAll": "Browse all {category}",
+  "@searchBrowseAll": {
+    "description": "Search: opens a category instead.",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "searchPopularSearches": "Popular searches",
+  "@searchPopularSearches": {
+    "description": "Search: searches to try."
+  },
+  "searchYouMightLike": "You might like",
+  "@searchYouMightLike": {
+    "description": "Search: products to try."
+  },
+  "searchSelected": "{count} chosen",
+  "@searchSelected": {
+    "description": "Filters: how many in a group are chosen, read aloud.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }
