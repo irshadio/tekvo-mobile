@@ -132,5 +132,18 @@
   "productAdd": "Add to cart",
   "productAdded": "Added to cart",
   "productSave": "Save {name} to wishlist",
-  "productUnsave": "Remove {name} from wishlist"
+  "productUnsave": "Remove {name} from wishlist",
+  "homeBestInPhones": "Best in phones",
+  "homeAll": "All",
+  "homeNoProducts": "No products match this filter yet.",
+  "homeTrendingAudio": "Trending in audio",
+  "homeRecentlyViewed": "Recently viewed",
+  "homeRecommended": "Recommended for you",
+  "homeRecommendedReason": "Based on your browsing and popular picks in {city}",
+  "homeShowMore": "Show more products",
+  "homeFooterDelivery": "Fast delivery",
+  "homeFooterDeliveryDetail": "Same day in UAE",
+  "homeFooterWarrantyDetail": "On every device",
+  "homeFooterReturns": "Easy returns",
+  "homeFooterReturnsDetail": "Within 14 days"
 }

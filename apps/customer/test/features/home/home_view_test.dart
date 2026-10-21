@@ -4,6 +4,7 @@ import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/home/presentation/view/home_view.dart';
 import 'package:customer/features/home/presentation/view/widgets/page_dots.dart';
+import 'package:customer/features/home/presentation/view_model/phone_filter_view_model.dart';
 import 'package:customer/l10n/generated/app_localizations.dart';
 import 'package:customer/l10n/generated/app_localizations_en.dart';
 import 'package:customer/routing/app_routes.dart';
@@ -110,6 +111,54 @@ void main() {
     expect(find.text('14'), findsWidgets);
     await tester.pump(const Duration(seconds: 1));
     expect(find.text('36'), findsWidgets);
+  });
+
+  testWidgets('a phone filter keeps only its phones', (tester) async {
+    await _pump(tester);
+    await tester.scrollUntilVisible(
+      find.text(_en.homeBestInPhones),
+      400,
+      scrollable: find.byType(Scrollable).first,
+    );
+    // Below the pinned header, which takes taps over its area.
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, 250));
+    await tester.pumpAndSettle();
+    const sample = HomeRepositoryImpl.sample;
+
+    expect(find.text(HomeRepositoryImpl.novaSLite.name), findsOneWidget);
+    await tester.tap(find.text(sample.phoneFacets.first.label));
+    await tester.pumpAndSettle();
+
+    expect(find.text(HomeRepositoryImpl.novaXPro.name), findsOneWidget);
+    expect(find.text(HomeRepositoryImpl.novaSLite.name), findsNothing);
+
+    ProviderScope.containerOf(tester.element(find.byType(HomeView)))
+        .read(phoneFilterViewModelProvider.notifier)
+        .select(sample.phoneFacets.length - 1);
+    await tester.pumpAndSettle();
+    expect(find.text(_en.homeNoProducts), findsOneWidget);
+  });
+
+  testWidgets('Show more adds the further recommendations', (tester) async {
+    await _pump(tester);
+    final scrollable = find.byType(Scrollable).first;
+    await tester.scrollUntilVisible(
+      find.text(_en.homeShowMore),
+      600,
+      scrollable: scrollable,
+    );
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -150));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(_en.homeShowMore));
+    await tester.pumpAndSettle();
+
+    expect(find.text(_en.homeShowMore), findsNothing);
+    await tester.scrollUntilVisible(
+      find.text(HomeRepositoryImpl.playCore5.name).last,
+      400,
+      scrollable: scrollable,
+    );
+    expect(find.text(HomeRepositoryImpl.playCore5.name), findsWidgets);
   });
 
   testWidgets('swiping the hero moves the dots', (tester) async {

@@ -656,5 +656,63 @@
         "type": "String"
       }
     }
+  },
+  "homeBestInPhones": "Best in phones",
+  "@homeBestInPhones": {
+    "description": "Home: the phones section's title."
+  },
+  "homeAll": "All",
+  "@homeAll": {
+    "description": "Home: the filter chip that shows every product."
+  },
+  "homeNoProducts": "No products match this filter yet.",
+  "@homeNoProducts": {
+    "description": "Home: a filter that keeps no products."
+  },
+  "homeTrendingAudio": "Trending in audio",
+  "@homeTrendingAudio": {
+    "description": "Home: the audio section's title."
+  },
+  "homeRecentlyViewed": "Recently viewed",
+  "@homeRecentlyViewed": {
+    "description": "Home: the recently viewed section's title."
+  },
+  "homeRecommended": "Recommended for you",
+  "@homeRecommended": {
+    "description": "Home: the recommendations section's title."
+  },
+  "homeRecommendedReason": "Based on your browsing and popular picks in {city}",
+  "@homeRecommendedReason": {
+    "description": "Home: why these products are recommended.",
+    "placeholders": {
+      "city": {
+        "type": "String",
+        "example": "Dubai"
+      }
+    }
+  },
+  "homeShowMore": "Show more products",
+  "@homeShowMore": {
+    "description": "Home: button that shows more recommendations."
+  },
+  "homeFooterDelivery": "Fast delivery",
+  "@homeFooterDelivery": {
+    "description": "Home footer: the delivery promise."
+  },
+  "homeFooterDeliveryDetail": "Same day in UAE",
+  "@homeFooterDeliveryDetail": {
+    "description": "Home footer: the delivery promise, detail."
+  },
+  "homeFooterWarrantyDetail": "On every device",
+  "@homeFooterWarrantyDetail": {
+    "description": "Home footer: the warranty promise, detail."
+  },
+  "homeFooterReturns": "Easy returns",
+  "@homeFooterReturns": {
+    "description": "Home footer: the returns promise."
+  },
+  "homeFooterReturnsDetail": "Within 14 days",
+  "@homeFooterReturnsDetail": {
+    "description": "Home footer: the returns promise, detail."
   }
 }

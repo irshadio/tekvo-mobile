@@ -6,6 +6,7 @@ import 'package:customer/features/home/domain/entities/flash_deal.dart';
 import 'package:customer/features/home/domain/entities/home_feed.dart';
 import 'package:customer/features/home/domain/entities/offer.dart';
 import 'package:customer/features/home/domain/entities/product.dart';
+import 'package:customer/features/home/domain/entities/product_facet.dart';
 import 'package:customer/features/home/domain/entities/promo.dart';
 import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/domain/repositories/home_repository.dart';
@@ -96,6 +97,64 @@ class HomeRepositoryImpl implements HomeRepository {
         image: Assets.productsSnapZ5,
       ),
     ],
+    phones: <Product>[novaXPro, novaSLite, slateTab11],
+    phoneFacets: <ProductFacet>[
+      ProductFacet(label: 'Flagship', productIds: <String>{'nova-x-pro'}),
+      ProductFacet(
+        label: 'Under AED 1,500',
+        productIds: <String>{'nova-s-lite'},
+      ),
+      ProductFacet(
+        label: '5G',
+        productIds: <String>{'nova-x-pro', 'nova-s-lite'},
+      ),
+      ProductFacet(label: 'Foldables', productIds: <String>{}),
+    ],
+    launch: Promo(
+      id: 'aero-book-14',
+      style: PromoStyle.newArrival,
+      eyebrow: 'JUST LANDED',
+      title: 'Aero Book 14 is here',
+      action: 'Shop now',
+      image: Assets.productsAeroBookPro,
+    ),
+    audio: <Product>[pulseStudio, budsAir3, boomGo, pulseAncMax],
+    recentlyViewed: <Product>[
+      Product(
+        id: 'arc-watch-s2',
+        name: 'Arc Watch S2',
+        image: Assets.productsArcWatchS2,
+        price: Money.units(1299),
+        rating: 4.7,
+        ratingCount: 2000,
+      ),
+      Product(
+        id: 'snap-z5',
+        name: 'Snap Z5 Mirrorless',
+        image: Assets.productsSnapZ5,
+        price: Money.units(5299),
+        rating: 4.8,
+        ratingCount: 410,
+      ),
+      Product(
+        id: 'aero-book-14',
+        name: 'Aero Book 14',
+        image: Assets.productsAeroBook14,
+        price: Money.units(4999),
+        rating: 4.7,
+        ratingCount: 380,
+      ),
+      Product(
+        id: 'instant-mini',
+        name: 'Instant Mini',
+        image: Assets.productsInstantMini,
+        price: Money.units(449),
+        rating: 4.4,
+        ratingCount: 290,
+      ),
+    ],
+    recommended: <Product>[aeroBookPro16, arcWatchS2, snapZ5Kit, arcClassic],
+    moreRecommended: <Product>[novaXPro, pulseStudio, slateTab11, playCore5],
   );
 
   static const Product pulseAncMax = Product(
@@ -140,5 +199,88 @@ class HomeRepositoryImpl implements HomeRepository {
     rating: 4.5,
     ratingCount: 860,
     tag: SaleTag(22),
+  );
+
+  static const Product novaXPro = Product(
+    id: 'nova-x-pro',
+    name: 'Nova X Pro · 256GB',
+    image: Assets.productsNovaXPro,
+    price: Money.units(3499),
+    was: Money.units(3999),
+    rating: 4.8,
+    ratingCount: 2400,
+    tag: SaleTag(12),
+  );
+
+  static const Product novaSLite = Product(
+    id: 'nova-s-lite',
+    name: 'Nova S Lite · 128GB',
+    image: Assets.productsNovaSLite,
+    price: Money.units(1499),
+    rating: 4.6,
+    ratingCount: 980,
+    tag: BestsellerTag(),
+  );
+
+  static const Product slateTab11 = Product(
+    id: 'slate-tab-11',
+    name: 'Slate Tab 11 · Wi-Fi',
+    image: Assets.productsSlateTab11,
+    price: Money.units(2299),
+    rating: 4.7,
+    ratingCount: 640,
+    tag: FreeDeliveryTag(),
+  );
+
+  static const Product pulseStudio = Product(
+    id: 'pulse-studio',
+    name: 'Pulse Studio Wireless',
+    image: Assets.productsPulseStudio,
+    price: Money.units(649),
+    rating: 4.7,
+    ratingCount: 1800,
+    tag: BestsellerTag(),
+  );
+
+  static const Product aeroBookPro16 = Product(
+    id: 'aero-book-pro-16',
+    name: 'Aero Book Pro 16 · 32GB',
+    image: Assets.productsAeroBookPro,
+    price: Money.units(8499),
+    was: Money.units(9199),
+    rating: 4.9,
+    ratingCount: 720,
+    tag: SaleTag(8),
+  );
+
+  static const Product arcWatchS2 = Product(
+    id: 'arc-watch-s2',
+    name: 'Arc Watch S2 · 44mm',
+    image: Assets.productsArcWatchS2,
+    price: Money.units(1299),
+    rating: 4.7,
+    ratingCount: 2000,
+    tag: NewTag(),
+  );
+
+  static const Product snapZ5Kit = Product(
+    id: 'snap-z5',
+    name: 'Snap Z5 Mirrorless Kit',
+    image: Assets.productsSnapZ5,
+    price: Money.units(5299),
+    rating: 4.8,
+    ratingCount: 410,
+    tag: LowStockTag(3),
+  );
+
+  static const Product arcClassic = Product(
+    id: 'arc-classic',
+    name: 'Arc Classic · Steel',
+    image: Assets.productsArcClassic,
+    price: Money.units(899),
+    was: Money.units(1099),
+    rating: 4.5,
+    ratingCount: 530,
+    tag: SaleTag(18),
   );
 }

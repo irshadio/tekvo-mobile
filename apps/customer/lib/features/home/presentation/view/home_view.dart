@@ -6,18 +6,29 @@ import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/view_ready_mixin.dart';
 import 'package:core/presentation/view_state_switcher.dart';
 import 'package:core/state/view_state.dart';
+import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:customer/features/home/domain/entities/home_feed.dart';
+import 'package:customer/features/home/domain/entities/product.dart';
+import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/presentation/view/widgets/category_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/deals_grid.dart';
+import 'package:customer/features/home/presentation/view/widgets/filter_chips.dart';
 import 'package:customer/features/home/presentation/view/widgets/flash_deals_section.dart';
 import 'package:customer/features/home/presentation/view/widgets/hero_carousel.dart';
 import 'package:customer/features/home/presentation/view/widgets/home_header.dart';
 import 'package:customer/features/home/presentation/view/widgets/offers_row.dart';
+import 'package:customer/features/home/presentation/view/widgets/product_row.dart';
+import 'package:customer/features/home/presentation/view/widgets/promo_banner.dart';
+import 'package:customer/features/home/presentation/view/widgets/recently_viewed.dart';
+import 'package:customer/features/home/presentation/view/widgets/recommended_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/section_header.dart';
+import 'package:customer/features/home/presentation/view/widgets/trust_footer.dart';
 import 'package:customer/features/home/presentation/view/widgets/trust_strip.dart';
 import 'package:customer/features/home/presentation/view_model/flash_sale_timer_view_model.dart';
 import 'package:customer/features/home/presentation/view_model/home_view_model.dart';
+import 'package:customer/features/home/presentation/view_model/phone_filter_view_model.dart';
+import 'package:customer/features/home/presentation/view_model/recommended_view_model.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:customer/routing/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +55,8 @@ class _HomeViewState extends ConsumerState<HomeView>
     with ViewReadyMixin<HomeView> {
   static const double _contentTop = 6;
   static const double _sectionGap = 28;
+  static const double _launchHeight = 164;
+  static const double _outline = 1.5;
 
   @override
   void onReady() => _load();
@@ -175,6 +188,128 @@ class _HomeViewState extends ConsumerState<HomeView>
           ],
         ),
       ),
+      gap,
+      _phones(feed),
+      gap,
+      Padding(
+        padding: side,
+        child: SizedBox(
+          height: _launchHeight.h,
+          child: PromoBanner(
+            promo: feed.launch,
+            onTap: () => _openProduct(feed.launch.id),
+          ),
+        ),
+      ),
+      gap,
+      _shelf(
+        title: l10n.homeTrendingAudio,
+        onSeeAll: () =>
+            _open(Routes.productList, arguments: ShopCategory.audio),
+        child: ProductRow(products: feed.audio, onProduct: _openProduct),
+      ),
+      gap,
+      _shelf(
+        title: l10n.homeRecentlyViewed,
+        onSeeAll: widget.onOpenExplore,
+        child: RecentlyViewed(
+          products: feed.recentlyViewed,
+          onProduct: _openProduct,
+        ),
+      ),
+      gap,
+      _recommended(feed),
+      gap,
+      Padding(padding: side, child: const TrustFooter()),
     ];
+  }
+
+  /// A titled section whose content runs edge to edge.
+  Widget _shelf({
+    required String title,
+    required VoidCallback onSeeAll,
+    required Widget child,
+  }) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    spacing: AppSpacing.md.h,
+    children: <Widget>[
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
+        child: SectionHeader(title: title, onSeeAll: onSeeAll),
+      ),
+      child,
+    ],
+  );
+
+  Widget _phones(HomeFeed feed) {
+    final facet = ref.watch(phoneFilterViewModelProvider);
+    final keep = facet == null ? null : feed.phoneFacets[facet].productIds;
+    final phones = keep == null
+        ? feed.phones
+        : feed.phones.where((p) => keep.contains(p.id)).toList();
+    return _shelf(
+      title: context.l10n.homeBestInPhones,
+      onSeeAll: () => _open(Routes.productList, arguments: ShopCategory.phones),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        spacing: AppSpacing.md.h,
+        children: <Widget>[
+          FilterChips(
+            labels: <String>[
+              context.l10n.homeAll,
+              for (final f in feed.phoneFacets) f.label,
+            ],
+            selected: facet == null ? 0 : facet + 1,
+            onSelect: (index) => ref
+                .read(phoneFilterViewModelProvider.notifier)
+                .select(index == 0 ? null : index - 1),
+          ),
+          ProductRow(products: phones, onProduct: _openProduct),
+        ],
+      ),
+    );
+  }
+
+  Widget _recommended(HomeFeed feed) {
+    final l10n = context.l10n;
+    final more = ref.watch(recommendedViewModelProvider);
+    final products = more
+        ? <Product>[...feed.recommended, ...feed.moreRecommended]
+        : feed.recommended;
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        spacing: AppSpacing.sm.h,
+        children: <Widget>[
+          SectionHeader(
+            title: l10n.homeRecommended,
+            onSeeAll: widget.onOpenExplore,
+          ),
+          Text(
+            l10n.homeRecommendedReason(feed.city),
+            style: context.textTheme.bodySmall?.copyWith(
+              color: context.colors.onSurfaceVariant,
+            ),
+          ),
+          RecommendedGrid(products: products, onProduct: _openProduct),
+          if (!more && feed.moreRecommended.isNotEmpty)
+            OutlinedButton(
+              onPressed: ref
+                  .read(recommendedViewModelProvider.notifier)
+                  .showMore,
+              style: OutlinedButton.styleFrom(
+                minimumSize: Size.fromHeight(AppSizes.controlLg.h),
+                foregroundColor: context.colors.onSurface,
+                side: BorderSide(
+                  color: context.colors.outlineVariant,
+                  width: _outline,
+                ),
+              ),
+              child: Text(l10n.homeShowMore),
+            ),
+        ],
+      ),
+    );
   }
 }
