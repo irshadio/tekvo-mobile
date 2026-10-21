@@ -50,7 +50,9 @@ flutter:
     - assets/brand/
     - assets/fonts/inter/OFL.txt
     - assets/icons/
+    - assets/icons/benefit/
     - assets/icons/chip/
+    - assets/icons/hero/
     - assets/images/onboarding/
   fonts:
     - family: Inter

@@ -4,6 +4,14 @@
 
 /// Paths of the bundled assets.
 abstract final class Assets {
+  static const String benefitPin = 'packages/core/assets/icons/benefit/pin.svg';
+  static const String benefitSettings =
+      'packages/core/assets/icons/benefit/settings.svg';
+  static const String benefitShield =
+      'packages/core/assets/icons/benefit/shield.svg';
+  static const String benefitTag = 'packages/core/assets/icons/benefit/tag.svg';
+  static const String benefitTruck =
+      'packages/core/assets/icons/benefit/truck.svg';
   static const String brandLogoBolt =
       'packages/core/assets/brand/logo_bolt.svg';
   static const String brandLogoMark =
@@ -16,6 +24,8 @@ abstract final class Assets {
   static const String chipPin = 'packages/core/assets/icons/chip/pin.svg';
   static const String chipShield = 'packages/core/assets/icons/chip/shield.svg';
   static const String chipTruck = 'packages/core/assets/icons/chip/truck.svg';
+  static const String heroBell = 'packages/core/assets/icons/hero/bell.svg';
+  static const String heroPin = 'packages/core/assets/icons/hero/pin.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';

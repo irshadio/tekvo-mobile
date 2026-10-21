@@ -4,4 +4,8 @@ abstract final class Routes {
   static const String splash = '/';
   static const String onboarding = '/onboarding';
   static const String locationPermission = '/permissions/location';
+
+  /// Takes a `NotificationEntry`, which sets how the screen comes in.
+  static const String notificationPermission = '/permissions/notifications';
+  static const String signIn = '/sign-in';
 }
