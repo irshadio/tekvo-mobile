@@ -27,6 +27,7 @@ dependencies:
   json_annotation: ^4.12.0
   path: ^1.9.1
   path_provider: ^2.1.5
+  permission_handler: ^13.0.2
   riverpod_annotation: ^4.0.2
   sembast: ^3.8.7
 
@@ -49,7 +50,9 @@ flutter:
     - assets/brand/
     - assets/fonts/inter/OFL.txt
     - assets/icons/
+    - assets/icons/benefit/
     - assets/icons/chip/
+    - assets/icons/hero/
     - assets/images/onboarding/
   fonts:
     - family: Inter

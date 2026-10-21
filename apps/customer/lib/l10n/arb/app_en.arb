@@ -103,5 +103,93 @@
         "type": "int"
       }
     }
+  },
+  "locationPermissionTitle": "Show delivery times for your area",
+  "@locationPermissionTitle": {
+    "description": "Location permission: title."
+  },
+  "locationPermissionBody": "Allow location so we can show what’s in stock near you and when it arrives.",
+  "@locationPermissionBody": {
+    "description": "Location permission: text under the title."
+  },
+  "locationPermissionDatesTitle": "Accurate delivery dates",
+  "@locationPermissionDatesTitle": {
+    "description": "Location permission: first benefit."
+  },
+  "locationPermissionDatesBody": "See “today by 9 PM” before you buy",
+  "@locationPermissionDatesBody": {
+    "description": "Location permission: first benefit, detail."
+  },
+  "locationPermissionCheckoutTitle": "Faster checkout",
+  "@locationPermissionCheckoutTitle": {
+    "description": "Location permission: second benefit."
+  },
+  "locationPermissionCheckoutBody": "We pre-fill your address on the map",
+  "@locationPermissionCheckoutBody": {
+    "description": "Location permission: second benefit, detail."
+  },
+  "locationPermissionPrivacyTitle": "Only while using the app",
+  "@locationPermissionPrivacyTitle": {
+    "description": "Location permission: third benefit."
+  },
+  "locationPermissionPrivacyBody": "We never track you in the background",
+  "@locationPermissionPrivacyBody": {
+    "description": "Location permission: third benefit, detail."
+  },
+  "locationPermissionAllow": "Allow location",
+  "@locationPermissionAllow": {
+    "description": "Location permission: button that shows the system prompt."
+  },
+  "locationPermissionManual": "Enter area manually",
+  "@locationPermissionManual": {
+    "description": "Location permission: button to continue without location."
+  },
+  "locationPermissionNote": "You can change this anytime in Settings.",
+  "@locationPermissionNote": {
+    "description": "Location permission: note under the buttons."
+  },
+  "notificationPermissionTitle": "Never miss a delivery",
+  "@notificationPermissionTitle": {
+    "description": "Notification permission: title."
+  },
+  "notificationPermissionBody": "Get updates when your order ships, arrives, or drops in price.",
+  "@notificationPermissionBody": {
+    "description": "Notification permission: text under the title."
+  },
+  "notificationPermissionOrdersTitle": "Order and delivery updates",
+  "@notificationPermissionOrdersTitle": {
+    "description": "Notification permission: first benefit."
+  },
+  "notificationPermissionOrdersBody": "Including your delivery code",
+  "@notificationPermissionOrdersBody": {
+    "description": "Notification permission: first benefit, detail."
+  },
+  "notificationPermissionPricesTitle": "Price drops on saved items",
+  "@notificationPermissionPricesTitle": {
+    "description": "Notification permission: second benefit."
+  },
+  "notificationPermissionPricesBody": "Only for things on your wishlist",
+  "@notificationPermissionPricesBody": {
+    "description": "Notification permission: second benefit, detail."
+  },
+  "notificationPermissionControlTitle": "You’re in control",
+  "@notificationPermissionControlTitle": {
+    "description": "Notification permission: third benefit."
+  },
+  "notificationPermissionControlBody": "Pick what to get in Settings, anytime",
+  "@notificationPermissionControlBody": {
+    "description": "Notification permission: third benefit, detail."
+  },
+  "notificationPermissionAllow": "Turn on notifications",
+  "@notificationPermissionAllow": {
+    "description": "Notification permission: button that shows the system prompt."
+  },
+  "notificationPermissionLater": "Maybe later",
+  "@notificationPermissionLater": {
+    "description": "Notification permission: button to continue without notifications."
+  },
+  "notificationPermissionNote": "We send at most 3 offers a week.",
+  "@notificationPermissionNote": {
+    "description": "Notification permission: note under the buttons."
   }
 }
