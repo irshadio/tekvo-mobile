@@ -4,7 +4,7 @@ import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/widgets/category_tile.dart';
 import 'package:core/presentation/widgets/dashed_border.dart';
 import 'package:core/presentation/widgets/filter_chips.dart';
-import 'package:core/presentation/widgets/product/product_card.dart';
+import 'package:core/presentation/widgets/product/product_grid.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:core/utils/format_cache.dart';
@@ -219,8 +219,6 @@ class StoreProducts extends StatelessWidget {
   final ValueChanged<StoreSort> onSort;
   final ValueChanged<String> onProduct;
 
-  static const int _perRow = 2;
-  static const double _grid = 361;
   static const double _bottom = 34;
   static const Duration _swap = Duration(milliseconds: 250);
 
@@ -232,8 +230,6 @@ class StoreProducts extends StatelessWidget {
     final decimal = FormatCache.decimal(
       Localizations.localeOf(context).toLanguageTag(),
     );
-    final divider = BorderSide(color: colors.outlineVariant);
-    final rows = (products.length / _perRow).ceil();
     return ColoredBox(
       color: colors.surfaceContainerLowest,
       child: Padding(
@@ -280,46 +276,7 @@ class StoreProducts extends StatelessWidget {
               child: Padding(
                 key: ValueKey<StoreSort>(sort),
                 padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
-                child: Column(
-                  children: <Widget>[
-                    for (var row = 0; row < rows; row++)
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: row < rows - 1 ? divider : BorderSide.none,
-                          ),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            for (var column = 0; column < _perRow; column++)
-                              Expanded(
-                                child: switch (row * _perRow + column) {
-                                  final index when index < products.length =>
-                                    DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        border: BorderDirectional(
-                                          end: column == 0
-                                              ? divider
-                                              : BorderSide.none,
-                                        ),
-                                      ),
-                                      child: ProductCard(
-                                        product: products[index],
-                                        width: _grid / _perRow,
-                                        flat: true,
-                                        onOpen: () =>
-                                            onProduct(products[index].id),
-                                      ),
-                                    ),
-                                  _ => const SizedBox.shrink(),
-                                },
-                              ),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
+                child: ProductGrid(products: products, onProduct: onProduct),
               ),
             ),
           ],
