@@ -4,6 +4,7 @@ import 'package:core/network/connectivity.dart';
 import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/app_routes.dart';
 import 'package:customer/app/app.dart';
+import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -53,5 +54,17 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
 
     expect(find.byType(NotFoundView), findsOneWidget);
+  });
+
+  testWidgets('the splash hands over to onboarding', (tester) async {
+    await tester.pumpWidget(_app(AppEnvironment.dev));
+    await tester.pump(_splashTimeline);
+    await tester.pump(const Duration(milliseconds: 16));
+    await tester.pump(SplashView.hold);
+    await tester.pump(SplashView.handOff);
+    await tester.pump(SplashView.handOff);
+
+    expect(find.byType(OnboardingView), findsOneWidget);
+    expect(find.byType(SplashView), findsNothing);
   });
 }

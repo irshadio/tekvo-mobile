@@ -11,5 +11,97 @@
   "splashFooter": "Secure checkout · Fast delivery · 2-year warranty",
   "@splashFooter": {
     "description": "Splash: the promise line at the bottom of the screen."
+  },
+  "onboardingSkip": "Skip",
+  "@onboardingSkip": {
+    "description": "Onboarding: top-right button that skips the introduction."
+  },
+  "onboardingNext": "Next",
+  "@onboardingNext": {
+    "description": "Onboarding: button that shows the next page."
+  },
+  "onboardingGetStarted": "Get started",
+  "@onboardingGetStarted": {
+    "description": "Onboarding: last page's main button."
+  },
+  "onboardingContinueAsGuest": "Continue as guest",
+  "@onboardingContinueAsGuest": {
+    "description": "Onboarding: last page's button to browse without an account."
+  },
+  "onboardingSaveFailed": "Couldn't save your progress. Please try again.",
+  "@onboardingSaveFailed": {
+    "description": "Onboarding: shown when finishing the introduction cannot be saved."
+  },
+  "onboardingGenuineKicker": "Official stores",
+  "@onboardingGenuineKicker": {
+    "description": "Onboarding, page 1: label above the title (shown in capitals)."
+  },
+  "onboardingGenuineTitle": "Genuine electronics, straight from the brand",
+  "@onboardingGenuineTitle": {
+    "description": "Onboarding, page 1: title."
+  },
+  "onboardingGenuineBody": "Every product comes from official stores with full UAE warranty.",
+  "@onboardingGenuineBody": {
+    "description": "Onboarding, page 1: body text."
+  },
+  "onboardingGenuineChipWarranty": "2-year warranty",
+  "@onboardingGenuineChipWarranty": {
+    "description": "Onboarding, page 1: chip on the photo."
+  },
+  "onboardingGenuineChipAuthentic": "100% genuine",
+  "@onboardingGenuineChipAuthentic": {
+    "description": "Onboarding, page 1: chip on the photo."
+  },
+  "onboardingFastKicker": "Same-day delivery",
+  "@onboardingFastKicker": {
+    "description": "Onboarding, page 2: label above the title (shown in capitals)."
+  },
+  "onboardingFastTitle": "Order by 3 PM, get it today",
+  "@onboardingFastTitle": {
+    "description": "Onboarding, page 2: title."
+  },
+  "onboardingFastBody": "Free same-day delivery across Dubai and Sharjah on orders over AED 100.",
+  "@onboardingFastBody": {
+    "description": "Onboarding, page 2: body text."
+  },
+  "onboardingFastChipToday": "Today by 9 PM",
+  "@onboardingFastChipToday": {
+    "description": "Onboarding, page 2: chip on the photo."
+  },
+  "onboardingFastChipTracking": "Live tracking",
+  "@onboardingFastChipTracking": {
+    "description": "Onboarding, page 2: chip on the photo."
+  },
+  "onboardingPayKicker": "Pay your way",
+  "@onboardingPayKicker": {
+    "description": "Onboarding, page 3: label above the title (shown in capitals)."
+  },
+  "onboardingPayTitle": "Split it in 4, interest-free",
+  "@onboardingPayTitle": {
+    "description": "Onboarding, page 3: title."
+  },
+  "onboardingPayBody": "Pay by card, wallet, Tabby or Tamara, and earn points on every order.",
+  "@onboardingPayBody": {
+    "description": "Onboarding, page 3: body text."
+  },
+  "onboardingPayChipInstalments": "0% instalments",
+  "@onboardingPayChipInstalments": {
+    "description": "Onboarding, page 3: chip on the photo."
+  },
+  "onboardingPayChipRewards": "Earn rewards",
+  "@onboardingPayChipRewards": {
+    "description": "Onboarding, page 3: chip on the photo."
+  },
+  "onboardingPageLabel": "Page {current} of {total}",
+  "@onboardingPageLabel": {
+    "description": "Onboarding: screen reader label for the page dots.",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   }
 }

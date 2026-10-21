@@ -8,19 +8,22 @@ Route<dynamic> materialRoute<T>(Widget page, RouteSettings settings) =>
 /// How long [fadeRoute] takes to fade in; the reverse keeps the default.
 const Duration fadeInDuration = Duration(milliseconds: 400);
 
-/// A cross-fade instead of the platform slide.
-Route<dynamic> fadeRoute(Widget page, RouteSettings settings) =>
-    PageRouteBuilder<void>(
-      settings: settings,
-      pageBuilder: (_, _, _) => page,
-      transitionsBuilder: (context, animation, _, child) => FadeTransition(
-        opacity: MediaQuery.disableAnimationsOf(context)
-            ? kAlwaysCompleteAnimation
-            : animation,
-        child: child,
-      ),
-      transitionDuration: fadeInDuration,
-    );
+/// A cross-fade instead of the platform slide, over [duration].
+Route<dynamic> fadeRoute(
+  Widget page,
+  RouteSettings settings, {
+  Duration duration = fadeInDuration,
+}) => PageRouteBuilder<void>(
+  settings: settings,
+  pageBuilder: (_, _, _) => page,
+  transitionsBuilder: (context, animation, _, child) => FadeTransition(
+    opacity: MediaQuery.disableAnimationsOf(context)
+        ? kAlwaysCompleteAnimation
+        : animation,
+    child: child,
+  ),
+  transitionDuration: duration,
+);
 
 /// Slides the page up from the bottom edge, and back down on pop.
 Route<dynamic> slideUpRoute(Widget page, RouteSettings settings) =>

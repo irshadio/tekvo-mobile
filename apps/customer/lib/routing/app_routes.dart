@@ -2,4 +2,6 @@
 /// string elsewhere.
 abstract final class Routes {
   static const String splash = '/';
+  static const String onboarding = '/onboarding';
+  static const String locationPermission = '/permissions/location';
 }
