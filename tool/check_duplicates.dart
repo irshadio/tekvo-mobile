@@ -41,7 +41,20 @@ const int minRun = 20;
 typedef SharedName = ({Set<String> features, String reason});
 
 /// Class name (no leading underscore) -> where it is shared, and why.
-const Map<String, SharedName> classAllowList = <String, SharedName>{};
+const Map<String, SharedName> classAllowList = <String, SharedName>{
+  'App': (
+    features: <String>{'customer', 'rider'},
+    reason: 'Each app has its own root widget for its own routes.',
+  ),
+  'Routes': (
+    features: <String>{'customer', 'rider'},
+    reason: 'Each app names its own routes.',
+  ),
+  'SplashView': (
+    features: <String>{'customer/splash', 'rider/splash'},
+    reason: 'Each app has its own designed splash.',
+  ),
+};
 
 /// `<path>|<path>` -> why the two files keep the shared lines.
 const Map<String, String> linesAllowList = <String, String>{};
