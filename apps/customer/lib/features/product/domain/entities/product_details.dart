@@ -95,4 +95,33 @@ final class ProductDetails {
   final Reviews? reviews;
   final Questions? questions;
   final List<Product> alsoViewed;
+
+  /// This product as [option] changes it: its name and prices.
+  ProductDetails withOption(ProductOption option) => ProductDetails(
+    id: id,
+    title: option.title ?? title,
+    store: store,
+    officialStore: officialStore,
+    images: images,
+    tags: tags,
+    rating: rating,
+    ratingCount: ratingCount,
+    soldThisWeek: soldThisWeek,
+    price: option.price ?? price,
+    was: option.price == null ? was : option.was,
+    saving: option.price == null ? saving : option.saving,
+    instalments: instalments,
+    coupon: coupon,
+    freeDelivery: freeDelivery,
+    options: options,
+    stockLeft: option.soldOut ? null : stockLeft,
+    bundle: bundle,
+    delivery: delivery,
+    protection: protection,
+    highlights: highlights,
+    specs: specs,
+    reviews: reviews,
+    questions: questions,
+    alsoViewed: alsoViewed,
+  );
 }

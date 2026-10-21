@@ -257,5 +257,14 @@
   "productAnswerHint": "Share what you know",
   "productAnswerPublic": "Answers are public. Keep to what you know about the product.",
   "productPostAnswer": "Post answer",
-  "productAnswerPosted": "Thanks! Your answer goes live after a quick check."
+  "productAnswerPosted": "Thanks! Your answer goes live after a quick check.",
+  "productOutOfStockTitle": "{option} is out of stock",
+  "productRestockNote": "{when} We’ll text you the moment it’s back.",
+  "productInStock": "{option} is in stock",
+  "productAlternativeLine": "{price} · {note}",
+  "productSwitch": "Switch",
+  "productOutOfStock": "Out of stock",
+  "productNotifying": "We’ll notify you",
+  "productNotifySet": "We’ll let you know when {option} is back.",
+  "productRestockNotify": "Notify me"
 }

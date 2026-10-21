@@ -1387,5 +1387,69 @@
   "productAnswerPosted": "Thanks! Your answer goes live after a quick check.",
   "@productAnswerPosted": {
     "description": "Answer: after posting."
+  },
+  "productOutOfStockTitle": "{option} is out of stock",
+  "@productOutOfStockTitle": {
+    "description": "Out of stock: the panel's title.",
+    "placeholders": {
+      "option": {
+        "type": "String"
+      }
+    }
+  },
+  "productRestockNote": "{when} We’ll text you the moment it’s back.",
+  "@productRestockNote": {
+    "description": "Out of stock: when it is due back, then the promise.",
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "productInStock": "{option} is in stock",
+  "@productInStock": {
+    "description": "Out of stock: the option to switch to.",
+    "placeholders": {
+      "option": {
+        "type": "String"
+      }
+    }
+  },
+  "productAlternativeLine": "{price} · {note}",
+  "@productAlternativeLine": {
+    "description": "Out of stock: the other option's price and arrival.",
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "productSwitch": "Switch",
+  "@productSwitch": {
+    "description": "Out of stock: chooses the option in stock."
+  },
+  "productOutOfStock": "Out of stock",
+  "@productOutOfStock": {
+    "description": "Out of stock: under the price in the bottom bar."
+  },
+  "productNotifying": "We’ll notify you",
+  "@productNotifying": {
+    "description": "Out of stock: once Notify me is on."
+  },
+  "productNotifySet": "We’ll let you know when {option} is back.",
+  "@productNotifySet": {
+    "description": "Out of stock: after Notify me.",
+    "placeholders": {
+      "option": {
+        "type": "String"
+      }
+    }
+  },
+  "productRestockNotify": "Notify me",
+  "@productRestockNotify": {
+    "description": "Out of stock: asks to hear when it is back."
   }
 }
