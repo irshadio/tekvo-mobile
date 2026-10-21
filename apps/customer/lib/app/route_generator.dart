@@ -19,6 +19,10 @@ import 'package:customer/features/product/presentation/view/reviews_view.dart';
 import 'package:customer/features/product/presentation/view/specifications_view.dart';
 import 'package:customer/features/product/presentation/view/write_review_view.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
+import 'package:customer/features/search/domain/entities/search_results.dart';
+import 'package:customer/features/search/presentation/view/search_filters_view.dart';
+import 'package:customer/features/search/presentation/view/search_results_view.dart';
+import 'package:customer/features/search/presentation/view/search_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
 import 'package:customer/features/store/presentation/view/store_view.dart';
 import 'package:customer/routing/app_routes.dart';
@@ -120,6 +124,29 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         settings,
       ),
       _ => materialRoute<void>(const NotFoundView(), settings),
+    },
+    Routes.search => pushRoute<void>(
+      SearchView(
+        query: switch (settings.arguments) {
+          final String query => query,
+          _ => '',
+        },
+      ),
+      settings,
+    ),
+    Routes.searchResults => switch (settings.arguments) {
+      final String query => pushRoute<void>(
+        SearchResultsView(query: query),
+        settings,
+      ),
+      _ => materialRoute<void>(const NotFoundView(), settings),
+    },
+    Routes.searchFilters => switch (settings.arguments) {
+      final FiltersRequest request => pushRoute<SearchFilters>(
+        SearchFiltersView(query: request.query, filters: request.filters),
+        settings,
+      ),
+      _ => materialRoute<SearchFilters>(const NotFoundView(), settings),
     },
     Routes.store => switch (settings.arguments) {
       final String brand => pushRoute<void>(StoreView(brand: brand), settings),
