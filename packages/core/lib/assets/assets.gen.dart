@@ -35,8 +35,10 @@ abstract final class Assets {
       'packages/core/assets/icons/chevron_left.svg';
   static const String iconsClock = 'packages/core/assets/icons/clock.svg';
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
+  static const String iconsMail = 'packages/core/assets/icons/mail.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
+  static const String iconsPerson = 'packages/core/assets/icons/person.svg';
   static const String iconsSearch = 'packages/core/assets/icons/search.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';
   static const String onboardingFast =
