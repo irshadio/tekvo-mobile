@@ -10,6 +10,7 @@ import 'package:core/theme/app_text_emphasis.dart';
 import 'package:core/utils/ltr_isolate.dart';
 import 'package:core/utils/mobile_contact.dart';
 import 'package:core/utils/otp_input.dart';
+import 'package:core/utils/social_account.dart';
 import 'package:customer/features/auth/presentation/view/widgets/otp_field.dart';
 import 'package:customer/features/auth/presentation/view/widgets/resend_code.dart';
 import 'package:customer/features/auth/presentation/view_model/otp_view_model.dart';
@@ -22,12 +23,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// What the code entry route takes: the number the code went to, and the
+/// Google or Apple account to carry on to the profile, if any.
+typedef OtpRequest = ({MobileContact contact, SocialAccount? account});
+
 /// Enter the code texted to [contact]. Pops `true` when the user chooses to
-/// change the number; a verified code opens the profile in its place.
+/// change the number; a verified code opens the profile in its place,
+/// filled in from [account] when there is one.
 class OtpView extends ConsumerStatefulWidget {
-  const OtpView({required this.contact, super.key});
+  const OtpView({required this.contact, this.account, super.key});
 
   final MobileContact contact;
+  final SocialAccount? account;
 
   @override
   ConsumerState<OtpView> createState() => _OtpViewState();
@@ -77,7 +84,10 @@ class _OtpViewState extends ConsumerState<OtpView> {
         otpViewModelProvider,
         context,
         onSuccess: (_) => unawaited(
-          context.pushReplacementNamed<void, bool>(Routes.profile),
+          context.pushReplacementNamed<void, bool>(
+            Routes.profile,
+            arguments: widget.account,
+          ),
         ),
       )
       ..listenSubmission(

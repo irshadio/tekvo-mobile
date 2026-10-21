@@ -4,8 +4,10 @@ import 'package:core/error/failure.dart';
 import 'package:core/presentation/widgets/country_picker_sheet.dart';
 import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:core/utils/mobile_contact.dart';
+import 'package:core/utils/social_account.dart';
 import 'package:country/country.dart';
 import 'package:customer/features/auth/domain/repositories/otp_repository.dart';
+import 'package:customer/features/auth/domain/repositories/social_auth_repository.dart';
 import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/l10n/generated/app_localizations.dart';
 import 'package:customer/l10n/generated/app_localizations_en.dart';
@@ -26,6 +28,7 @@ Future<List<_Next>> _pump(
   WidgetTester tester,
   FakeOtpRepository repository, {
   bool? codeResult,
+  FakeSocialAuthRepository? social,
 }) async {
   tester.view
     ..devicePixelRatio = 1
@@ -34,7 +37,12 @@ Future<List<_Next>> _pump(
   final opened = <_Next>[];
   await tester.pumpWidget(
     ProviderScope(
-      overrides: [otpRepositoryProvider.overrideWithValue(repository)],
+      overrides: [
+        otpRepositoryProvider.overrideWithValue(repository),
+        socialAuthRepositoryProvider.overrideWithValue(
+          social ?? FakeSocialAuthRepository(),
+        ),
+      ],
       child: testApp(
         home: const LoginView(),
         onGenerateRoute: (settings) {
@@ -91,7 +99,10 @@ void main() {
 
     const contact = MobileContact(country: Countries.are, number: '501234567');
     expect(repository.sent, [contact]);
-    expect(opened.single, (name: Routes.otp, arguments: contact));
+    expect(opened.single, (
+      name: Routes.otp,
+      arguments: (contact: contact, account: null),
+    ));
   });
 
   testWidgets('a failed send stays on the screen with an error', (
@@ -180,9 +191,34 @@ void main() {
     await tester.tap(find.text(_en.signInApple));
     await tester.pumpAndSettle();
 
-    expect(opened.map((r) => r.name), [
-      Routes.verifyMobile,
-      Routes.verifyMobile,
+    expect(opened.map((r) => r.arguments), [
+      const SocialAccount(
+        provider: SocialProvider.google,
+        name: FakeSocialAuthRepository.name,
+        email: FakeSocialAuthRepository.email,
+      ),
+      const SocialAccount(
+        provider: SocialProvider.apple,
+        name: FakeSocialAuthRepository.name,
+        email: FakeSocialAuthRepository.email,
+      ),
     ]);
+    expect(opened.map((r) => r.name).toSet(), {Routes.verifyMobile});
+  });
+
+  testWidgets('a cancelled Google sign-in stays without a message', (
+    tester,
+  ) async {
+    final opened = await _pump(
+      tester,
+      FakeOtpRepository(),
+      social: FakeSocialAuthRepository(failure: const Failure.cancelled()),
+    );
+
+    await tester.tap(find.text(_en.signInGoogle));
+    await tester.pumpAndSettle();
+
+    expect(opened, isEmpty);
+    expect(find.byType(SnackBar), findsNothing);
   });
 }

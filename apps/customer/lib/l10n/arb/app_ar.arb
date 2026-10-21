@@ -85,5 +85,10 @@
   "profileEmailNote": "Add an email to get receipts and order updates.",
   "profileVerifiedNote": "Verified by {provider}. We never post to your account.",
   "profileContinue": "Continue",
-  "profileLooksGood": "Looks good"
+  "profileLooksGood": "Looks good",
+  "verifyMobileSignedIn": "Signed in with {provider}",
+  "verifyMobileTitle": "Add your mobile number",
+  "verifyMobileBody": "One last step. We use it for delivery updates and to keep your account secure.",
+  "verifyMobileSend": "Send code",
+  "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout."
 }

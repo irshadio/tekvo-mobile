@@ -1,9 +1,9 @@
 import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/route_transitions.dart';
-import 'package:core/utils/mobile_contact.dart';
 import 'package:core/utils/social_account.dart';
 import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/features/auth/presentation/view/otp_view.dart';
+import 'package:customer/features/auth/presentation/view/verify_mobile_view.dart';
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
@@ -44,11 +44,18 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       duration: LoginView.entryDuration,
     ),
     Routes.otp => switch (settings.arguments) {
-      final MobileContact contact => pushRoute<bool>(
-        OtpView(contact: contact),
+      final OtpRequest request => pushRoute<bool>(
+        OtpView(contact: request.contact, account: request.account),
         settings,
       ),
       _ => materialRoute<bool>(const NotFoundView(), settings),
+    },
+    Routes.verifyMobile => switch (settings.arguments) {
+      final SocialAccount account => pushRoute<void>(
+        VerifyMobileView(account: account),
+        settings,
+      ),
+      _ => materialRoute<void>(const NotFoundView(), settings),
     },
     Routes.profile => pushRoute<void>(
       ProfileView(

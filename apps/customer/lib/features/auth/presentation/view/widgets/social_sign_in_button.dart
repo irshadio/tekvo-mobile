@@ -17,7 +17,7 @@ class SocialSignInButton extends StatelessWidget {
 
   final String logo;
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// Draws a one-colour logo in the text colour, so it shows in dark mode.
   final bool tintLogo;

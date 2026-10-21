@@ -379,5 +379,31 @@
   "profileLooksGood": "Looks good",
   "@profileLooksGood": {
     "description": "Profile: button that saves the filled-in profile after a Google or Apple sign-in."
+  },
+  "verifyMobileSignedIn": "Signed in with {provider}",
+  "@verifyMobileSignedIn": {
+    "description": "Add mobile: banner title after a Google or Apple sign-in.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Google"
+      }
+    }
+  },
+  "verifyMobileTitle": "Add your mobile number",
+  "@verifyMobileTitle": {
+    "description": "Add mobile: the screen's title."
+  },
+  "verifyMobileBody": "One last step. We use it for delivery updates and to keep your account secure.",
+  "@verifyMobileBody": {
+    "description": "Add mobile: text under the title."
+  },
+  "verifyMobileSend": "Send code",
+  "@verifyMobileSend": {
+    "description": "Add mobile: button that texts the code."
+  },
+  "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout.",
+  "@verifyMobileLater": {
+    "description": "Add mobile: note under the button; Skip leaves the number for later."
   }
 }

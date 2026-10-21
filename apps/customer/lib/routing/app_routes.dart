@@ -9,15 +9,16 @@ abstract final class Routes {
   static const String notificationPermission = '/permissions/notifications';
   static const String signIn = '/sign-in';
 
-  /// Takes the `MobileContact` the code was sent to; pops `true` to change
-  /// the number.
+  /// Takes an `OtpRequest`: the number the code went to and any Google or
+  /// Apple account. Pops `true` to change the number.
   static const String otp = '/sign-in/code';
 
   /// The new account's profile, after the code is verified. Takes the
   /// `SocialAccount` that fills it in, if any.
   static const String profile = '/sign-in/profile';
 
-  /// The mobile number check after a Google or Apple sign-in.
+  /// The mobile number check after a Google or Apple sign-in; takes the
+  /// `SocialAccount`.
   static const String verifyMobile = '/sign-in/verify-mobile';
   static const String home = '/home';
 }
