@@ -104,5 +104,19 @@
   "countryPickerTip": "Tip: search by name or dial code, e.g. “+91”.",
   "@countryPickerTip": {
     "description": "Country picker: hint under the search matches."
+  },
+  "moneyAmount": "{currency} {amount}",
+  "@moneyAmount": {
+    "description": "A price: the currency code before the grouped amount.",
+    "placeholders": {
+      "currency": {
+        "type": "String",
+        "example": "AED"
+      },
+      "amount": {
+        "type": "String",
+        "example": "1,099"
+      }
+    }
   }
 }
