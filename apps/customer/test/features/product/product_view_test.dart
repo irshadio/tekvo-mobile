@@ -3,7 +3,9 @@ import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:core/sharing/share_service.dart';
 import 'package:customer/features/product/data/repositories/product_repository_impl.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
+import 'package:customer/features/product/presentation/view/specifications_view.dart';
 import 'package:customer/features/product/presentation/view_model/added_toast_view_model.dart';
 import 'package:customer/features/product/presentation/view_model/product_choices_view_model.dart';
 import 'package:customer/features/product/product_overrides.dart';
@@ -250,5 +252,21 @@ void main() {
 
     expect(pumped.opened.last.name, Routes.reviews);
     expect(pumped.opened.last.arguments, _sample.id);
+  });
+
+  testWidgets('a highlight opens the specification at its group', (
+    tester,
+  ) async {
+    final pumped = await _pump(tester);
+
+    await _reveal(tester, find.text('200 MP triple'));
+    await tester.tap(find.text('200 MP triple'));
+    await tester.pumpAndSettle();
+
+    expect(pumped.opened.last.name, Routes.specifications);
+    expect(
+      pumped.opened.last.arguments,
+      (id: _sample.id, start: SpecGroupKind.camera) as SpecificationsRequest,
+    );
   });
 }

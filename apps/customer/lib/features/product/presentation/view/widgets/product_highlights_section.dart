@@ -15,12 +15,16 @@ class ProductHighlightsSection extends StatelessWidget {
     required this.highlights,
     required this.specs,
     required this.onAllSpecs,
+    required this.onHighlight,
     super.key,
   });
 
   final List<Highlight> highlights;
   final List<Spec> specs;
   final VoidCallback onAllSpecs;
+
+  /// Opens the specification at the highlight's group.
+  final ValueChanged<HighlightKind> onHighlight;
 
   static const double _icon = 22;
   static const double _radius = 10;
@@ -48,42 +52,7 @@ class ProductHighlightsSection extends StatelessWidget {
               runSpacing: AppSpacing.sm.h,
               children: <Widget>[
                 for (final highlight in highlights)
-                  Container(
-                    width: tile,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppSpacing.md.w,
-                      vertical: AppSpacing.md.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: colors.surfaceContainer,
-                      borderRadius: BorderRadius.circular(_radius.r),
-                    ),
-                    child: Row(
-                      spacing: 10.w,
-                      children: <Widget>[
-                        ProductIcon(
-                          _iconOf(highlight.kind),
-                          size: _icon,
-                          color: colors.primary,
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            spacing: 1.h,
-                            children: <Widget>[
-                              Text(
-                                highlight.label,
-                                style: text.bodySmall?.copyWith(
-                                  color: colors.onSurfaceVariant,
-                                ),
-                              ),
-                              Text(highlight.value, style: text.titleSmall),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  _tile(context, highlight, tile),
               ],
             );
           },
@@ -136,6 +105,52 @@ class ProductHighlightsSection extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _tile(BuildContext context, Highlight highlight, double width) {
+    final colors = context.colors;
+    final text = context.textTheme;
+    final radius = BorderRadius.circular(_radius.r);
+    return Material(
+      color: colors.surfaceContainer,
+      borderRadius: radius,
+      child: InkWell(
+        onTap: () => onHighlight(highlight.kind),
+        borderRadius: radius,
+        child: Container(
+          width: width,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSpacing.md.w,
+            vertical: AppSpacing.md.h,
+          ),
+          child: Row(
+            spacing: 10.w,
+            children: <Widget>[
+              ProductIcon(
+                _iconOf(highlight.kind),
+                size: _icon,
+                color: colors.primary,
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 1.h,
+                  children: <Widget>[
+                    Text(
+                      highlight.label,
+                      style: text.bodySmall?.copyWith(
+                        color: colors.onSurfaceVariant,
+                      ),
+                    ),
+                    Text(highlight.value, style: text.titleSmall),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

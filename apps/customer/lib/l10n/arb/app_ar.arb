@@ -187,5 +187,8 @@
   "productAskQuestion": "Ask a question",
   "productAlsoViewed": "Customers also viewed",
   "productBundleAddAll": "Add all {count}",
-  "productOptionName": "{name}: "
+  "productOptionName": "{name}: ",
+  "productSpecsTitle": "Specifications",
+  "productOverview": "Overview",
+  "productSpecsNote": "Specifications come from the manufacturer and may vary by region."
 }

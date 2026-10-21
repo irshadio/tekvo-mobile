@@ -1000,5 +1000,17 @@
         "type": "String"
       }
     }
+  },
+  "productSpecsTitle": "Specifications",
+  "@productSpecsTitle": {
+    "description": "Specifications: the screen title."
+  },
+  "productOverview": "Overview",
+  "@productOverview": {
+    "description": "Specifications: the overview section and its jump chip."
+  },
+  "productSpecsNote": "Specifications come from the manufacturer and may vary by region.",
+  "@productSpecsNote": {
+    "description": "Specifications: the note under the list."
   }
 }
