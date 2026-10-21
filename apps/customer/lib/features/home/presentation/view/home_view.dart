@@ -53,7 +53,8 @@ class HomeView extends ConsumerStatefulWidget {
 
 class _HomeViewState extends ConsumerState<HomeView>
     with ViewReadyMixin<HomeView> {
-  static const double _contentTop = 6;
+  /// The room between the pinned header and the first chips.
+  static const double _contentTop = AppSpacing.lg;
   static const double _sectionGap = 28;
   static const double _launchHeight = 164;
   static const double _outline = 1.5;
