@@ -1,5 +1,10 @@
 import 'package:core/catalog/product.dart';
 import 'package:core/utils/money.dart';
+import 'package:customer/features/product/domain/entities/product_bundle.dart';
+import 'package:customer/features/product/domain/entities/product_delivery.dart';
+import 'package:customer/features/product/domain/entities/product_options.dart';
+import 'package:customer/features/product/domain/entities/product_reviews.dart';
+import 'package:customer/features/product/domain/entities/product_specs.dart';
 import 'package:flutter/foundation.dart';
 
 /// A discount code the product qualifies for.
@@ -42,6 +47,16 @@ final class ProductDetails {
     this.saving,
     this.instalments,
     this.coupon,
+    this.options = const <ProductOptionGroup>[],
+    this.stockLeft,
+    this.bundle,
+    this.delivery,
+    this.protection = const <ProtectionPlan>[],
+    this.highlights = const <Highlight>[],
+    this.specs = const <Spec>[],
+    this.reviews,
+    this.questions,
+    this.alsoViewed = const <Product>[],
   });
 
   final String id;
@@ -65,4 +80,18 @@ final class ProductDetails {
   final Instalments? instalments;
   final Coupon? coupon;
   final bool freeDelivery;
+  final List<ProductOptionGroup> options;
+
+  /// How many are left at this price, when few are.
+  final int? stockLeft;
+  final Bundle? bundle;
+  final Delivery? delivery;
+  final List<ProtectionPlan> protection;
+  final List<Highlight> highlights;
+
+  /// The main lines of the specification; the full list is its own screen.
+  final List<Spec> specs;
+  final Reviews? reviews;
+  final Questions? questions;
+  final List<Product> alsoViewed;
 }

@@ -12,12 +12,19 @@ import 'package:core/theme/app_system_bars.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
 import 'package:customer/features/product/presentation/view/widgets/added_toast.dart';
 import 'package:customer/features/product/presentation/view/widgets/product_bottom_bar.dart';
+import 'package:customer/features/product/presentation/view/widgets/product_bundle_section.dart';
+import 'package:customer/features/product/presentation/view/widgets/product_delivery_section.dart';
 import 'package:customer/features/product/presentation/view/widgets/product_gallery.dart';
 import 'package:customer/features/product/presentation/view/widgets/product_header.dart';
+import 'package:customer/features/product/presentation/view/widgets/product_highlights_section.dart';
 import 'package:customer/features/product/presentation/view/widgets/product_info.dart';
+import 'package:customer/features/product/presentation/view/widgets/product_options_section.dart';
+import 'package:customer/features/product/presentation/view/widgets/product_questions_section.dart';
+import 'package:customer/features/product/presentation/view/widgets/product_reviews_section.dart';
 import 'package:customer/features/product/presentation/view_model/added_toast_view_model.dart';
 import 'package:customer/features/product/presentation/view_model/coupon_view_model.dart';
 import 'package:customer/features/product/presentation/view_model/gallery_view_model.dart';
+import 'package:customer/features/product/presentation/view_model/product_choices_view_model.dart';
 import 'package:customer/features/product/presentation/view_model/product_view_model.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:customer/routing/app_routes.dart';
@@ -132,6 +139,7 @@ class _ProductViewState extends ConsumerState<ProductView>
                       },
                     ),
                     band,
+                    ..._sections(product),
                   ],
                 ),
               ),
@@ -168,10 +176,7 @@ class _ProductViewState extends ConsumerState<ProductView>
           price: product.price,
           freeDelivery: product.freeDelivery,
           quantity: cart.quantityOf(product.id),
-          onAdd: () {
-            ref.read(cartViewModelProvider.notifier).add(product.id);
-            ref.read(addedToastViewModelProvider.notifier).show();
-          },
+          onAdd: () => _add(<String>[product.id]),
           onIncrease: () =>
               ref.read(cartViewModelProvider.notifier).increase(product.id),
           onDecrease: () =>
@@ -179,5 +184,77 @@ class _ProductViewState extends ConsumerState<ProductView>
         ),
       ],
     );
+  }
+
+  void _add(List<String> ids) {
+    ids.forEach(ref.read(cartViewModelProvider.notifier).add);
+    ref.read(addedToastViewModelProvider.notifier).show();
+  }
+
+  /// Everything under the price, each band [_band] apart.
+  List<Widget> _sections(ProductDetails product) {
+    final choices = ref.watch(productChoicesViewModelProvider(product.id));
+    final pick = ref.read(productChoicesViewModelProvider(product.id).notifier);
+    final reviews = product.reviews;
+    final questions = product.questions;
+    final bundle = product.bundle;
+    final delivery = product.delivery;
+    return <Widget>[
+          if (product.options.isNotEmpty)
+            ProductOptionsSection(
+              groups: product.options,
+              chosen: choices.options,
+              stockLeft: product.stockLeft,
+              onChoose: pick.choose,
+            ),
+          if (bundle != null)
+            ProductBundleSection(
+              bundle: bundle,
+              skipped: choices.skipped,
+              onToggle: pick.toggleBundleItem,
+              onAdd: _add,
+            ),
+          if (delivery != null)
+            ProductDeliverySection(
+              delivery: delivery,
+              onChangeAddress: () => _open(Routes.addresses),
+            ),
+          if (product.protection.isNotEmpty)
+            ProductProtectionSection(
+              plans: product.protection,
+              chosen: choices.protection,
+              onToggle: pick.toggleProtection,
+            ),
+          if (product.highlights.isNotEmpty || product.specs.isNotEmpty)
+            ProductHighlightsSection(
+              highlights: product.highlights,
+              specs: product.specs,
+              onAllSpecs: () =>
+                  _open(Routes.specifications, arguments: product.id),
+            ),
+          if (reviews != null)
+            ProductReviewsSection(
+              reviews: reviews,
+              rating: product.rating,
+              ratingCount: product.ratingCount,
+              helpful: choices.helpful,
+              onToggleHelpful: pick.toggleHelpful,
+              onAllReviews: (_) => _open(Routes.reviews, arguments: product.id),
+            ),
+          if (questions != null)
+            ProductQuestionsSection(
+              questions: questions,
+              onAll: () => _open(Routes.questions, arguments: product.id),
+              onAsk: () => _open(Routes.askQuestion, arguments: product.id),
+            ),
+          if (product.alsoViewed.isNotEmpty)
+            ProductAlsoViewedSection(
+              products: product.alsoViewed,
+              onProduct: (id) => _open(Routes.product, arguments: id),
+              onSeeAll: () => _open(Routes.productList),
+            ),
+        ]
+        .expand((section) => <Widget>[section, SizedBox(height: _band.h)])
+        .toList();
   }
 }
