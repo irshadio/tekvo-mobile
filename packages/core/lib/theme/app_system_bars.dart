@@ -23,4 +23,18 @@ abstract final class AppSystemBars {
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.dark,
       );
+
+  /// Status bar icons readable on [background], over a navigation bar of the
+  /// same colour: for screens with their own backdrop, such as the splash.
+  static SystemUiOverlayStyle over(Color background) {
+    final dark =
+        ThemeData.estimateBrightnessForColor(background) == Brightness.dark;
+    return (dark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark)
+        .copyWith(
+          systemNavigationBarColor: background,
+          systemNavigationBarIconBrightness: dark
+              ? Brightness.light
+              : Brightness.dark,
+        );
+  }
 }

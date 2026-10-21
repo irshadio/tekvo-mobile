@@ -13,6 +13,7 @@ class AppShell extends StatelessWidget {
     required this.title,
     required this.onGenerateRoute,
     required this.initialRoute,
+    this.localizationsDelegates = const <LocalizationsDelegate<dynamic>>[],
     super.key,
   });
 
@@ -22,6 +23,9 @@ class AppShell extends StatelessWidget {
   final RouteFactory onGenerateRoute;
 
   final String initialRoute;
+
+  /// The app's own localizations, added to the shared ones.
+  final List<LocalizationsDelegate<dynamic>> localizationsDelegates;
 
   /// The largest system text size the app follows; smaller sizes pass
   /// through unchanged.
@@ -45,7 +49,10 @@ class AppShell extends StatelessWidget {
         darkTheme: AppTheme.dark,
         locale: AppLocale.current,
         supportedLocales: AppLocale.supported,
-        localizationsDelegates: AppLocale.delegates,
+        localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+          ...localizationsDelegates,
+          ...AppLocale.delegates,
+        ],
         builder: (context, child) => MediaQuery.withClampedTextScaling(
           maxScaleFactor: maxTextScale,
           child: OfflineBanner(child: child ?? const SizedBox.shrink()),

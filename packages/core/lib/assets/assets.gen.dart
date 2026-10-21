@@ -4,6 +4,10 @@
 
 /// Paths of the bundled assets.
 abstract final class Assets {
+  static const String brandLogoMark =
+      'packages/core/assets/brand/logo_mark.svg';
+  static const String brandLogoMarkDark =
+      'packages/core/assets/brand/logo_mark_dark.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';
