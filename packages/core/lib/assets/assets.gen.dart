@@ -31,6 +31,9 @@ abstract final class Assets {
   static const String iconsCheck = 'packages/core/assets/icons/check.svg';
   static const String iconsCheckBadge =
       'packages/core/assets/icons/check_badge.svg';
+  static const String iconsChevronLeft =
+      'packages/core/assets/icons/chevron_left.svg';
+  static const String iconsClock = 'packages/core/assets/icons/clock.svg';
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
