@@ -6,20 +6,20 @@ import 'package:flutter/painting.dart';
 /// Drop shadows of the Figma `DS/Elevation` effect styles.
 abstract final class AppShadows {
   static const List<BoxShadow> level1 = <BoxShadow>[
-    BoxShadow(color: Color(0x0F0A0D1A), offset: Offset(0, 1), blurRadius: 2),
+    BoxShadow(color: Color(0x0F0A0D1A), offset: Offset(0, 1), blurRadius: 0.87),
     BoxShadow(
       color: Color(0x1A0A0D1A),
       offset: Offset(0, 1),
-      blurRadius: 3,
+      blurRadius: 1.73,
       spreadRadius: 1,
     ),
   ];
   static const List<BoxShadow> level2 = <BoxShadow>[
-    BoxShadow(color: Color(0x0F0A0D1A), offset: Offset(0, 1), blurRadius: 2),
+    BoxShadow(color: Color(0x0F0A0D1A), offset: Offset(0, 1), blurRadius: 0.87),
     BoxShadow(
       color: Color(0x1A0A0D1A),
       offset: Offset(0, 2),
-      blurRadius: 6,
+      blurRadius: 4.33,
       spreadRadius: 2,
     ),
   ];
@@ -27,13 +27,13 @@ abstract final class AppShadows {
     BoxShadow(
       color: Color(0x0F0A0D1A),
       offset: Offset(0, 2),
-      blurRadius: 4,
+      blurRadius: 2.6,
       spreadRadius: -1,
     ),
     BoxShadow(
       color: Color(0x1A0A0D1A),
       offset: Offset(0, 4),
-      blurRadius: 12,
+      blurRadius: 9.53,
       spreadRadius: 3,
     ),
   ];
@@ -41,13 +41,13 @@ abstract final class AppShadows {
     BoxShadow(
       color: Color(0x0F0A0D1A),
       offset: Offset(0, 4),
-      blurRadius: 6,
+      blurRadius: 4.33,
       spreadRadius: -2,
     ),
     BoxShadow(
       color: Color(0x1F0A0D1A),
       offset: Offset(0, 8),
-      blurRadius: 20,
+      blurRadius: 16.45,
       spreadRadius: 4,
     ),
   ];
@@ -55,13 +55,13 @@ abstract final class AppShadows {
     BoxShadow(
       color: Color(0x140A0D1A),
       offset: Offset(0, 6),
-      blurRadius: 10,
+      blurRadius: 7.79,
       spreadRadius: -4,
     ),
     BoxShadow(
       color: Color(0x240A0D1A),
       offset: Offset(0, 12),
-      blurRadius: 32,
+      blurRadius: 26.85,
       spreadRadius: 6,
     ),
   ];

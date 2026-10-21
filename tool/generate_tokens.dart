@@ -302,10 +302,16 @@ String _shadows(Map<String, dynamic> elevation) {
     for (final s in value as List<dynamic>) {
       final shadow = _map(s);
       final spread = shadow['spread']! as num;
+      // Figma's blur is twice the Gaussian sigma; Flutter's blurRadius maps
+      // to sigma as 0.57735 * radius + 0.5.
+      final sigma = (shadow['blur']! as num) / 2;
+      final blur = sigma <= 0.5
+          ? 0
+          : ((sigma - 0.5) / 0.57735 * 100).round() / 100;
       b.writeln(
         '    BoxShadow(color: ${_color(shadow['color']! as String)}, '
         'offset: Offset(${shadow['x']}, ${shadow['y']}), '
-        'blurRadius: ${shadow['blur']}'
+        'blurRadius: $blur'
         '${spread == 0 ? '' : ', spreadRadius: $spread'}),',
       );
     }
