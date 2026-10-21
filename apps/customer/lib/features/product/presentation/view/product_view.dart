@@ -10,6 +10,7 @@ import 'package:core/sharing/share_service.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:core/theme/app_system_bars.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_options.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/domain/entities/product_specs.dart';
@@ -86,7 +87,31 @@ class _ProductViewState extends ConsumerState<ProductView>
     );
   }
 
-  Widget _page(ProductDetails product) {
+  /// The product as the chosen options change it, and the chosen option
+  /// that has run out, if any.
+  (ProductDetails, ProductOption?) _chosen(ProductDetails product) {
+    final picked = ref.watch(
+      productChoicesViewModelProvider(product.id).select((c) => c.options),
+    );
+    var shown = product;
+    ProductOption? soldOut;
+    for (final (g, group) in product.options.indexed) {
+      final option = group.options[picked[g] ?? group.chosen];
+      if (option.price != null || option.title != null) {
+        shown = shown.withOption(option);
+      }
+      if (option.soldOut) soldOut = option;
+    }
+    return (shown, soldOut);
+  }
+
+  Widget _page(ProductDetails base) {
+    final (product, soldOut) = _chosen(base);
+    final alerting = ref.watch(
+      productChoicesViewModelProvider(product.id).select(
+        (c) => soldOut != null && c.restockAlerts.contains(soldOut.name),
+      ),
+    );
     final cart = ref.watch(cartViewModelProvider);
     final saved = ref.watch(
       wishlistViewModelProvider.select((ids) => ids.contains(product.id)),
@@ -185,6 +210,18 @@ class _ProductViewState extends ConsumerState<ProductView>
               ref.read(cartViewModelProvider.notifier).increase(product.id),
           onDecrease: () =>
               ref.read(cartViewModelProvider.notifier).decrease(product.id),
+          soldOut: soldOut != null,
+          alerting: alerting,
+          onNotify: soldOut == null
+              ? null
+              : () {
+                  ref
+                      .read(
+                        productChoicesViewModelProvider(product.id).notifier,
+                      )
+                      .alertRestock(soldOut.name);
+                  context.showSnackBar(l10n.productNotifySet(soldOut.name));
+                },
         ),
       ],
     );

@@ -1,3 +1,4 @@
+import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/money_format.dart';
 import 'package:core/theme/app_sizes.dart';
@@ -39,7 +40,19 @@ class ProductOptionsSection extends StatelessWidget {
           _title(context, groups[g], chosen[g] ?? groups[g].chosen),
           _options(groups[g], g, chosen[g] ?? groups[g].chosen),
         ],
-        if (stockLeft case final left?)
+        if (_soldOutChoice() case (final group, final option)?)
+          _OutOfStockPanel(
+            option: option,
+            alternative: switch (option.alternative) {
+              final index? => group.options[index],
+              null => null,
+            },
+            onSwitch: () => onChoose(
+              groups.indexOf(group),
+              option.alternative ?? group.chosen,
+            ),
+          )
+        else if (stockLeft case final left?)
           Row(
             spacing: AppSpacing.s6.w,
             children: <Widget>[
@@ -60,6 +73,15 @@ class ProductOptionsSection extends StatelessWidget {
     );
   }
 
+  /// The chosen option when it has run out, with its group.
+  (ProductOptionGroup, ProductOption)? _soldOutChoice() {
+    for (final (g, group) in groups.indexed) {
+      final option = group.options[chosen[g] ?? group.chosen];
+      if (option.soldOut) return (group, option);
+    }
+    return null;
+  }
+
   Widget _title(BuildContext context, ProductOptionGroup group, int chosen) {
     final text = context.textTheme;
     return Text.rich(
@@ -73,7 +95,11 @@ class ProductOptionsSection extends StatelessWidget {
           ),
           TextSpan(
             text: group.options[chosen].name,
-            style: text.titleSmall?.emphasized,
+            style: group.options[chosen].soldOut
+                ? text.bodyMedium?.copyWith(
+                    color: context.colors.onSurfaceVariant,
+                  )
+                : text.titleSmall?.emphasized,
           ),
         ],
       ),
@@ -190,7 +216,9 @@ class _OptionBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final text = context.textTheme;
-    final ink = selected ? colors.onPrimaryContainer : colors.onSurface;
+    final ink = selected && !option.soldOut
+        ? colors.onPrimaryContainer
+        : colors.onSurface;
     final radius = BorderRadius.circular(AppRadius.sm.r);
     final price = option.price;
     return Semantics(
@@ -208,13 +236,19 @@ class _OptionBox extends StatelessWidget {
               vertical: _vertical.h,
             ),
             decoration: BoxDecoration(
-              color: selected
+              color: selected && !option.soldOut
                   ? colors.primaryContainer
                   : colors.surfaceContainerLowest,
               borderRadius: radius,
               border: Border.all(
-                color: selected ? colors.primary : colors.outlineVariant,
-                width: selected ? AppBorders.thick : _outline,
+                color: switch ((selected, option.soldOut)) {
+                  (true, true) => colors.error,
+                  (true, false) => colors.primary,
+                  _ => colors.outlineVariant,
+                },
+                width: selected && !option.soldOut
+                    ? AppBorders.thick
+                    : _outline,
               ),
             ),
             child: Column(
@@ -251,6 +285,127 @@ class _OptionBox extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// Why the chosen option cannot be bought, when it is due back, and the
+/// option in stock to switch to.
+class _OutOfStockPanel extends StatelessWidget {
+  const _OutOfStockPanel({
+    required this.option,
+    required this.alternative,
+    required this.onSwitch,
+  });
+
+  final ProductOption option;
+  final ProductOption? alternative;
+  final VoidCallback onSwitch;
+
+  static const double _icon = 18;
+  static const double _horizontal = 14;
+  static const double _radius = 10;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final text = context.textTheme;
+    final l10n = context.l10n;
+    final ink = colors.onErrorContainer;
+    final alternative = this.alternative;
+    final price = alternative?.price;
+    final restock = option.restock;
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: _horizontal.w,
+        vertical: AppSpacing.md.h,
+      ),
+      decoration: BoxDecoration(
+        color: colors.errorContainer,
+        borderRadius: BorderRadius.circular(_radius.r),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        spacing: 10.h,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: AppSpacing.sm.w,
+            children: <Widget>[
+              ProductIcon(Assets.iconsClock, size: _icon, color: ink),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: AppSpacing.xxs.h,
+                  children: <Widget>[
+                    Text(
+                      l10n.productOutOfStockTitle(option.name),
+                      style: text.titleSmall?.copyWith(color: ink),
+                    ),
+                    if (restock != null)
+                      Text(
+                        l10n.productRestockNote(restock),
+                        style: text.bodySmall?.copyWith(color: ink),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          if (alternative != null)
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSpacing.md.w,
+                vertical: 10.h,
+              ),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainerLowest,
+                borderRadius: BorderRadius.circular(AppRadius.sm.r),
+              ),
+              child: Row(
+                spacing: AppSpacing.sm.w,
+                children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: 1.h,
+                      children: <Widget>[
+                        Text(
+                          l10n.productInStock(alternative.name),
+                          style: text.titleSmall,
+                        ),
+                        if (price != null)
+                          Text(
+                            switch (option.alternativeNote) {
+                              final note? => l10n.productAlternativeLine(
+                                context.money(price),
+                                note,
+                              ),
+                              null => context.money(price),
+                            },
+                            style: text.bodySmall?.copyWith(
+                              color: colors.onSurfaceVariant,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: onSwitch,
+                    style: TextButton.styleFrom(
+                      foregroundColor: colors.primary,
+                      textStyle: text.labelLarge,
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.symmetric(vertical: AppSpacing.xs.h),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(l10n.productSwitch),
+                  ),
+                ],
+              ),
+            ),
+        ],
       ),
     );
   }

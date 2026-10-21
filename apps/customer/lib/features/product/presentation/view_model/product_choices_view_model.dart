@@ -12,6 +12,7 @@ final class ProductChoices {
     this.skipped = const <String>{},
     this.protection = const <String>{},
     this.helpful = const <String>{},
+    this.restockAlerts = const <String>{},
   });
 
   /// The option chosen in each group, by the group's index, for the groups
@@ -23,16 +24,21 @@ final class ProductChoices {
   final Set<String> protection;
   final Set<String> helpful;
 
+  /// Sold-out options the user asked to hear about, by name.
+  final Set<String> restockAlerts;
+
   ProductChoices copyWith({
     Map<int, int>? options,
     Set<String>? skipped,
     Set<String>? protection,
     Set<String>? helpful,
+    Set<String>? restockAlerts,
   }) => ProductChoices(
     options: options ?? this.options,
     skipped: skipped ?? this.skipped,
     protection: protection ?? this.protection,
     helpful: helpful ?? this.helpful,
+    restockAlerts: restockAlerts ?? this.restockAlerts,
   );
 }
 
@@ -54,6 +60,10 @@ class ProductChoicesViewModel extends _$ProductChoicesViewModel {
 
   void toggleHelpful(String id) =>
       state = state.copyWith(helpful: _toggle(state.helpful, id));
+
+  void alertRestock(String option) => state = state.copyWith(
+    restockAlerts: <String>{...state.restockAlerts, option},
+  );
 
   static Set<String> _toggle(Set<String> ids, String id) => ids.contains(id)
       ? (Set<String>.of(ids)..remove(id))

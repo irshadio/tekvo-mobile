@@ -8,7 +8,13 @@ final class ProductOption {
     required this.name,
     this.swatch,
     this.price,
+    this.was,
+    this.saving,
+    this.title,
     this.soldOut = false,
+    this.restock,
+    this.alternative,
+    this.alternativeNote,
   });
 
   /// Such as `Titanium Black` or `256 GB`.
@@ -19,7 +25,24 @@ final class ProductOption {
 
   /// What the product costs with this option.
   final Money? price;
+
+  /// The price before a sale, with this option.
+  final Money? was;
+  final Money? saving;
+
+  /// The product's full name with this option, when it changes it.
+  final String? title;
   final bool soldOut;
+
+  /// When a sold-out option is expected back, such as
+  /// `Expected back around 2 Nov.`
+  final String? restock;
+
+  /// The option in the same group to offer instead, by index.
+  final int? alternative;
+
+  /// How soon [alternative] arrives, such as `arrives today by 9 PM`.
+  final String? alternativeNote;
 }
 
 /// Options to choose one of, such as every colour.

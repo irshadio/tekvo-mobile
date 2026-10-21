@@ -299,4 +299,32 @@ void main() {
     expect(pumped.opened.last.name, Routes.questions);
     expect(pumped.opened.last.arguments, (id: _sample.id, ask: true));
   });
+
+  testWidgets('a sold-out size offers the one in stock and an alert', (
+    tester,
+  ) async {
+    await _pump(tester);
+
+    await _reveal(tester, find.text('512 GB'));
+    await tester.tap(find.text('512 GB'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('AED 4,199'), findsWidgets);
+    expect(find.text(_en.productOutOfStockTitle('512 GB')), findsOneWidget);
+    expect(find.text(_en.productOutOfStock), findsOneWidget);
+    expect(find.text(_en.productAddToCart), findsNothing);
+
+    await tester.tap(find.text(_en.productRestockNotify));
+    await tester.pumpAndSettle();
+    expect(find.text(_en.productNotifySet('512 GB')), findsOneWidget);
+    expect(find.text(_en.productNotifying), findsOneWidget);
+
+    await tester.tap(find.text(_en.productSwitch));
+    await tester.pumpAndSettle();
+    expect(find.text(_en.productOutOfStockTitle('512 GB')), findsNothing);
+    expect(find.text(_en.productAddToCart), findsOneWidget);
+    await tester.fling(_page.first, const Offset(0, 3000), 3000);
+    await tester.pumpAndSettle();
+    expect(find.text(_sample.title), findsOneWidget);
+  });
 }

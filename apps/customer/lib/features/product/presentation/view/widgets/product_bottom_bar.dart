@@ -20,6 +20,9 @@ class ProductBottomBar extends StatelessWidget {
     required this.onAdd,
     required this.onIncrease,
     required this.onDecrease,
+    this.soldOut = false,
+    this.alerting = false,
+    this.onNotify,
     super.key,
   });
 
@@ -29,6 +32,13 @@ class ProductBottomBar extends StatelessWidget {
   final VoidCallback onAdd;
   final VoidCallback onIncrease;
   final VoidCallback onDecrease;
+
+  /// The chosen option has run out: Add to cart becomes Notify me.
+  final bool soldOut;
+
+  /// The user already asked to hear when it is back.
+  final bool alerting;
+  final VoidCallback? onNotify;
 
   static const double _action = 150;
   static const double _top = 13;
@@ -66,7 +76,12 @@ class ProductBottomBar extends StatelessWidget {
                       color: context.appColors.commercePrice,
                     ),
                   ),
-                  if (freeDelivery)
+                  if (soldOut)
+                    Text(
+                      l10n.productOutOfStock,
+                      style: text.bodySmall?.copyWith(color: colors.error),
+                    )
+                  else if (freeDelivery)
                     Text(
                       l10n.productFreeDeliveryLine,
                       style: text.bodySmall?.copyWith(color: colors.primary),
@@ -89,7 +104,13 @@ class ProductBottomBar extends StatelessWidget {
                     child: child,
                   ),
                 ),
-                child: quantity == 0
+                child: soldOut
+                    ? _NotifyButton(
+                        key: ValueKey<bool>(alerting),
+                        alerting: alerting,
+                        onNotify: onNotify,
+                      )
+                    : quantity == 0
                     ? FilledButton(
                         key: const ValueKey<String>('add'),
                         onPressed: onAdd,
@@ -112,6 +133,54 @@ class ProductBottomBar extends StatelessWidget {
                       ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Asks to hear when a sold-out option is back; quiet once asked.
+class _NotifyButton extends StatelessWidget {
+  const _NotifyButton({
+    required this.alerting,
+    required this.onNotify,
+    super.key,
+  });
+
+  final bool alerting;
+  final VoidCallback? onNotify;
+
+  static const double _bell = 20;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final l10n = context.l10n;
+    return FilledButton(
+      onPressed: alerting ? null : onNotify,
+      style: FilledButton.styleFrom(
+        minimumSize: Size.fromHeight(AppSizes.controlLg.h),
+        textStyle: context.textTheme.labelLarge,
+        padding: EdgeInsets.symmetric(horizontal: AppSpacing.md.w),
+      ),
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          spacing: AppSpacing.sm.w,
+          children: <Widget>[
+            if (!alerting)
+              SvgPicture.asset(
+                Assets.iconsBell,
+                width: _bell.r,
+                height: _bell.r,
+                colorFilter: ColorFilter.mode(
+                  colors.onPrimary,
+                  BlendMode.srcIn,
+                ),
+              ),
+            Text(alerting ? l10n.productNotifying : l10n.productRestockNotify),
           ],
         ),
       ),
