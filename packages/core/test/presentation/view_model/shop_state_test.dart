@@ -16,6 +16,20 @@ void main() {
     expect(cart.added, {'a', 'b'});
   });
 
+  test('a stepper raises and lowers a quantity, the last one leaving', () {
+    final container = ProviderContainer.test();
+    container.read(cartViewModelProvider.notifier)
+      ..add('a')
+      ..increase('a')
+      ..decrease('a');
+    expect(container.read(cartViewModelProvider).quantityOf('a'), 1);
+
+    container.read(cartViewModelProvider.notifier).decrease('a');
+    final cart = container.read(cartViewModelProvider);
+    expect(cart.added, isEmpty);
+    expect(cart.count, CartViewModel.sample);
+  });
+
   test('the wishlist toggles a product in and out', () {
     final container = ProviderContainer.test();
     final wishlist = container.read(wishlistViewModelProvider.notifier)
