@@ -22,9 +22,6 @@ class FilterChips extends StatefulWidget {
 }
 
 class _FilterChipsState extends State<FilterChips> {
-  static const double _height = 36;
-  static const double _radius = 6;
-  static const double _border = 1.5;
   static const Duration _duration = Duration(milliseconds: 200);
 
   final ScrollController _row = ScrollController();
@@ -73,9 +70,8 @@ class _FilterChipsState extends State<FilterChips> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     return SizedBox(
-      height: _height.h,
+      height: AppChip.height.h,
       child: SingleChildScrollView(
         controller: _row,
         scrollDirection: Axis.horizontal,
@@ -84,39 +80,66 @@ class _FilterChipsState extends State<FilterChips> {
           spacing: AppSpacing.sm.w,
           children: <Widget>[
             for (var index = 0; index < widget.labels.length; index++)
-              _chip(context, colors, index),
+              AppChip(
+                key: _keys[index],
+                label: widget.labels[index],
+                selected: index == widget.selected,
+                onTap: () => widget.onSelect(index),
+              ),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _chip(BuildContext context, ColorScheme colors, int index) {
-    final on = index == widget.selected;
+/// A chip that is filled in the inverse colours while [selected], and
+/// outlined otherwise.
+class AppChip extends StatelessWidget {
+  const AppChip({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+    super.key,
+  });
+
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  static const double height = 36;
+  static const double _radius = 6;
+  static const double _border = 1.5;
+  static const Duration _duration = Duration(milliseconds: 200);
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
     final radius = BorderRadius.circular(_radius.r);
     return Semantics(
-      key: _keys[index],
-      selected: on,
+      selected: selected,
       button: true,
       child: InkWell(
-        onTap: () => widget.onSelect(index),
+        onTap: onTap,
         borderRadius: radius,
         child: AnimatedContainer(
           duration: context.motion(_duration),
-          height: _height.h,
+          height: height.h,
           padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: on ? colors.inverseSurface : colors.surfaceContainerLowest,
+            color: selected
+                ? colors.inverseSurface
+                : colors.surfaceContainerLowest,
             borderRadius: radius,
-            border: on
+            border: selected
                 ? null
                 : Border.all(color: colors.outlineVariant, width: _border),
           ),
           child: Text(
-            widget.labels[index],
+            label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: on ? colors.onInverseSurface : colors.onSurface,
+              color: selected ? colors.onInverseSurface : colors.onSurface,
             ),
           ),
         ),
