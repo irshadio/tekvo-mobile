@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:core/catalog/promo.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
+import 'package:core/presentation/widgets/promo_banner.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/features/home/domain/entities/promo.dart';
 import 'package:customer/features/home/presentation/view/widgets/page_dots.dart';
-import 'package:customer/features/home/presentation/view/widgets/promo_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

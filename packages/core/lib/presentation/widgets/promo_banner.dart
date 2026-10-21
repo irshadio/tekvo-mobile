@@ -1,12 +1,12 @@
 import 'dart:ui';
 
 import 'package:core/assets/assets.gen.dart';
+import 'package:core/catalog/promo.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
+import 'package:core/presentation/widgets/countdown_cells.dart';
 import 'package:core/theme/app_promo_colors.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:core/theme/app_text_emphasis.dart';
-import 'package:customer/features/home/domain/entities/promo.dart';
-import 'package:customer/features/home/presentation/view/widgets/countdown_cells.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

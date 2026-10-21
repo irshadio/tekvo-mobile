@@ -9,6 +9,7 @@ import 'package:core/presentation/view_state_switcher.dart';
 import 'package:core/presentation/widgets/filter_chips.dart';
 import 'package:core/presentation/widgets/product/cart_shortcut.dart';
 import 'package:core/presentation/widgets/product/product_row.dart';
+import 'package:core/presentation/widgets/promo_banner.dart';
 import 'package:core/presentation/widgets/section_header.dart';
 import 'package:core/state/view_state.dart';
 import 'package:core/theme/app_sizes.dart';
@@ -21,7 +22,6 @@ import 'package:customer/features/home/presentation/view/widgets/flash_deals_sec
 import 'package:customer/features/home/presentation/view/widgets/hero_carousel.dart';
 import 'package:customer/features/home/presentation/view/widgets/home_header.dart';
 import 'package:customer/features/home/presentation/view/widgets/offers_row.dart';
-import 'package:customer/features/home/presentation/view/widgets/promo_banner.dart';
 import 'package:customer/features/home/presentation/view/widgets/recently_viewed.dart';
 import 'package:customer/features/home/presentation/view/widgets/recommended_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/trust_footer.dart';
