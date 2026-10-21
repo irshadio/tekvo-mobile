@@ -502,10 +502,6 @@
   "@homeReturns": {
     "description": "Home trust strip: the returns window."
   },
-  "homeSeeAll": "See all",
-  "@homeSeeAll": {
-    "description": "Home: link beside a section title to its full list."
-  },
   "homeShopByCategory": "Shop by category",
   "@homeShopByCategory": {
     "description": "Home: the categories section's title."
@@ -575,10 +571,6 @@
   "homeAll": "All",
   "@homeAll": {
     "description": "Home: the filter chip that shows every product."
-  },
-  "homeNoProducts": "No products match this filter yet.",
-  "@homeNoProducts": {
-    "description": "Home: a filter that keeps no products."
   },
   "homeTrendingAudio": "Trending in audio",
   "@homeTrendingAudio": {

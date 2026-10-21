@@ -1,3 +1,4 @@
+import 'package:core/l10n/generated/core_localizations_en.dart';
 import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:customer/features/home/data/repositories/home_repository_impl.dart';
 import 'package:customer/features/home/domain/entities/shop_category.dart';
@@ -98,7 +99,7 @@ void main() {
   testWidgets('See all and the cart switch tabs', (tester) async {
     final result = await _pump(tester);
 
-    await tester.tap(find.text(_en.homeSeeAll).first);
+    await tester.tap(find.text(CoreLocalizationsEn().seeAll).first);
     await tester.tap(find.byTooltip(_en.homeCart(3)));
 
     expect(result.tabs, ['explore', 'cart']);
@@ -156,7 +157,7 @@ void main() {
         .read(phoneFilterViewModelProvider.notifier)
         .select(sample.phoneFacets.length - 1);
     await tester.pumpAndSettle();
-    expect(find.text(_en.homeNoProducts), findsOneWidget);
+    expect(find.text(CoreLocalizationsEn().productNoneFound), findsOneWidget);
   });
 
   testWidgets('Show more adds the further recommendations', (tester) async {

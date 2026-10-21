@@ -207,5 +207,13 @@
   "productInCart": "In your cart, view cart",
   "@productInCart": {
     "description": "A product card's check once the product is in the cart; opens the cart."
+  },
+  "seeAll": "See all",
+  "@seeAll": {
+    "description": "Link beside a section title to its full list."
+  },
+  "productNoneFound": "No products match this filter yet.",
+  "@productNoneFound": {
+    "description": "A row of products that a filter left empty."
   }
 }

@@ -2,7 +2,6 @@ import 'package:core/catalog/product.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/widgets/product/product_card.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +30,7 @@ class ProductRow extends StatelessWidget {
             ? Center(
                 key: const ValueKey<String>('none'),
                 child: Text(
-                  context.l10n.homeNoProducts,
+                  context.coreL10n.productNoneFound,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: context.colors.onSurfaceVariant,
                   ),

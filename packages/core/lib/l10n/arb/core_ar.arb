@@ -37,5 +37,7 @@
   "productAdd": "Add to cart",
   "productSave": "Save {name} to wishlist",
   "productUnsave": "Remove {name} from wishlist",
-  "productInCart": "In your cart, view cart"
+  "productInCart": "In your cart, view cart",
+  "seeAll": "See all",
+  "productNoneFound": "No products match this filter yet."
 }
