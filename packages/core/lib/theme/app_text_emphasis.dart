@@ -5,4 +5,7 @@ import 'package:flutter/painting.dart';
 extension AppTextEmphasis on TextStyle {
   /// Semi bold, the design's emphasis inside body text.
   TextStyle get emphasized => copyWith(fontWeight: FontWeight.w600);
+
+  /// Bold, for counts in badges.
+  TextStyle get bold => copyWith(fontWeight: FontWeight.w700);
 }

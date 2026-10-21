@@ -59,6 +59,7 @@ void main() {
       Routes.signIn,
       Routes.profile,
       Routes.verifyMobile,
+      Routes.home,
     ]) {
       expect(
         onGenerateRoute(RouteSettings(name: name)),

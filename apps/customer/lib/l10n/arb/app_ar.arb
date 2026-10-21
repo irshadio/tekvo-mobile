@@ -90,5 +90,12 @@
   "verifyMobileTitle": "Add your mobile number",
   "verifyMobileBody": "One last step. We use it for delivery updates and to keep your account secure.",
   "verifyMobileSend": "Send code",
-  "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout."
+  "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout.",
+  "navHome": "Home",
+  "navExplore": "Explore",
+  "navCart": "Cart",
+  "navWishlist": "Wishlist",
+  "navProfile": "Profile",
+  "navCartCount": "{tab}, {count, plural, =1{1 item} other{{count} items}}",
+  "mainComingSoon": "This screen is on its way."
 }

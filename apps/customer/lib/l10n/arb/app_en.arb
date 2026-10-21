@@ -405,5 +405,42 @@
   "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout.",
   "@verifyMobileLater": {
     "description": "Add mobile: note under the button; Skip leaves the number for later."
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Bottom navigation: the home tab."
+  },
+  "navExplore": "Explore",
+  "@navExplore": {
+    "description": "Bottom navigation: the categories tab."
+  },
+  "navCart": "Cart",
+  "@navCart": {
+    "description": "Bottom navigation: the cart tab."
+  },
+  "navWishlist": "Wishlist",
+  "@navWishlist": {
+    "description": "Bottom navigation: the wishlist tab."
+  },
+  "navProfile": "Profile",
+  "@navProfile": {
+    "description": "Bottom navigation: the account tab."
+  },
+  "navCartCount": "{tab}, {count, plural, =1{1 item} other{{count} items}}",
+  "@navCartCount": {
+    "description": "Bottom navigation: screen-reader label of the cart tab with its item count.",
+    "placeholders": {
+      "tab": {
+        "type": "String",
+        "example": "Cart"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mainComingSoon": "This screen is on its way.",
+  "@mainComingSoon": {
+    "description": "A tab whose screen is not built yet: the note under its name."
   }
 }
