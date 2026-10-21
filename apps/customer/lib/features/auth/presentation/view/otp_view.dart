@@ -2,15 +2,15 @@ import 'dart:async';
 
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/ref_extensions.dart';
-import 'package:core/presentation/widgets/app_back_button.dart';
+import 'package:core/presentation/widgets/back_bar_scaffold.dart';
 import 'package:core/state/submission_state.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:core/theme/app_system_bars.dart';
 import 'package:core/theme/app_text_emphasis.dart';
 import 'package:core/utils/ltr_isolate.dart';
 import 'package:core/utils/mobile_contact.dart';
 import 'package:core/utils/otp_input.dart';
+import 'package:core/utils/social_account.dart';
 import 'package:customer/features/auth/presentation/view/widgets/otp_field.dart';
 import 'package:customer/features/auth/presentation/view/widgets/resend_code.dart';
 import 'package:customer/features/auth/presentation/view_model/otp_view_model.dart';
@@ -20,24 +20,27 @@ import 'package:customer/l10n/app_l10n.dart';
 import 'package:customer/routing/app_routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// What the code entry route takes: the number the code went to, and the
+/// Google or Apple account to carry on to the profile, if any.
+typedef OtpRequest = ({MobileContact contact, SocialAccount? account});
+
 /// Enter the code texted to [contact]. Pops `true` when the user chooses to
-/// change the number; a verified code goes on to the profile.
+/// change the number; a verified code opens the profile in its place,
+/// filled in from [account] when there is one.
 class OtpView extends ConsumerStatefulWidget {
-  const OtpView({required this.contact, super.key});
+  const OtpView({required this.contact, this.account, super.key});
 
   final MobileContact contact;
+  final SocialAccount? account;
 
   @override
   ConsumerState<OtpView> createState() => _OtpViewState();
 }
 
 class _OtpViewState extends ConsumerState<OtpView> {
-  static const double _topBarHeight = 60;
-  static const double _topBarPadding = 12;
   static const double _codeGap = 32;
   static const double _resendGap = 24;
   static const double _buttonGap = 28;
@@ -80,8 +83,12 @@ class _OtpViewState extends ConsumerState<OtpView> {
       ..listenSubmission(
         otpViewModelProvider,
         context,
-        onSuccess: (_) =>
-            unawaited(context.pushNamedAndRemoveAll<void>(Routes.profile)),
+        onSuccess: (_) => unawaited(
+          context.pushReplacementNamed<void, bool>(
+            Routes.profile,
+            arguments: widget.account,
+          ),
+        ),
       )
       ..listenSubmission(
         resendCodeViewModelProvider,
@@ -93,93 +100,50 @@ class _OtpViewState extends ConsumerState<OtpView> {
       );
     final verifying = ref.watch(otpViewModelProvider).isInProgress;
     final resending = ref.watch(resendCodeViewModelProvider).isInProgress;
-    final colors = context.colors;
     final text = context.textTheme;
     final l10n = context.l10n;
 
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: AppSystemBars.surface(colors),
-      child: Scaffold(
-        backgroundColor: colors.surface,
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              SizedBox(
-                height: _topBarHeight.h,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: _topBarPadding.w),
-                  child: const Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: AppBackButton(),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: CustomScrollView(
-                  slivers: <Widget>[
-                    SliverPadding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: AppSpacing.lg.w,
-                      ),
-                      sliver: SliverFillRemaining(
-                        hasScrollBody: false,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            SizedBox(height: AppSpacing.sm.h),
-                            Semantics(
-                              header: true,
-                              child: Text(
-                                l10n.otpTitle,
-                                style: text.headlineMedium,
-                              ),
-                            ),
-                            SizedBox(height: AppSpacing.sm.h),
-                            _sentTo(context),
-                            SizedBox(height: _codeGap.h),
-                            OtpField(
-                              controller: _controller,
-                              focusNode: _focusNode,
-                              label: l10n.otpCodeLabel,
-                              onChanged: (_) => ref
-                                  .read(otpViewModelProvider.notifier)
-                                  .reset(),
-                            ),
-                            SizedBox(height: _resendGap.h),
-                            ResendCode(onResend: resending ? null : _resend),
-                            SizedBox(height: _buttonGap.h),
-                            ListenableBuilder(
-                              listenable: _controller,
-                              builder: (context, _) => FilledButton(
-                                onPressed:
-                                    OtpInput.isComplete(_controller.text) &&
-                                        !verifying
-                                    ? _verify
-                                    : null,
-                                style: FilledButton.styleFrom(
-                                  minimumSize: Size.fromHeight(
-                                    AppSizes.controlXl.h,
-                                  ),
-                                  textStyle: text.titleMedium,
-                                ),
-                                child: Text(l10n.otpVerify),
-                              ),
-                            ),
-                            SizedBox(height: _buttonGap.h),
-                            const Spacer(),
-                            _tryAnother(context),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return BackBarScaffold(
+      children: <Widget>[
+        SizedBox(height: AppSpacing.sm.h),
+        Semantics(
+          header: true,
+          child: Text(
+            l10n.otpTitle,
+            style: text.headlineMedium,
           ),
         ),
-      ),
+        SizedBox(height: AppSpacing.sm.h),
+        _sentTo(context),
+        SizedBox(height: _codeGap.h),
+        OtpField(
+          controller: _controller,
+          focusNode: _focusNode,
+          label: l10n.otpCodeLabel,
+          onChanged: (_) => ref.read(otpViewModelProvider.notifier).reset(),
+        ),
+        SizedBox(height: _resendGap.h),
+        ResendCode(onResend: resending ? null : _resend),
+        SizedBox(height: _buttonGap.h),
+        ListenableBuilder(
+          listenable: _controller,
+          builder: (context, _) => FilledButton(
+            onPressed: OtpInput.isComplete(_controller.text) && !verifying
+                ? _verify
+                : null,
+            style: FilledButton.styleFrom(
+              minimumSize: Size.fromHeight(
+                AppSizes.controlXl.h,
+              ),
+              textStyle: text.titleMedium,
+            ),
+            child: Text(l10n.otpVerify),
+          ),
+        ),
+        SizedBox(height: _buttonGap.h),
+        const Spacer(),
+        _tryAnother(context),
+      ],
     );
   }
 

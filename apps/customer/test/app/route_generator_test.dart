@@ -36,7 +36,10 @@ void main() {
     final route = onGenerateRoute(
       const RouteSettings(
         name: Routes.otp,
-        arguments: MobileContact(country: Countries.are, number: '501234567'),
+        arguments: (
+          contact: MobileContact(country: Countries.are, number: '501234567'),
+          account: null,
+        ),
       ),
     );
 
@@ -54,6 +57,8 @@ void main() {
       Routes.locationPermission,
       Routes.notificationPermission,
       Routes.signIn,
+      Routes.profile,
+      Routes.verifyMobile,
     ]) {
       expect(
         onGenerateRoute(RouteSettings(name: name)),

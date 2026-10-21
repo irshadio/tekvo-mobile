@@ -3,6 +3,7 @@ import 'package:core/presentation/widgets/app_logo_mark.dart';
 import 'package:core/theme/app_brand_type.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
+import 'package:customer/features/auth/presentation/view/widgets/skip_button.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,9 +15,6 @@ class SignInTopBar extends StatelessWidget {
   final VoidCallback onSkip;
 
   static const double _height = 56;
-  static const double _skipRadius = 6;
-  static const double _skipPaddingX = 14;
-  static const double _skipPaddingY = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +38,7 @@ class SignInTopBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          TextButton(
-            onPressed: onSkip,
-            style: TextButton.styleFrom(
-              backgroundColor: colors.surfaceContainerHigh,
-              foregroundColor: colors.onSurface,
-              minimumSize: Size.zero,
-              padding: EdgeInsets.symmetric(
-                horizontal: _skipPaddingX.w,
-                vertical: _skipPaddingY.h,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(_skipRadius.r),
-              ),
-            ),
-            child: Text(context.l10n.signInSkip),
-          ),
+          SkipButton(onPressed: onSkip),
         ],
       ),
     );

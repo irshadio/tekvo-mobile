@@ -311,5 +311,99 @@
   "otpTryAnother": "Try another number",
   "@otpTryAnother": {
     "description": "Code entry: link that goes back to change the number."
+  },
+  "providerGoogle": "Google",
+  "@providerGoogle": {
+    "description": "A sign-in provider's name; not translated."
+  },
+  "providerApple": "Apple",
+  "@providerApple": {
+    "description": "A sign-in provider's name; not translated."
+  },
+  "profileTitle": "Tell us about you",
+  "@profileTitle": {
+    "description": "Profile: the title after a mobile number sign-in."
+  },
+  "profileBody": "We use your name for deliveries and receipts. Email is optional.",
+  "@profileBody": {
+    "description": "Profile: text under the title after a mobile number sign-in."
+  },
+  "profileCheckTitle": "Check your details",
+  "@profileCheckTitle": {
+    "description": "Profile: the title after a Google or Apple sign-in."
+  },
+  "profileCheckBody": "We filled these in from your {provider} account. Change anything you like.",
+  "@profileCheckBody": {
+    "description": "Profile: text under the title after a Google or Apple sign-in.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Google"
+      }
+    }
+  },
+  "profileNameLabel": "Full name",
+  "@profileNameLabel": {
+    "description": "Profile: label over the name field."
+  },
+  "profileNameHint": "Your full name",
+  "@profileNameHint": {
+    "description": "Profile: hint in the empty name field."
+  },
+  "profileEmailLabel": "Email (optional)",
+  "@profileEmailLabel": {
+    "description": "Profile: label over the email field."
+  },
+  "profileEmailHint": "you@example.com",
+  "@profileEmailHint": {
+    "description": "Profile: example address in the empty email field."
+  },
+  "profileEmailNote": "Add an email to get receipts and order updates.",
+  "@profileEmailNote": {
+    "description": "Profile: note under the fields after a mobile number sign-in."
+  },
+  "profileVerifiedNote": "Verified by {provider}. We never post to your account.",
+  "@profileVerifiedNote": {
+    "description": "Profile: note under the fields after a Google or Apple sign-in.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Google"
+      }
+    }
+  },
+  "profileContinue": "Continue",
+  "@profileContinue": {
+    "description": "Profile: button that saves the profile after a mobile number sign-in."
+  },
+  "profileLooksGood": "Looks good",
+  "@profileLooksGood": {
+    "description": "Profile: button that saves the filled-in profile after a Google or Apple sign-in."
+  },
+  "verifyMobileSignedIn": "Signed in with {provider}",
+  "@verifyMobileSignedIn": {
+    "description": "Add mobile: banner title after a Google or Apple sign-in.",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Google"
+      }
+    }
+  },
+  "verifyMobileTitle": "Add your mobile number",
+  "@verifyMobileTitle": {
+    "description": "Add mobile: the screen's title."
+  },
+  "verifyMobileBody": "One last step. We use it for delivery updates and to keep your account secure.",
+  "@verifyMobileBody": {
+    "description": "Add mobile: text under the title."
+  },
+  "verifyMobileSend": "Send code",
+  "@verifyMobileSend": {
+    "description": "Add mobile: button that texts the code."
+  },
+  "verifyMobileLater": "Not now? You can add it later in Profile › Account. You’ll need it before checkout.",
+  "@verifyMobileLater": {
+    "description": "Add mobile: note under the button; Skip leaves the number for later."
   }
 }

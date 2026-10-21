@@ -1,6 +1,6 @@
 import 'package:core/utils/mobile_contact.dart';
 import 'package:country/country.dart';
-import 'package:customer/features/auth/presentation/view_model/login_view_model.dart';
+import 'package:customer/features/auth/presentation/view_model/mobile_number_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,11 +9,22 @@ void main() {
 
   setUp(() {
     container = ProviderContainer.test()
-      ..listen(loginViewModelProvider, (_, _) {});
+      ..listen(mobileNumberViewModelProvider(NumberStep.signIn), (_, _) {});
   });
 
-  LoginViewModel notifier() => container.read(loginViewModelProvider.notifier);
-  LoginFormState state() => container.read(loginViewModelProvider);
+  MobileNumberViewModel notifier() =>
+      container.read(mobileNumberViewModelProvider(NumberStep.signIn).notifier);
+  MobileNumberFormState state() =>
+      container.read(mobileNumberViewModelProvider(NumberStep.signIn));
+
+  test('each step keeps its own form', () {
+    notifier().numberChanged('501234567');
+
+    expect(
+      container.read(mobileNumberViewModelProvider(NumberStep.afterSocial)),
+      const MobileNumberFormState(),
+    );
+  });
 
   test('starts empty in the UAE', () {
     expect(state().country, Countries.are);

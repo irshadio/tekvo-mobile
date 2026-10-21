@@ -5,13 +5,12 @@ import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/view_model/country_picker_view_model.dart';
 import 'package:core/presentation/widgets/app_sheet.dart';
+import 'package:core/presentation/widgets/app_text_field.dart';
 import 'package:core/presentation/widgets/country_tile.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:core/utils/western_digits_formatter.dart';
 import 'package:country/country.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -190,77 +189,18 @@ class _CountryPickerSheetState extends ConsumerState<CountryPickerSheet> {
     );
   }
 
-  Widget _searchField(BuildContext context) {
-    final colors = context.colors;
-    final text = context.textTheme;
-    return ListenableBuilder(
-      listenable: _searchFocus,
-      builder: (context, child) {
-        final focused = _searchFocus.hasFocus;
-        return AnimatedContainer(
-          duration: context.motion(const Duration(milliseconds: 300)),
-          curve: Curves.easeOut,
-          height: _searchHeight.h,
-          padding: EdgeInsetsDirectional.only(
-            start: _side.w,
-            end: AppSpacing.s6.w,
-          ),
-          decoration: BoxDecoration(
-            color: colors.surfaceContainerHigh,
-            borderRadius: BorderRadius.circular(AppRadius.sm.r),
-            border: Border.all(
-              color: focused
-                  ? colors.primary
-                  : colors.primary.withValues(alpha: 0),
-              width: focused ? AppBorders.focus : 0,
-            ),
-          ),
-          child: child,
-        );
-      },
-      child: Row(
-        spacing: 10.w,
-        children: <Widget>[
-          SvgPicture.asset(
-            Assets.iconsSearch,
-            width: _searchIcon.r,
-            height: _searchIcon.r,
-            colorFilter: ColorFilter.mode(
-              colors.onSurfaceVariant,
-              BlendMode.srcIn,
-            ),
-          ),
-          Expanded(
-            child: TextField(
-              controller: _search,
-              focusNode: _searchFocus,
-              onChanged: _onSearchChanged,
-              textInputAction: TextInputAction.search,
-              autocorrect: false,
-              inputFormatters: const <TextInputFormatter>[
-                WesternDigitsFormatter(),
-              ],
-              style: text.bodyLarge?.copyWith(color: colors.onSurface),
-              cursorColor: colors.primary,
-              onTapOutside: (_) => _searchFocus.unfocus(),
-              decoration: InputDecoration(
-                isCollapsed: true,
-                contentPadding: EdgeInsets.zero,
-                filled: false,
-                border: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                hintText: context.coreL10n.countryPickerSearchHint,
-                hintStyle: text.bodyLarge?.copyWith(
-                  color: colors.onSurfaceVariant,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  Widget _searchField(BuildContext context) => AppTextField(
+    controller: _search,
+    focusNode: _searchFocus,
+    icon: Assets.iconsSearch,
+    hint: context.coreL10n.countryPickerSearchHint,
+    iconSize: _searchIcon,
+    height: _searchHeight,
+    endPadding: AppSpacing.s6,
+    whiteWhenFocused: false,
+    textInputAction: TextInputAction.search,
+    onChanged: _onSearchChanged,
+  );
 
   Widget _list(BuildContext context, CountrySearch search) {
     final countries = search.query.isNotEmpty

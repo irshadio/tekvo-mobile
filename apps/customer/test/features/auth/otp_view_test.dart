@@ -104,7 +104,7 @@ void main() {
     expect(field.controller!.text, '482916');
   });
 
-  testWidgets('a verified code goes on to the profile on its own', (
+  testWidgets('a verified code opens the profile in its place', (
     tester,
   ) async {
     final repository = FakeOtpRepository();
@@ -117,7 +117,7 @@ void main() {
 
     expect(repository.checked, ['482916']);
     expect(result.opened, [Routes.profile]);
-    expect(find.text('open'), findsNothing);
+    expect(find.byType(OtpView), findsNothing);
   });
 
   testWidgets('a rejected code stays with an error', (tester) async {
