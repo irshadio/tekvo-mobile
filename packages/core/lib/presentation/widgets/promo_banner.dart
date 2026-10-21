@@ -137,12 +137,16 @@ class PromoBanner extends StatelessWidget {
                     ? colors.commerceDeal
                     : onBanner,
               ),
-              Text(
-                promo.eyebrow,
-                style: text.labelSmall?.copyWith(
-                  color: promo.style == PromoStyle.flashSale
-                      ? colors.commerceDeal
-                      : onBanner,
+              Flexible(
+                child: Text(
+                  promo.eyebrow,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: text.labelSmall?.copyWith(
+                    color: promo.style == PromoStyle.flashSale
+                        ? colors.commerceDeal
+                        : onBanner,
+                  ),
                 ),
               ),
             ],
@@ -274,9 +278,15 @@ class _ActionChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         spacing: AppSpacing.xs.w,
         children: <Widget>[
-          Text(
-            label,
-            style: context.textTheme.labelMedium?.copyWith(color: foreground),
+          Flexible(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: context.textTheme.labelMedium?.copyWith(
+                color: foreground,
+              ),
+            ),
           ),
           Transform.flip(
             flipX: Directionality.of(context) == TextDirection.rtl,
