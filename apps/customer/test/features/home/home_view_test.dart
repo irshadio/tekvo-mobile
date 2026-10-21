@@ -3,6 +3,7 @@ import 'package:customer/features/home/data/repositories/home_repository_impl.da
 import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/home/presentation/view/home_view.dart';
+import 'package:customer/features/home/presentation/view/widgets/hero_carousel.dart';
 import 'package:customer/features/home/presentation/view/widgets/page_dots.dart';
 import 'package:customer/features/home/presentation/view_model/phone_filter_view_model.dart';
 import 'package:customer/l10n/generated/app_localizations.dart';
@@ -172,6 +173,35 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(tester.widget<PageDots>(find.byType(PageDots)).current, 1);
+  });
+
+  testWidgets('the hero moves on by itself and loops back to the first', (
+    tester,
+  ) async {
+    await _pump(tester);
+    int current() => tester.widget<PageDots>(find.byType(PageDots)).current;
+
+    final count = HomeRepositoryImpl.sample.hero.length;
+    for (var i = 1; i <= count; i++) {
+      await tester.pump(HeroCarousel.autoAdvance);
+      await tester.pump(HeroCarousel.slide);
+      expect(current(), i % count);
+    }
+  });
+
+  testWidgets('the hero swipes back past the first card', (tester) async {
+    await _pump(tester);
+
+    await tester.drag(
+      find.text(HomeRepositoryImpl.sample.hero.first.title),
+      const Offset(300, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      tester.widget<PageDots>(find.byType(PageDots)).current,
+      HomeRepositoryImpl.sample.hero.length - 1,
+    );
   });
 
   testWidgets('a promotion opens its product', (tester) async {
