@@ -1,0 +1,317 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "customer dev (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_dev.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=APP_ENV=dev"
+      ]
+    },
+    {
+      "name": "customer dev (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_dev.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=APP_ENV=dev"
+      ]
+    },
+    {
+      "name": "customer dev (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_dev.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=APP_ENV=dev"
+      ]
+    },
+    {
+      "name": "customer qa (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_qa.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "qa",
+        "--dart-define=APP_ENV=qa"
+      ]
+    },
+    {
+      "name": "customer qa (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_qa.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "qa",
+        "--dart-define=APP_ENV=qa"
+      ]
+    },
+    {
+      "name": "customer qa (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_qa.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "qa",
+        "--dart-define=APP_ENV=qa"
+      ]
+    },
+    {
+      "name": "customer uat (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_uat.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "uat",
+        "--dart-define=APP_ENV=uat"
+      ]
+    },
+    {
+      "name": "customer uat (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_uat.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "uat",
+        "--dart-define=APP_ENV=uat"
+      ]
+    },
+    {
+      "name": "customer uat (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_uat.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "uat",
+        "--dart-define=APP_ENV=uat"
+      ]
+    },
+    {
+      "name": "customer prod (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_prod.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=APP_ENV=prod"
+      ]
+    },
+    {
+      "name": "customer prod (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_prod.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=APP_ENV=prod"
+      ]
+    },
+    {
+      "name": "customer prod (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/customer",
+      "program": "lib/main_prod.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=APP_ENV=prod"
+      ]
+    },
+    {
+      "name": "rider dev (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_dev.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=APP_ENV=dev"
+      ]
+    },
+    {
+      "name": "rider dev (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_dev.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=APP_ENV=dev"
+      ]
+    },
+    {
+      "name": "rider dev (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_dev.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=APP_ENV=dev"
+      ]
+    },
+    {
+      "name": "rider qa (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_qa.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "qa",
+        "--dart-define=APP_ENV=qa"
+      ]
+    },
+    {
+      "name": "rider qa (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_qa.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "qa",
+        "--dart-define=APP_ENV=qa"
+      ]
+    },
+    {
+      "name": "rider qa (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_qa.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "qa",
+        "--dart-define=APP_ENV=qa"
+      ]
+    },
+    {
+      "name": "rider uat (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_uat.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "uat",
+        "--dart-define=APP_ENV=uat"
+      ]
+    },
+    {
+      "name": "rider uat (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_uat.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "uat",
+        "--dart-define=APP_ENV=uat"
+      ]
+    },
+    {
+      "name": "rider uat (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_uat.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "uat",
+        "--dart-define=APP_ENV=uat"
+      ]
+    },
+    {
+      "name": "rider prod (debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_prod.dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=APP_ENV=prod"
+      ]
+    },
+    {
+      "name": "rider prod (profile)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_prod.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=APP_ENV=prod"
+      ]
+    },
+    {
+      "name": "rider prod (release)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "apps/rider",
+      "program": "lib/main_prod.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=APP_ENV=prod"
+      ]
+    }
+  ]
+}
