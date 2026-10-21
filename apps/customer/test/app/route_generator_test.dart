@@ -54,6 +54,7 @@ void main() {
       Routes.locationPermission,
       Routes.notificationPermission,
       Routes.signIn,
+      Routes.profile,
     ]) {
       expect(
         onGenerateRoute(RouteSettings(name: name)),

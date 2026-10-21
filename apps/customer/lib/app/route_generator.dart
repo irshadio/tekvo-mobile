@@ -1,11 +1,13 @@
 import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/route_transitions.dart';
 import 'package:core/utils/mobile_contact.dart';
+import 'package:core/utils/social_account.dart';
 import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/features/auth/presentation/view/otp_view.dart';
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
+import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
 import 'package:customer/routing/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +50,15 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       ),
       _ => materialRoute<bool>(const NotFoundView(), settings),
     },
+    Routes.profile => pushRoute<void>(
+      ProfileView(
+        account: switch (settings.arguments) {
+          final SocialAccount account => account,
+          _ => null,
+        },
+      ),
+      settings,
+    ),
     _ => materialRoute<void>(const NotFoundView(), settings),
   };
 }

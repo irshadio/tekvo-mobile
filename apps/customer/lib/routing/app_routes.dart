@@ -13,7 +13,8 @@ abstract final class Routes {
   /// the number.
   static const String otp = '/sign-in/code';
 
-  /// The new account's profile, after the code is verified.
+  /// The new account's profile, after the code is verified. Takes the
+  /// `SocialAccount` that fills it in, if any.
   static const String profile = '/sign-in/profile';
 
   /// The mobile number check after a Google or Apple sign-in.

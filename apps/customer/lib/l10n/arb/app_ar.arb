@@ -71,5 +71,19 @@
   "otpResent": "We sent you a new code.",
   "otpVerify": "Verify and continue",
   "otpNoCode": "Didn’t get a code? ",
-  "otpTryAnother": "Try another number"
+  "otpTryAnother": "Try another number",
+  "providerGoogle": "Google",
+  "providerApple": "Apple",
+  "profileTitle": "Tell us about you",
+  "profileBody": "We use your name for deliveries and receipts. Email is optional.",
+  "profileCheckTitle": "Check your details",
+  "profileCheckBody": "We filled these in from your {provider} account. Change anything you like.",
+  "profileNameLabel": "Full name",
+  "profileNameHint": "Your full name",
+  "profileEmailLabel": "Email (optional)",
+  "profileEmailHint": "you@example.com",
+  "profileEmailNote": "Add an email to get receipts and order updates.",
+  "profileVerifiedNote": "Verified by {provider}. We never post to your account.",
+  "profileContinue": "Continue",
+  "profileLooksGood": "Looks good"
 }
