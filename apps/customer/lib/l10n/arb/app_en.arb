@@ -625,5 +625,139 @@
   "homeFooterReturnsDetail": "Within 14 days",
   "@homeFooterReturnsDetail": {
     "description": "Home footer: the returns promise, detail."
+  },
+  "productSearch": "Search",
+  "@productSearch": {
+    "description": "Product page: the search button."
+  },
+  "productShare": "Share",
+  "@productShare": {
+    "description": "Product page: the share button."
+  },
+  "productPhoto": "Photo {index} of {count}",
+  "@productPhoto": {
+    "description": "Product page: a photo's screen-reader label.",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productPhotoCount": "{index} / {count}",
+  "@productPhotoCount": {
+    "description": "Product page: which photo shows, over the gallery.",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productVisitStore": "Visit the {store} store",
+  "@productVisitStore": {
+    "description": "Product page: link to the brand's store.",
+    "placeholders": {
+      "store": {
+        "type": "String",
+        "example": "Nova"
+      }
+    }
+  },
+  "productOfficialStore": "Official store",
+  "@productOfficialStore": {
+    "description": "Product page: badge for a brand's own store."
+  },
+  "productRatingTotal": "({count})",
+  "@productRatingTotal": {
+    "description": "Product page: how many rated it, beside the score.",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "example": "2,318"
+      }
+    }
+  },
+  "productSoldThisWeek": "{count} sold this week",
+  "@productSoldThisWeek": {
+    "description": "Product page: recent sales.",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "example": "1.2k"
+      }
+    }
+  },
+  "productSaving": "Save {amount}",
+  "@productSaving": {
+    "description": "Product page: what the sale saves.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "AED 500"
+      }
+    }
+  },
+  "productVatIncluded": "Inclusive of VAT",
+  "@productVatIncluded": {
+    "description": "Product page: note under the price."
+  },
+  "productInstalments": "{count} interest-free payments of ",
+  "@productInstalments": {
+    "description": "Product page: text before the instalment amount; ends with a space.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productCouponApply": "Apply",
+  "@productCouponApply": {
+    "description": "Product page: applies the coupon."
+  },
+  "productCouponApplied": "Applied",
+  "@productCouponApplied": {
+    "description": "Product page: the coupon once applied."
+  },
+  "productCouponAppliedNote": "Coupon applied. You'll see the discount at checkout.",
+  "@productCouponAppliedNote": {
+    "description": "Product page: message after applying the coupon."
+  },
+  "productFreeDeliveryLine": "Free delivery",
+  "@productFreeDeliveryLine": {
+    "description": "Product page: under the price in the bottom bar."
+  },
+  "productAddToCart": "Add to cart",
+  "@productAddToCart": {
+    "description": "Product page: the bottom bar's button."
+  },
+  "productIncrease": "Add one",
+  "@productIncrease": {
+    "description": "Product page: the stepper's plus."
+  },
+  "productDecrease": "Remove one",
+  "@productDecrease": {
+    "description": "Product page: the stepper's minus."
+  },
+  "productQuantity": "{count, plural, =1{1 in cart} other{{count} in cart}}",
+  "@productQuantity": {
+    "description": "Product page: the stepper's count for screen readers.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddedToCart": "Added to cart",
+  "@productAddedToCart": {
+    "description": "Product page: the toast after adding."
+  },
+  "productViewCart": "View cart",
+  "@productViewCart": {
+    "description": "Product page: the toast's link to the cart."
   }
 }

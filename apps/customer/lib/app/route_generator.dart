@@ -2,13 +2,16 @@ import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/route_transitions.dart';
 import 'package:core/utils/social_account.dart';
 import 'package:customer/app/customer_shell.dart';
+import 'package:customer/app/shell_navigation.dart';
 import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/features/auth/presentation/view/otp_view.dart';
 import 'package:customer/features/auth/presentation/view/verify_mobile_view.dart';
 import 'package:customer/features/main/presentation/view/main_view.dart';
+import 'package:customer/features/main/presentation/view_model/main_tab_view_model.dart';
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
+import 'package:customer/features/product/presentation/view/product_view.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
 import 'package:customer/routing/app_routes.dart';
@@ -65,6 +68,17 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       settings,
       duration: MainView.entryFade,
     ),
+    Routes.product => switch (settings.arguments) {
+      final String id => pushRoute<void>(
+        ProductView(
+          id: id,
+          onOpenCart: (context) => openShellTab(context, MainTab.cart),
+        ),
+        settings,
+        duration: ProductView.entryDuration,
+      ),
+      _ => materialRoute<void>(const NotFoundView(), settings),
+    },
     Routes.profile => pushRoute<void>(
       ProfileView(
         account: switch (settings.arguments) {
