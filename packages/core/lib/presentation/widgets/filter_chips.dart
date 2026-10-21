@@ -126,7 +126,6 @@ class AppChip extends StatelessWidget {
           duration: context.motion(_duration),
           height: height.h,
           padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
-          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: selected
                 ? colors.inverseSurface
@@ -136,10 +135,13 @@ class AppChip extends StatelessWidget {
                 ? null
                 : Border.all(color: colors.outlineVariant, width: _border),
           ),
-          child: Text(
-            label,
-            style: context.textTheme.labelLarge?.copyWith(
-              color: selected ? colors.onInverseSurface : colors.onSurface,
+          child: Center(
+            widthFactor: 1,
+            child: Text(
+              label,
+              style: context.textTheme.labelLarge?.copyWith(
+                color: selected ? colors.onInverseSurface : colors.onSurface,
+              ),
             ),
           ),
         ),
