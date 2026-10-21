@@ -30,6 +30,7 @@ const Product _product = Product(
 Future<(ProviderContainer, List<String>)> _pump(
   WidgetTester tester, {
   VoidCallback? onOpenCart,
+  bool flat = false,
 }) async {
   useDesignScreen(tester);
   final container = ProviderContainer.test();
@@ -45,6 +46,7 @@ Future<(ProviderContainer, List<String>)> _pump(
               child: ProductCard(
                 product: _product,
                 width: 160,
+                flat: flat,
                 onOpen: () => opened.add(_product.id),
               ),
             ),
@@ -138,5 +140,21 @@ void main() {
     await tester.tap(find.text(_product.name));
 
     expect(opened, [_product.id]);
+  });
+
+  testWidgets('a flat card is square', (
+    tester,
+  ) async {
+    await _pump(tester, flat: true);
+
+    final card = tester.widget<Material>(
+      find
+          .descendant(
+            of: find.byType(ProductCard),
+            matching: find.byType(Material),
+          )
+          .first,
+    );
+    expect(card.borderRadius, BorderRadius.zero);
   });
 }
