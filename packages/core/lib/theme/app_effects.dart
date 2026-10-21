@@ -39,4 +39,23 @@ abstract final class AppEffects {
       blurRadius: 6.06,
     ),
   ];
+
+  /// A bar pinned to the foot of the screen over the page (Figma: y -4,
+  /// blur 16, 6%).
+  static const List<BoxShadow> bottomBar = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x0F0F1729),
+      offset: Offset(0, -4),
+      blurRadius: 12.99,
+    ),
+  ];
+
+  /// A toast floating over the page (Figma: y 6, blur 18, 18%).
+  static const List<BoxShadow> toast = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x2E000000),
+      offset: Offset(0, 6),
+      blurRadius: 14.72,
+    ),
+  ];
 }

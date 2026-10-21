@@ -13,14 +13,16 @@ class WishlistHeartButton extends StatefulWidget {
     required this.saved,
     required this.tooltip,
     required this.onPressed,
+    this.size = 36,
+    this.iconSize = 22,
     super.key,
   });
 
   final bool saved;
   final String tooltip;
   final VoidCallback onPressed;
-
-  static const double size = 36;
+  final double size;
+  final double iconSize;
 
   @override
   State<WishlistHeartButton> createState() => _WishlistHeartButtonState();
@@ -28,7 +30,6 @@ class WishlistHeartButton extends StatefulWidget {
 
 class _WishlistHeartButtonState extends State<WishlistHeartButton>
     with SingleTickerProviderStateMixin {
-  static const double _icon = 22;
   static const double _ringStart = 0.6;
   static const double _ringEnd = 1.7;
   static const double _ringOpacity = 0.35;
@@ -91,7 +92,7 @@ class _WishlistHeartButtonState extends State<WishlistHeartButton>
   Widget build(BuildContext context) {
     final colors = context.colors;
     final sale = context.appColors.commerceSale;
-    final size = WishlistHeartButton.size.r;
+    final size = widget.size.r;
     return Tooltip(
       message: widget.tooltip,
       child: Semantics(
@@ -153,8 +154,8 @@ class _WishlistHeartButtonState extends State<WishlistHeartButton>
                               ? Assets.iconsHeartFilled
                               : Assets.iconsHeart,
                           key: ValueKey<bool>(widget.saved),
-                          width: _icon.r,
-                          height: _icon.r,
+                          width: widget.iconSize.r,
+                          height: widget.iconSize.r,
                           colorFilter: ColorFilter.mode(
                             widget.saved ? sale : colors.onSurface,
                             BlendMode.srcIn,

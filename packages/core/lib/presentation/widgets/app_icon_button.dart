@@ -15,6 +15,9 @@ enum AppIconButtonVariant {
 
   /// White over a photo.
   glass,
+
+  /// The icon alone, as in a top bar.
+  plain,
 }
 
 /// The design system's round icon button, [size] across with a 48 tap area
@@ -54,6 +57,7 @@ class AppIconButton extends StatelessWidget {
         colors.surfaceContainerLowest,
         colors.onSurface,
       ),
+      AppIconButtonVariant.plain => (null, colors.onSurface),
     };
     final button = IconButton(
       onPressed: onPressed,

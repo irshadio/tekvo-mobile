@@ -27,6 +27,17 @@ abstract final class Routes {
   /// Takes the product's id.
   static const String product = '/product';
 
+  /// Takes the brand's store name.
+  static const String store = '/store';
+
+  /// Each takes the product's id.
+  static const String specifications = '/product/specifications';
+  static const String reviews = '/product/reviews';
+  static const String questions = '/product/questions';
+  static const String askQuestion = '/product/questions/ask';
+
+  static const String addresses = '/addresses';
+
   /// Takes the `ShopCategory` to list.
   static const String productList = '/products';
 }

@@ -29,6 +29,7 @@ abstract final class Assets {
   static const String iconsBell = 'packages/core/assets/icons/bell.svg';
   static const String iconsBolt = 'packages/core/assets/icons/bolt.svg';
   static const String iconsCamera = 'packages/core/assets/icons/camera.svg';
+  static const String iconsCard = 'packages/core/assets/icons/card.svg';
   static const String iconsCaretDown =
       'packages/core/assets/icons/caret_down.svg';
   static const String iconsCart = 'packages/core/assets/icons/cart.svg';
@@ -49,6 +50,7 @@ abstract final class Assets {
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
   static const String iconsFilter = 'packages/core/assets/icons/filter.svg';
   static const String iconsGamepad = 'packages/core/assets/icons/gamepad.svg';
+  static const String iconsGlobe = 'packages/core/assets/icons/globe.svg';
   static const String iconsHeadphones =
       'packages/core/assets/icons/headphones.svg';
   static const String iconsHeart = 'packages/core/assets/icons/heart.svg';
@@ -56,14 +58,18 @@ abstract final class Assets {
       'packages/core/assets/icons/heart_filled.svg';
   static const String iconsHome = 'packages/core/assets/icons/home.svg';
   static const String iconsLaptop = 'packages/core/assets/icons/laptop.svg';
+  static const String iconsLock = 'packages/core/assets/icons/lock.svg';
   static const String iconsMail = 'packages/core/assets/icons/mail.svg';
+  static const String iconsMinus = 'packages/core/assets/icons/minus.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
   static const String iconsPerson = 'packages/core/assets/icons/person.svg';
   static const String iconsPhone = 'packages/core/assets/icons/phone.svg';
+  static const String iconsPin = 'packages/core/assets/icons/pin.svg';
   static const String iconsPlus = 'packages/core/assets/icons/plus.svg';
   static const String iconsReturns = 'packages/core/assets/icons/returns.svg';
   static const String iconsSearch = 'packages/core/assets/icons/search.svg';
+  static const String iconsShare = 'packages/core/assets/icons/share.svg';
   static const String iconsShield = 'packages/core/assets/icons/shield.svg';
   static const String iconsSpeaker = 'packages/core/assets/icons/speaker.svg';
   static const String iconsStarFilled =

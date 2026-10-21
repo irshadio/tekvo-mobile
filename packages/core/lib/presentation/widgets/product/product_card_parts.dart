@@ -1,12 +1,11 @@
 import 'package:core/assets/assets.gen.dart';
+import 'package:core/catalog/product.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/money_format.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:core/theme/app_text_emphasis.dart';
 import 'package:core/utils/format_cache.dart';
-import 'package:customer/features/home/domain/entities/product.dart';
-import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,7 +22,7 @@ class ProductTagChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = context.colors;
     final colors = context.appColors;
-    final l10n = context.l10n;
+    final l10n = context.coreL10n;
     final (label, background, foreground) = switch (tag) {
       SaleTag(:final percent) => (
         l10n.productDiscount(percent),
@@ -81,11 +80,11 @@ class RatingLine extends StatelessWidget {
     final score = FormatCache.number('0.0', locale).format(rating);
     final ratings = count < _thousand
         ? FormatCache.decimal(locale).format(count)
-        : context.l10n.productThousands(
+        : context.coreL10n.productThousands(
             FormatCache.number('0.0', locale).format(count / _thousand),
           );
     return Semantics(
-      label: context.l10n.productRating(score, count),
+      label: context.coreL10n.productRating(score, count),
       excludeSemantics: true,
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -102,7 +101,7 @@ class RatingLine extends StatelessWidget {
           ),
           Text(score, style: text.labelMedium),
           Text(
-            context.l10n.productRatingCount(ratings),
+            context.coreL10n.productRatingCount(ratings),
             style: text.bodySmall?.copyWith(color: colors.onSurfaceVariant),
           ),
         ],
@@ -163,7 +162,7 @@ class AddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final l10n = context.l10n;
+    final l10n = context.coreL10n;
     return Semantics(
       button: true,
       label: added ? l10n.productInCart : l10n.productAdd,

@@ -11,6 +11,7 @@ import 'package:core/network/remote_client_provider.dart';
 import 'package:core/network/token_provider.dart';
 import 'package:core/network/unauthorized_handler.dart';
 import 'package:core/permissions/permission_service.dart';
+import 'package:core/sharing/share_service.dart';
 import 'package:core/storage/local_store.dart';
 import 'package:core/storage/onboarding_store.dart';
 import 'package:core/storage/secure_store.dart';
@@ -60,6 +61,7 @@ Future<List<Override>> buildCoreOverrides({
       (ref) => OnboardingStoreImpl(ref.watch(localStoreProvider)),
     ),
     permissionServiceProvider.overrideWith((ref) => PermissionServiceImpl()),
+    shareServiceProvider.overrideWith((ref) => const ShareServiceImpl()),
 
     // Host names only: literal IPs "resolve" without a network. Uncached
     // so a probe after a network change sees the change.

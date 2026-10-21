@@ -2,7 +2,6 @@ import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,6 +11,7 @@ class SectionHeader extends StatelessWidget {
   const SectionHeader({
     required this.title,
     required this.onSeeAll,
+    this.seeAll,
     this.leading,
     this.trailing,
     super.key,
@@ -19,6 +19,9 @@ class SectionHeader extends StatelessWidget {
 
   final String title;
   final VoidCallback onSeeAll;
+
+  /// The link's words, `See all` unless given, such as `See all 38`.
+  final String? seeAll;
 
   /// Drawn before the title, such as the flash deals bolt.
   final Widget? leading;
@@ -65,7 +68,7 @@ class SectionHeader extends StatelessWidget {
               spacing: AppSpacing.xxs.w,
               children: <Widget>[
                 Text(
-                  context.l10n.homeSeeAll,
+                  seeAll ?? context.coreL10n.seeAll,
                   style: text.labelLarge?.copyWith(color: colors.primary),
                 ),
                 Transform.flip(

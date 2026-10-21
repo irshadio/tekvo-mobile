@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:core/catalog/product.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/money_format.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/features/home/domain/entities/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

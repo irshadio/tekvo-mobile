@@ -1,4 +1,4 @@
-import 'package:customer/features/home/domain/entities/product.dart';
+import 'package:core/catalog/product.dart';
 import 'package:flutter/foundation.dart';
 
 /// A product in the flash sale and how much of its stock has sold.

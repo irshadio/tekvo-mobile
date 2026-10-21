@@ -502,10 +502,6 @@
   "@homeReturns": {
     "description": "Home trust strip: the returns window."
   },
-  "homeSeeAll": "See all",
-  "@homeSeeAll": {
-    "description": "Home: link beside a section title to its full list."
-  },
   "homeShopByCategory": "Shop by category",
   "@homeShopByCategory": {
     "description": "Home: the categories section's title."
@@ -568,91 +564,6 @@
   "@homeDealsByCategory": {
     "description": "Home: the category deals section's title."
   },
-  "productDiscount": "-{percent}%",
-  "@productDiscount": {
-    "description": "Product tag: the discount.",
-    "placeholders": {
-      "percent": {
-        "type": "int"
-      }
-    }
-  },
-  "productNew": "NEW",
-  "@productNew": {
-    "description": "Product tag: a new product; upper case in English."
-  },
-  "productBestseller": "Bestseller",
-  "@productBestseller": {
-    "description": "Product tag: a bestseller."
-  },
-  "productLowStock": "{left, plural, =1{Only 1 left} other{Only {left} left}}",
-  "@productLowStock": {
-    "description": "Product tag: little stock left.",
-    "placeholders": {
-      "left": {
-        "type": "int"
-      }
-    }
-  },
-  "productFreeDelivery": "Free delivery",
-  "@productFreeDelivery": {
-    "description": "Product tag: delivered free."
-  },
-  "productThousands": "{value}k",
-  "@productThousands": {
-    "description": "A count in thousands, such as 3.2k ratings.",
-    "placeholders": {
-      "value": {
-        "type": "String",
-        "example": "3.2"
-      }
-    }
-  },
-  "productRatingCount": "({count})",
-  "@productRatingCount": {
-    "description": "The number of ratings beside the score.",
-    "placeholders": {
-      "count": {
-        "type": "String",
-        "example": "3.2k"
-      }
-    }
-  },
-  "productRating": "Rated {score} out of 5 by {count, plural, =1{1 person} other{{count} people}}",
-  "@productRating": {
-    "description": "Screen-reader label of a product's rating.",
-    "placeholders": {
-      "score": {
-        "type": "String",
-        "example": "4.8"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "productAdd": "Add to cart",
-  "@productAdd": {
-    "description": "A product card's add button."
-  },
-  "productSave": "Save {name} to wishlist",
-  "@productSave": {
-    "description": "A product card's heart.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "productUnsave": "Remove {name} from wishlist",
-  "@productUnsave": {
-    "description": "A product card's filled heart.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "homeBestInPhones": "Best in phones",
   "@homeBestInPhones": {
     "description": "Home: the phones section's title."
@@ -660,10 +571,6 @@
   "homeAll": "All",
   "@homeAll": {
     "description": "Home: the filter chip that shows every product."
-  },
-  "homeNoProducts": "No products match this filter yet.",
-  "@homeNoProducts": {
-    "description": "Home: a filter that keeps no products."
   },
   "homeTrendingAudio": "Trending in audio",
   "@homeTrendingAudio": {
@@ -711,8 +618,387 @@
   "@homeFooterReturnsDetail": {
     "description": "Home footer: the returns promise, detail."
   },
-  "productInCart": "In your cart, view cart",
-  "@productInCart": {
-    "description": "A product card's check once the product is in the cart; opens the cart."
+  "productSearch": "Search",
+  "@productSearch": {
+    "description": "Product page: the search button."
+  },
+  "productShare": "Share",
+  "@productShare": {
+    "description": "Product page: the share button."
+  },
+  "productPhoto": "Photo {index} of {count}",
+  "@productPhoto": {
+    "description": "Product page: a photo's screen-reader label.",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productPhotoCount": "{index} / {count}",
+  "@productPhotoCount": {
+    "description": "Product page: which photo shows, over the gallery.",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productVisitStore": "Visit the {store} store",
+  "@productVisitStore": {
+    "description": "Product page: link to the brand's store.",
+    "placeholders": {
+      "store": {
+        "type": "String",
+        "example": "Nova"
+      }
+    }
+  },
+  "productOfficialStore": "Official store",
+  "@productOfficialStore": {
+    "description": "Product page: badge for a brand's own store."
+  },
+  "productRatingTotal": "({count})",
+  "@productRatingTotal": {
+    "description": "Product page: how many rated it, beside the score.",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "example": "2,318"
+      }
+    }
+  },
+  "productSoldThisWeek": "{count} sold this week",
+  "@productSoldThisWeek": {
+    "description": "Product page: recent sales.",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "example": "1.2k"
+      }
+    }
+  },
+  "productSaving": "Save {amount}",
+  "@productSaving": {
+    "description": "Product page: what the sale saves.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "AED 500"
+      }
+    }
+  },
+  "productVatIncluded": "Inclusive of VAT",
+  "@productVatIncluded": {
+    "description": "Product page: note under the price."
+  },
+  "productInstalments": "{count} interest-free payments of ",
+  "@productInstalments": {
+    "description": "Product page: text before the instalment amount; ends with a space.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productCouponApply": "Apply",
+  "@productCouponApply": {
+    "description": "Product page: applies the coupon."
+  },
+  "productCouponApplied": "Applied",
+  "@productCouponApplied": {
+    "description": "Product page: the coupon once applied."
+  },
+  "productCouponAppliedNote": "Coupon applied. You'll see the discount at checkout.",
+  "@productCouponAppliedNote": {
+    "description": "Product page: message after applying the coupon."
+  },
+  "productFreeDeliveryLine": "Free delivery",
+  "@productFreeDeliveryLine": {
+    "description": "Product page: under the price in the bottom bar."
+  },
+  "productAddToCart": "Add to cart",
+  "@productAddToCart": {
+    "description": "Product page: the bottom bar's button."
+  },
+  "productIncrease": "Add one",
+  "@productIncrease": {
+    "description": "Product page: the stepper's plus."
+  },
+  "productDecrease": "Remove one",
+  "@productDecrease": {
+    "description": "Product page: the stepper's minus."
+  },
+  "productQuantity": "{count, plural, =1{1 in cart} other{{count} in cart}}",
+  "@productQuantity": {
+    "description": "Product page: the stepper's count for screen readers.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddedToCart": "Added to cart",
+  "@productAddedToCart": {
+    "description": "Product page: the toast after adding."
+  },
+  "productViewCart": "View cart",
+  "@productViewCart": {
+    "description": "Product page: the toast's link to the cart."
+  },
+  "productSoldOut": "Sold out",
+  "@productSoldOut": {
+    "description": "Product page: an option that has run out."
+  },
+  "productStockLeft": "{count, plural, =1{Only 1 left in stock at this price} other{Only {count} left in stock at this price}}",
+  "@productStockLeft": {
+    "description": "Product page: few left at this price.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productBundleTitle": "Frequently bought together",
+  "@productBundleTitle": {
+    "description": "Product page: the bundle section's title."
+  },
+  "productBundleThisItem": "This item: ",
+  "@productBundleThisItem": {
+    "description": "Product page: before this product's name in the bundle; ends with a space."
+  },
+  "productBundleTotal": "{count, plural, =1{Total for 1 item} other{Total for {count} items}}",
+  "@productBundleTotal": {
+    "description": "Product page: the bundle's total line.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productBundleAdd": "{count, plural, =1{Add 1 to cart} other{Add {count} to cart}}",
+  "@productBundleAdd": {
+    "description": "Product page: adds the chosen bundle items to the cart.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productBundleItem": "Include {name}",
+  "@productBundleItem": {
+    "description": "Product page: a bundle item's checkbox.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productDeliverTo": "Deliver to {name} · {place}",
+  "@productDeliverTo": {
+    "description": "Product page: the delivery address.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "productDeliveryChange": "Change",
+  "@productDeliveryChange": {
+    "description": "Product page: changes the delivery address."
+  },
+  "productReturns": "{days}-day free returns",
+  "@productReturns": {
+    "description": "Product page: the returns promise.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "productWarranty": "{years, plural, =1{1-year warranty} other{{years}-year warranty}}",
+  "@productWarranty": {
+    "description": "Product page: the warranty promise.",
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "productSecurePayment": "Secure payment",
+  "@productSecurePayment": {
+    "description": "Product page: the payment promise."
+  },
+  "productSoldBy": "Sold by ",
+  "@productSoldBy": {
+    "description": "Product page: before the seller's name; ends with a space."
+  },
+  "productFulfilledBy": " · Fulfilled by {name}",
+  "@productFulfilledBy": {
+    "description": "Product page: after the seller's name; starts with a space.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productProtectTitle": "Protect your phone",
+  "@productProtectTitle": {
+    "description": "Product page: the protection plans' title."
+  },
+  "productHighlights": "Highlights",
+  "@productHighlights": {
+    "description": "Product page: the highlights section's title."
+  },
+  "productAllSpecs": "Description & all specifications",
+  "@productAllSpecs": {
+    "description": "Product page: opens the full specification."
+  },
+  "productReviewsTitle": "Ratings & reviews",
+  "@productReviewsTitle": {
+    "description": "Product page: the reviews section's title."
+  },
+  "productRatingsCount": "{count} ratings",
+  "@productRatingsCount": {
+    "description": "Product page: how many ratings, already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productRatingShare": "{stars} stars, {percent}%",
+  "@productRatingShare": {
+    "description": "Product page: a rating bar read aloud.",
+    "placeholders": {
+      "stars": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "productPercent": "{percent}%",
+  "@productPercent": {
+    "description": "Product page: a rating bar's share.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "productMention": "{label} · {count}",
+  "@productMention": {
+    "description": "Product page: a topic reviews mention, with how many.",
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productVerifiedPurchase": "Verified purchase · {variant}",
+  "@productVerifiedPurchase": {
+    "description": "Product page: what a reviewer bought.",
+    "placeholders": {
+      "variant": {
+        "type": "String"
+      }
+    }
+  },
+  "productHelpful": "Helpful · {count}",
+  "@productHelpful": {
+    "description": "Product page: marks a review or answer helpful, with the count.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productReadAllReviews": "Read all {count} reviews",
+  "@productReadAllReviews": {
+    "description": "Product page: opens every review.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "productQuestionsTitle": "Questions & answers",
+  "@productQuestionsTitle": {
+    "description": "Product page: the questions section's title."
+  },
+  "productSeeAllCount": "See all {count}",
+  "@productSeeAllCount": {
+    "description": "Product page: link to every question.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productQuestionBadge": "Q",
+  "@productQuestionBadge": {
+    "description": "Product page: the badge before a question."
+  },
+  "productAnswerBadge": "A",
+  "@productAnswerBadge": {
+    "description": "Product page: the badge before an answer."
+  },
+  "productAnswerSeller": "{name} · Seller",
+  "@productAnswerSeller": {
+    "description": "Product page: an answer from the seller.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productAnswerBuyer": "{name} · Verified buyer",
+  "@productAnswerBuyer": {
+    "description": "Product page: an answer from a buyer.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productAskQuestion": "Ask a question",
+  "@productAskQuestion": {
+    "description": "Product page: asks the seller and buyers a question."
+  },
+  "productAlsoViewed": "Customers also viewed",
+  "@productAlsoViewed": {
+    "description": "Product page: products others looked at."
+  },
+  "productBundleAddAll": "Add all {count}",
+  "@productBundleAddAll": {
+    "description": "Product page: adds every bundle item to the cart.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productOptionName": "{name}: ",
+  "@productOptionName": {
+    "description": "Product page: an option group's name before the chosen option, such as Colour; ends with a space.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   }
 }
