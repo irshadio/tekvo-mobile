@@ -5,6 +5,7 @@ import 'package:customer/features/product/domain/entities/product_bundle.dart';
 import 'package:customer/features/product/domain/entities/product_delivery.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
 import 'package:customer/features/product/domain/entities/product_options.dart';
+import 'package:customer/features/product/domain/entities/product_questions.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/domain/entities/product_specs.dart';
@@ -198,20 +199,30 @@ final ProductDetails _novaXPro = ProductDetails(
   questions: const Questions(
     top: <ProductQuestion>[
       ProductQuestion(
+        id: 'q-esim',
         question: 'Does it support dual eSIM?',
-        answer: 'Yes. You can use two eSIMs, or one nano-SIM with one eSIM.',
-        answeredBy: 'Nova Official Store',
-        by: AnswerBy.seller,
-        helpful: 12,
+        answers: <Answer>[
+          Answer(
+            text: 'Yes. You can use two eSIMs, or one nano-SIM with one eSIM.',
+            author: 'Nova Official Store',
+            by: AnswerBy.seller,
+            helpful: 12,
+          ),
+        ],
       ),
       ProductQuestion(
+        id: 'q-charger-box',
         question: 'Is a charger included in the box?',
-        answer:
-            'No, the box has a USB-C cable only. The 65 W charger is sold '
-            'separately for AED 129.',
-        answeredBy: 'Ahmed K.',
-        by: AnswerBy.buyer,
-        helpful: 9,
+        answers: <Answer>[
+          Answer(
+            text:
+                'No, the box has a USB-C cable only. The 65 W charger is '
+                'sold separately for AED 129.',
+            author: 'Ahmed K.',
+            by: AnswerBy.buyer,
+            helpful: 9,
+          ),
+        ],
       ),
     ],
     total: 38,

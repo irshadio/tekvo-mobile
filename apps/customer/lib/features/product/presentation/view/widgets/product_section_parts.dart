@@ -92,12 +92,17 @@ class ProductStars extends StatelessWidget {
 
 /// A square tick box that fills with the brand colour when [checked].
 class ProductCheckbox extends StatelessWidget {
-  const ProductCheckbox({required this.checked, super.key});
+  const ProductCheckbox({
+    required this.checked,
+    this.size = 20,
+    this.tick = 14,
+    super.key,
+  });
 
   final bool checked;
+  final double size;
+  final double tick;
 
-  static const double _size = 20;
-  static const double _tick = 14;
   static const double _border = 1.5;
   static const Duration _fill = Duration(milliseconds: 150);
 
@@ -106,8 +111,8 @@ class ProductCheckbox extends StatelessWidget {
     final colors = context.colors;
     return AnimatedContainer(
       duration: context.motion(_fill),
-      width: _size.r,
-      height: _size.r,
+      width: size.r,
+      height: size.r,
       decoration: BoxDecoration(
         color: checked ? colors.primary : colors.surfaceContainerLowest,
         borderRadius: BorderRadius.circular(AppRadius.xs.r),
@@ -122,7 +127,7 @@ class ProductCheckbox extends StatelessWidget {
         child: Center(
           child: ProductIcon(
             Assets.iconsCheck,
-            size: _tick,
+            size: tick,
             color: colors.onPrimary,
           ),
         ),

@@ -41,8 +41,9 @@ abstract final class Routes {
 
   /// Each takes the product's id.
   static const String writeReview = '/product/reviews/write';
+
+  /// Takes a `QuestionsRequest`: the product and whether to start asking.
   static const String questions = '/product/questions';
-  static const String askQuestion = '/product/questions/ask';
 
   static const String addresses = '/addresses';
   static const String orders = '/orders';

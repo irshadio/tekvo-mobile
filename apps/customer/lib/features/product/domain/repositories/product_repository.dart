@@ -1,5 +1,6 @@
 import 'package:core/error/failure.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_questions.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/domain/entities/review_form.dart';
@@ -29,6 +30,22 @@ abstract interface class ProductRepository {
     String id,
     ReviewDraft draft,
   );
+
+  /// The questions about [topic], or all, that match [search].
+  Future<Either<Failure, QuestionsPage>> questions(
+    String id, {
+    required String? topic,
+    required String search,
+    required QuestionSort sort,
+  });
+
+  /// Posts a question, or an answer to [questionId] when given.
+  Future<Either<Failure, Unit>> post(
+    String id,
+    String text, {
+    String? questionId,
+    bool notify = true,
+  });
 }
 
 /// Bound in `product_overrides.dart`.

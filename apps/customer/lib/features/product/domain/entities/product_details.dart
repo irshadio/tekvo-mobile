@@ -3,6 +3,7 @@ import 'package:core/utils/money.dart';
 import 'package:customer/features/product/domain/entities/product_bundle.dart';
 import 'package:customer/features/product/domain/entities/product_delivery.dart';
 import 'package:customer/features/product/domain/entities/product_options.dart';
+import 'package:customer/features/product/domain/entities/product_questions.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specs.dart';
 import 'package:flutter/foundation.dart';

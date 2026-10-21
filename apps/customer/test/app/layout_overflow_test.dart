@@ -15,6 +15,7 @@ import 'package:customer/features/permissions/presentation/view/location_permiss
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
 import 'package:customer/features/product/domain/entities/review_form.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
+import 'package:customer/features/product/presentation/view/questions_view.dart';
 import 'package:customer/features/product/presentation/view/review_submitted_view.dart';
 import 'package:customer/features/product/presentation/view/reviews_view.dart';
 import 'package:customer/features/product/presentation/view/specifications_view.dart';
@@ -52,6 +53,7 @@ final Map<String, Widget> _screens = {
   'product': ProductView(id: 'nova-x-pro', onOpenCart: (_) {}),
   'specifications': const SpecificationsView(id: 'nova-x-pro'),
   'reviews': const ReviewsView(id: 'nova-x-pro'),
+  'questions': const QuestionsView(id: 'nova-x-pro'),
   'write-review': const WriteReviewView(id: 'nova-x-pro'),
   'review-sent': ReviewSubmittedView(
     receipt: const ReviewReceipt(

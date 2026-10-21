@@ -1269,5 +1269,123 @@
   "productContinueShopping": "Continue shopping",
   "@productContinueShopping": {
     "description": "Review submitted: back to the shop."
+  },
+  "productQuestionsSearch": "Search questions",
+  "@productQuestionsSearch": {
+    "description": "Questions: the search field's hint."
+  },
+  "productQuestionFilterAll": "All · {count}",
+  "@productQuestionFilterAll": {
+    "description": "Questions: the filter that shows every question.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productQuestionsSummary": "{questions} questions · {answers} answers",
+  "@productQuestionsSummary": {
+    "description": "Questions: how many there are, already formatted.",
+    "placeholders": {
+      "questions": {
+        "type": "String"
+      },
+      "answers": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeeAnswers": "{count, plural, =1{See all 1 answer} other{See all {count} answers}}",
+  "@productSeeAnswers": {
+    "description": "Questions: shows a question's other answers.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productFewerAnswers": "Show fewer answers",
+  "@productFewerAnswers": {
+    "description": "Questions: hides a question's other answers."
+  },
+  "productAnswerAction": "Answer",
+  "@productAnswerAction": {
+    "description": "Questions: answers a question."
+  },
+  "productCantFind": "Can’t find your answer?",
+  "@productCantFind": {
+    "description": "Questions: above Ask a question."
+  },
+  "productCantFindBody": "Ask the seller or people who bought it. Most questions get an answer within 4 hours.",
+  "@productCantFindBody": {
+    "description": "Questions: under Can’t find your answer."
+  },
+  "productNoQuestionsMatch": "No questions match your search.",
+  "@productNoQuestionsMatch": {
+    "description": "Questions: a search or filter that keeps none."
+  },
+  "productYourQuestion": "Your question",
+  "@productYourQuestion": {
+    "description": "Ask a question: the field's label."
+  },
+  "productQuestionHint": "What would you like to know?",
+  "@productQuestionHint": {
+    "description": "Ask a question: the field's hint."
+  },
+  "productQuestionPublic": "Questions are public. Don’t share phone numbers or order details.",
+  "@productQuestionPublic": {
+    "description": "Ask a question: under the field."
+  },
+  "productTextCounter": "{count}/{max}",
+  "@productTextCounter": {
+    "description": "Ask a question: characters used of the most allowed.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "productWhoAnswers": "The seller and verified buyers get your question. Most are answered within 4 hours.",
+  "@productWhoAnswers": {
+    "description": "Ask a question: who answers."
+  },
+  "productNotifyMe": "Notify me when someone answers",
+  "@productNotifyMe": {
+    "description": "Ask a question: the notify checkbox."
+  },
+  "productPostQuestion": "Post question",
+  "@productPostQuestion": {
+    "description": "Ask a question: sends it."
+  },
+  "productQuestionPosted": "Question posted. We’ll let you know when it’s answered.",
+  "@productQuestionPosted": {
+    "description": "Ask a question: after posting."
+  },
+  "productAnswerTitle": "Answer a question",
+  "@productAnswerTitle": {
+    "description": "Answer: the sheet's title."
+  },
+  "productYourAnswer": "Your answer",
+  "@productYourAnswer": {
+    "description": "Answer: the field's label."
+  },
+  "productAnswerHint": "Share what you know",
+  "@productAnswerHint": {
+    "description": "Answer: the field's hint."
+  },
+  "productAnswerPublic": "Answers are public. Keep to what you know about the product.",
+  "@productAnswerPublic": {
+    "description": "Answer: under the field."
+  },
+  "productPostAnswer": "Post answer",
+  "@productPostAnswer": {
+    "description": "Answer: sends it."
+  },
+  "productAnswerPosted": "Thanks! Your answer goes live after a quick check.",
+  "@productAnswerPosted": {
+    "description": "Answer: after posting."
   }
 }
