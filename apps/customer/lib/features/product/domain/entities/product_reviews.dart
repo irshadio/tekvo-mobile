@@ -149,34 +149,3 @@ final class ReviewsPage {
   final List<Review> reviews;
   final bool hasMore;
 }
-
-enum AnswerBy { seller, buyer }
-
-/// A question someone asked, with its best answer.
-@immutable
-final class ProductQuestion {
-  const ProductQuestion({
-    required this.question,
-    required this.answer,
-    required this.answeredBy,
-    required this.by,
-    required this.helpful,
-  });
-
-  final String question;
-  final String answer;
-
-  /// Who answered, such as `Nova Official Store`.
-  final String answeredBy;
-  final AnswerBy by;
-  final int helpful;
-}
-
-/// A few questions and how many there are.
-@immutable
-final class Questions {
-  const Questions({required this.top, required this.total});
-
-  final List<ProductQuestion> top;
-  final int total;
-}
