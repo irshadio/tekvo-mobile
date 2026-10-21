@@ -1,9 +1,9 @@
 import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/view_model/cart_count_view_model.dart';
+import 'package:core/presentation/widgets/count_badge.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:core/theme/app_text_emphasis.dart';
 import 'package:customer/features/main/presentation/view_model/main_tab_view_model.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:customer/l10n/generated/app_localizations.dart';
@@ -141,7 +141,10 @@ class _NavItem extends StatelessWidget {
                         PositionedDirectional(
                           start: 28.w,
                           top: 0,
-                          child: _Badge(count: count),
+                          child: CountBadge(
+                            count: count,
+                            ring: colors.surfaceContainerLowest,
+                          ),
                         ),
                     ],
                   ),
@@ -157,47 +160,6 @@ class _NavItem extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// The cart count, ringed in the bar's colour; it pops when it changes.
-class _Badge extends StatelessWidget {
-  const _Badge({required this.count});
-
-  final int count;
-
-  static const double _size = 18;
-  static const double _ring = 2;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.appColors;
-    return AnimatedSwitcher(
-      duration: context.motion(const Duration(milliseconds: 200)),
-      transitionBuilder: (child, animation) =>
-          ScaleTransition(scale: animation, child: child),
-      child: Container(
-        key: ValueKey<int>(count),
-        constraints: BoxConstraints(minWidth: _size.r, minHeight: _size.r),
-        padding: EdgeInsets.symmetric(horizontal: AppSpacing.xs.w),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: colors.commerceSale,
-          borderRadius: BorderRadius.circular(_size.r / 2),
-          border: Border.all(
-            color: context.colors.surfaceContainerLowest,
-            width: _ring,
-            strokeAlign: BorderSide.strokeAlignOutside,
-          ),
-        ),
-        child: Text(
-          '$count',
-          style: context.textTheme.labelSmall?.bold.copyWith(
-            color: colors.commerceOnSale,
           ),
         ),
       ),

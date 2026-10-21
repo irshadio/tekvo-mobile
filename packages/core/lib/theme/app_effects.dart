@@ -20,4 +20,14 @@ abstract final class AppEffects {
       blurRadius: 12.99,
     ),
   ];
+
+  /// The pinned header's shadow over the scrolling page (Figma: y 4,
+  /// blur 12, 6%).
+  static const List<BoxShadow> pinnedHeader = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x0F080D1A),
+      offset: Offset(0, 4),
+      blurRadius: 9.53,
+    ),
+  ];
 }
