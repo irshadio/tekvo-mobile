@@ -54,6 +54,7 @@ flutter:
     - assets/icons/benefit/
     - assets/icons/chip/
     - assets/icons/hero/
+    - assets/icons/social/
     - assets/images/onboarding/
   fonts:
     - family: Inter
