@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:core/catalog/product.dart';
+import 'package:core/catalog/shop_category.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/ref_extensions.dart';
 import 'package:core/presentation/view_model/cart_view_model.dart';
@@ -15,7 +16,6 @@ import 'package:core/state/view_state.dart';
 import 'package:core/theme/app_sizes.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:customer/features/home/domain/entities/home_feed.dart';
-import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/presentation/view/widgets/category_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/deals_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/flash_deals_section.dart';

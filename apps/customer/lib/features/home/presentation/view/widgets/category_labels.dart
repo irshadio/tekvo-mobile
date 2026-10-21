@@ -1,4 +1,4 @@
-import 'package:customer/features/home/domain/entities/shop_category.dart';
+import 'package:core/catalog/shop_category.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/widgets.dart';
 

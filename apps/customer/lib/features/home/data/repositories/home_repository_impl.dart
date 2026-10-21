@@ -1,6 +1,7 @@
 import 'package:core/assets/assets.gen.dart';
 import 'package:core/catalog/product.dart';
 import 'package:core/catalog/promo.dart';
+import 'package:core/catalog/shop_category.dart';
 import 'package:core/error/failure.dart';
 import 'package:core/utils/money.dart';
 import 'package:customer/features/home/domain/entities/deal_tile.dart';
@@ -8,7 +9,6 @@ import 'package:customer/features/home/domain/entities/flash_deal.dart';
 import 'package:customer/features/home/domain/entities/home_feed.dart';
 import 'package:customer/features/home/domain/entities/offer.dart';
 import 'package:customer/features/home/domain/entities/product_facet.dart';
-import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/domain/repositories/home_repository.dart';
 import 'package:fpdart/fpdart.dart';
 
