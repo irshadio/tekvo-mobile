@@ -15,7 +15,8 @@ val keyProperties = Properties().apply {
 
 android {
     namespace = "com.tekvo.rider"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android compiles against API 37.
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

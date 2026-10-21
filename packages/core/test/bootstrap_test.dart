@@ -8,6 +8,7 @@ import 'package:core/network/connectivity.dart';
 import 'package:core/network/remote_client_provider.dart';
 import 'package:core/network/token_provider.dart';
 import 'package:core/network/unauthorized_handler.dart';
+import 'package:core/permissions/permission_service.dart';
 import 'package:core/storage/local_store.dart';
 import 'package:core/storage/onboarding_store.dart';
 import 'package:core/storage/secure_store.dart';
@@ -52,6 +53,10 @@ void main() {
     expect(
       container.read(onboardingStoreProvider),
       isA<OnboardingStoreImpl>(),
+    );
+    expect(
+      container.read(permissionServiceProvider),
+      isA<PermissionServiceImpl>(),
     );
     expect(container.read(tokenProviderProvider), isA<SecureTokenProvider>());
     expect(
