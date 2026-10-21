@@ -25,6 +25,46 @@ Route<dynamic> fadeRoute(
   transitionDuration: duration,
 );
 
+/// How long [pushRoute] takes, the prototype's push between sign-in steps.
+const Duration pushDuration = Duration(milliseconds: 350);
+
+/// The prototype's push: the page slides in from the end edge while the
+/// page under it, when also a push route, slides out to the start, over
+/// [duration]; popping reverses both.
+Route<dynamic> pushRoute<T>(
+  Widget page,
+  RouteSettings settings, {
+  Duration duration = pushDuration,
+}) => PageRouteBuilder<T>(
+  settings: settings,
+  transitionDuration: duration,
+  reverseTransitionDuration: duration,
+  pageBuilder: (_, _, _) => page,
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    if (MediaQuery.disableAnimationsOf(context)) return child;
+    final end = Directionality.of(context) == TextDirection.rtl ? -1.0 : 1.0;
+    return SlideTransition(
+      position: animation.drive(
+        Tween<Offset>(
+          begin: Offset(end, 0),
+          end: Offset.zero,
+        ).chain(_pushCurve),
+      ),
+      child: SlideTransition(
+        position: secondaryAnimation.drive(
+          Tween<Offset>(
+            begin: Offset.zero,
+            end: Offset(-end, 0),
+          ).chain(_pushCurve),
+        ),
+        child: child,
+      ),
+    );
+  },
+);
+
+final Animatable<double> _pushCurve = CurveTween(curve: Curves.easeInOut);
+
 /// Slides the page up from the bottom edge, and back down on pop.
 Route<dynamic> slideUpRoute(Widget page, RouteSettings settings) =>
     _SlideUpRoute(page, settings, _SlideUp());

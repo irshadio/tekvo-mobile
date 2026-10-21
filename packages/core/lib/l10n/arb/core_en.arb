@@ -75,5 +75,34 @@
   "routeNotFound": "Page not found",
   "@routeNotFound": {
     "description": "Shown for a route the app does not know."
+  },
+  "countryPickerTitle": "Select country",
+  "@countryPickerTitle": {
+    "description": "Country picker: the sheet's title."
+  },
+  "countryPickerSearchHint": "Search country or code",
+  "@countryPickerSearchHint": {
+    "description": "Country picker: hint in the search field."
+  },
+  "countryPickerCurrent": "CURRENT",
+  "@countryPickerCurrent": {
+    "description": "Country picker: label over the chosen country; upper case in English."
+  },
+  "countryPickerAll": "ALL COUNTRIES",
+  "@countryPickerAll": {
+    "description": "Country picker: label over the list of countries; upper case in English."
+  },
+  "countryPickerResults": "{count, plural, =0{NO RESULTS} =1{1 RESULT} other{{count} RESULTS}}",
+  "@countryPickerResults": {
+    "description": "Country picker: label over the search matches; upper case in English.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "countryPickerTip": "Tip: search by name or dial code, e.g. “+91”.",
+  "@countryPickerTip": {
+    "description": "Country picker: hint under the search matches."
   }
 }

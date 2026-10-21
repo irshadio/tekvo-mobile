@@ -10,4 +10,13 @@ abstract final class AppBrandType {
     lineHeight: 53,
     tracking: -1.6,
   );
+
+  /// The wordmark beside the 32 px logo mark in a top bar.
+  static const AppTextToken wordmarkCompact = AppTextToken(
+    family: 'Inter',
+    weight: 800,
+    size: 20.8,
+    lineHeight: 25,
+    tracking: -0.8,
+  );
 }

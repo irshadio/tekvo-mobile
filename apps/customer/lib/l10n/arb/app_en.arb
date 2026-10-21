@@ -191,5 +191,125 @@
   "notificationPermissionNote": "We send at most 3 offers a week.",
   "@notificationPermissionNote": {
     "description": "Notification permission: note under the buttons."
+  },
+  "signInSkip": "Skip",
+  "@signInSkip": {
+    "description": "Sign in: top-right button that continues without an account."
+  },
+  "signInTitle": "Sign in or create an account",
+  "@signInTitle": {
+    "description": "Sign in: the screen's title."
+  },
+  "signInBody": "Enter your mobile number and we’ll text you a {length}-digit code.",
+  "@signInBody": {
+    "description": "Sign in: text under the title.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    }
+  },
+  "signInNumberLabel": "Mobile number",
+  "@signInNumberLabel": {
+    "description": "Sign in: label over the mobile number field."
+  },
+  "signInNumberHint": "50 123 4567",
+  "@signInNumberHint": {
+    "description": "Sign in: example number in the empty field; digits only, grouped as read."
+  },
+  "signInCountryCode": "Country code {code}, change",
+  "@signInCountryCode": {
+    "description": "Sign in: screen-reader label of the country code button.",
+    "placeholders": {
+      "code": {
+        "type": "String",
+        "example": "+971"
+      }
+    }
+  },
+  "signInNumberValid": "Valid number",
+  "@signInNumberValid": {
+    "description": "Sign in: screen-reader label of the check shown once the number is valid."
+  },
+  "signInContinue": "Continue",
+  "@signInContinue": {
+    "description": "Sign in: button that texts the code."
+  },
+  "signInOr": "or continue with",
+  "@signInOr": {
+    "description": "Sign in: divider text above the Google and Apple buttons."
+  },
+  "signInGoogle": "Continue with Google",
+  "@signInGoogle": {
+    "description": "Sign in: button to sign in with Google."
+  },
+  "signInApple": "Continue with Apple",
+  "@signInApple": {
+    "description": "Sign in: button to sign in with Apple."
+  },
+  "signInTermsLead": "By continuing, you agree to Tekvo’s ",
+  "@signInTermsLead": {
+    "description": "Sign in: the agreement note, text before the terms link; ends with a space."
+  },
+  "signInTerms": "Terms of Service",
+  "@signInTerms": {
+    "description": "Sign in: the agreement note, terms link."
+  },
+  "signInTermsJoin": " and ",
+  "@signInTermsJoin": {
+    "description": "Sign in: the agreement note, text between the two links."
+  },
+  "signInPrivacy": "Privacy Policy",
+  "@signInPrivacy": {
+    "description": "Sign in: the agreement note, privacy link."
+  },
+  "signInTermsEnd": ".",
+  "@signInTermsEnd": {
+    "description": "Sign in: the agreement note, text after the privacy link."
+  },
+  "otpTitle": "Verify your number",
+  "@otpTitle": {
+    "description": "Code entry: the screen's title."
+  },
+  "otpSentTo": "Enter the {length}-digit code sent to ",
+  "@otpSentTo": {
+    "description": "Code entry: text before the mobile number the code went to; ends with a space.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    }
+  },
+  "otpEdit": "Edit",
+  "@otpEdit": {
+    "description": "Code entry: link after the number that goes back to change it."
+  },
+  "otpCodeLabel": "Verification code",
+  "@otpCodeLabel": {
+    "description": "Code entry: screen-reader name of the code boxes."
+  },
+  "otpResendIn": "Resend code in ",
+  "@otpResendIn": {
+    "description": "Code entry: text before the countdown to resending; ends with a space."
+  },
+  "otpResend": "Resend code",
+  "@otpResend": {
+    "description": "Code entry: link that texts a new code once the countdown ends."
+  },
+  "otpResent": "We sent you a new code.",
+  "@otpResent": {
+    "description": "Code entry: message after a new code is texted."
+  },
+  "otpVerify": "Verify and continue",
+  "@otpVerify": {
+    "description": "Code entry: button that checks the code."
+  },
+  "otpNoCode": "Didn’t get a code? ",
+  "@otpNoCode": {
+    "description": "Code entry: text before the link to try another number; ends with a space."
+  },
+  "otpTryAnother": "Try another number",
+  "@otpTryAnother": {
+    "description": "Code entry: link that goes back to change the number."
   }
 }

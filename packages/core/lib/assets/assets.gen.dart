@@ -26,8 +26,18 @@ abstract final class Assets {
   static const String chipTruck = 'packages/core/assets/icons/chip/truck.svg';
   static const String heroBell = 'packages/core/assets/icons/hero/bell.svg';
   static const String heroPin = 'packages/core/assets/icons/hero/pin.svg';
+  static const String iconsCaretDown =
+      'packages/core/assets/icons/caret_down.svg';
+  static const String iconsCheck = 'packages/core/assets/icons/check.svg';
+  static const String iconsCheckBadge =
+      'packages/core/assets/icons/check_badge.svg';
+  static const String iconsChevronLeft =
+      'packages/core/assets/icons/chevron_left.svg';
+  static const String iconsClock = 'packages/core/assets/icons/clock.svg';
+  static const String iconsClose = 'packages/core/assets/icons/close.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
+  static const String iconsSearch = 'packages/core/assets/icons/search.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';
   static const String onboardingFast =
       'packages/core/assets/images/onboarding/fast.jpg';
@@ -35,4 +45,8 @@ abstract final class Assets {
       'packages/core/assets/images/onboarding/genuine.jpg';
   static const String onboardingPay =
       'packages/core/assets/images/onboarding/pay.jpg';
+  static const String socialApple =
+      'packages/core/assets/icons/social/apple.svg';
+  static const String socialGoogle =
+      'packages/core/assets/icons/social/google.svg';
 }
