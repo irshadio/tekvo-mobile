@@ -1,12 +1,11 @@
+import 'package:core/catalog/product.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/view_model/wishlist_view_model.dart';
+import 'package:core/presentation/widgets/product/cart_shortcut.dart';
+import 'package:core/presentation/widgets/product/product_card_parts.dart';
+import 'package:core/presentation/widgets/product/wishlist_heart_button.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/features/home/domain/entities/product.dart';
-import 'package:customer/features/home/presentation/view/widgets/cart_shortcut.dart';
-import 'package:customer/features/home/presentation/view/widgets/product_card_parts.dart';
-import 'package:customer/features/home/presentation/view/widgets/wishlist_heart_button.dart';
-import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,7 +60,7 @@ class ProductCard extends ConsumerWidget {
     final added = ref.watch(
       cartViewModelProvider.select((cart) => cart.added.contains(product.id)),
     );
-    final l10n = context.l10n;
+    final l10n = context.coreL10n;
     final radius = BorderRadius.circular(_radius.r);
     return SizedBox(
       width: width.w,

@@ -1,7 +1,7 @@
+import 'package:core/catalog/product.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
+import 'package:core/presentation/widgets/product/product_card.dart';
 import 'package:core/theme/app_spacing.dart';
-import 'package:customer/features/home/domain/entities/product.dart';
-import 'package:customer/features/home/presentation/view/widgets/product_card.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

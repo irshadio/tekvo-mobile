@@ -568,91 +568,6 @@
   "@homeDealsByCategory": {
     "description": "Home: the category deals section's title."
   },
-  "productDiscount": "-{percent}%",
-  "@productDiscount": {
-    "description": "Product tag: the discount.",
-    "placeholders": {
-      "percent": {
-        "type": "int"
-      }
-    }
-  },
-  "productNew": "NEW",
-  "@productNew": {
-    "description": "Product tag: a new product; upper case in English."
-  },
-  "productBestseller": "Bestseller",
-  "@productBestseller": {
-    "description": "Product tag: a bestseller."
-  },
-  "productLowStock": "{left, plural, =1{Only 1 left} other{Only {left} left}}",
-  "@productLowStock": {
-    "description": "Product tag: little stock left.",
-    "placeholders": {
-      "left": {
-        "type": "int"
-      }
-    }
-  },
-  "productFreeDelivery": "Free delivery",
-  "@productFreeDelivery": {
-    "description": "Product tag: delivered free."
-  },
-  "productThousands": "{value}k",
-  "@productThousands": {
-    "description": "A count in thousands, such as 3.2k ratings.",
-    "placeholders": {
-      "value": {
-        "type": "String",
-        "example": "3.2"
-      }
-    }
-  },
-  "productRatingCount": "({count})",
-  "@productRatingCount": {
-    "description": "The number of ratings beside the score.",
-    "placeholders": {
-      "count": {
-        "type": "String",
-        "example": "3.2k"
-      }
-    }
-  },
-  "productRating": "Rated {score} out of 5 by {count, plural, =1{1 person} other{{count} people}}",
-  "@productRating": {
-    "description": "Screen-reader label of a product's rating.",
-    "placeholders": {
-      "score": {
-        "type": "String",
-        "example": "4.8"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "productAdd": "Add to cart",
-  "@productAdd": {
-    "description": "A product card's add button."
-  },
-  "productSave": "Save {name} to wishlist",
-  "@productSave": {
-    "description": "A product card's heart.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "productUnsave": "Remove {name} from wishlist",
-  "@productUnsave": {
-    "description": "A product card's filled heart.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "homeBestInPhones": "Best in phones",
   "@homeBestInPhones": {
     "description": "Home: the phones section's title."
@@ -710,9 +625,5 @@
   "homeFooterReturnsDetail": "Within 14 days",
   "@homeFooterReturnsDetail": {
     "description": "Home footer: the returns promise, detail."
-  },
-  "productInCart": "In your cart, view cart",
-  "@productInCart": {
-    "description": "A product card's check once the product is in the cart; opens the cart."
   }
 }

@@ -1,31 +1,37 @@
+import 'package:core/assets/assets.gen.dart';
+import 'package:core/catalog/product.dart';
+import 'package:core/l10n/generated/core_localizations.dart';
 import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/view_model/wishlist_view_model.dart';
-import 'package:core/presentation/widgets/design_scale.dart';
-import 'package:customer/features/home/data/repositories/home_repository_impl.dart';
-import 'package:customer/features/home/domain/entities/product.dart';
-import 'package:customer/features/home/presentation/view/widgets/cart_shortcut.dart';
-import 'package:customer/features/home/presentation/view/widgets/product_card.dart';
-import 'package:customer/features/home/presentation/view/widgets/product_card_parts.dart';
-import 'package:customer/features/home/presentation/view/widgets/wishlist_heart_button.dart';
-import 'package:customer/l10n/generated/app_localizations.dart';
-import 'package:customer/l10n/generated/app_localizations_en.dart';
+import 'package:core/presentation/widgets/product/cart_shortcut.dart';
+import 'package:core/presentation/widgets/product/product_card.dart';
+import 'package:core/presentation/widgets/product/product_card_parts.dart';
+import 'package:core/presentation/widgets/product/wishlist_heart_button.dart';
+import 'package:core/utils/money.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../support/test_app.dart';
+import '../../../support/design_screen.dart';
+import '../../../support/test_app.dart';
 
-final AppLocalizations _en = AppLocalizationsEn();
-const Product _product = HomeRepositoryImpl.pulseAncMax;
+final CoreLocalizations _en = lookupCoreLocalizations(const Locale('en'));
+const Product _product = Product(
+  id: 'pulse-anc-max',
+  name: 'Pulse ANC Max Headphones',
+  image: Assets.productsPulseAncMax,
+  price: Money.units(1099),
+  was: Money.units(1399),
+  rating: 4.8,
+  ratingCount: 3200,
+  tag: SaleTag(21),
+);
 
 Future<(ProviderContainer, List<String>)> _pump(
   WidgetTester tester, {
   VoidCallback? onOpenCart,
 }) async {
-  tester.view
-    ..devicePixelRatio = 1
-    ..physicalSize = DesignScale.designSize;
-  addTearDown(tester.view.reset);
+  useDesignScreen(tester);
   final container = ProviderContainer.test();
   final opened = <String>[];
   await tester.pumpWidget(

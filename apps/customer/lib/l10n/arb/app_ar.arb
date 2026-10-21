@@ -121,17 +121,6 @@
   "homeSold": "{percent}% sold",
   "homeAlmostGone": "Almost gone · {percent}% sold",
   "homeDealsByCategory": "Deals by category",
-  "productDiscount": "-{percent}%",
-  "productNew": "NEW",
-  "productBestseller": "Bestseller",
-  "productLowStock": "{left, plural, =1{Only 1 left} other{Only {left} left}}",
-  "productFreeDelivery": "Free delivery",
-  "productThousands": "{value}k",
-  "productRatingCount": "({count})",
-  "productRating": "Rated {score} out of 5 by {count, plural, =1{1 person} other{{count} people}}",
-  "productAdd": "Add to cart",
-  "productSave": "Save {name} to wishlist",
-  "productUnsave": "Remove {name} from wishlist",
   "homeBestInPhones": "Best in phones",
   "homeAll": "All",
   "homeNoProducts": "No products match this filter yet.",
@@ -144,6 +133,5 @@
   "homeFooterDeliveryDetail": "Same day in UAE",
   "homeFooterWarrantyDetail": "On every device",
   "homeFooterReturns": "Easy returns",
-  "homeFooterReturnsDetail": "Within 14 days",
-  "productInCart": "In your cart, view cart"
+  "homeFooterReturnsDetail": "Within 14 days"
 }

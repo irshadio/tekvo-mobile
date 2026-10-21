@@ -25,5 +25,17 @@
   "countryPickerAll": "ALL COUNTRIES",
   "countryPickerResults": "{count, plural, =0{NO RESULTS} =1{1 RESULT} other{{count} RESULTS}}",
   "countryPickerTip": "Tip: search by name or dial code, e.g. “+91”.",
-  "moneyAmount": "{currency} {amount}"
+  "moneyAmount": "{currency} {amount}",
+  "productDiscount": "-{percent}%",
+  "productNew": "NEW",
+  "productBestseller": "Bestseller",
+  "productLowStock": "{left, plural, =1{Only 1 left} other{Only {left} left}}",
+  "productFreeDelivery": "Free delivery",
+  "productThousands": "{value}k",
+  "productRatingCount": "({count})",
+  "productRating": "Rated {score} out of 5 by {count, plural, =1{1 person} other{{count} people}}",
+  "productAdd": "Add to cart",
+  "productSave": "Save {name} to wishlist",
+  "productUnsave": "Remove {name} from wishlist",
+  "productInCart": "In your cart, view cart"
 }
