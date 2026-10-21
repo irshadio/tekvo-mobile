@@ -4,11 +4,25 @@
 
 /// Paths of the bundled assets.
 abstract final class Assets {
+  static const String brandLogoBolt =
+      'packages/core/assets/brand/logo_bolt.svg';
   static const String brandLogoMark =
       'packages/core/assets/brand/logo_mark.svg';
   static const String brandLogoMarkDark =
       'packages/core/assets/brand/logo_mark_dark.svg';
+  static const String chipCard = 'packages/core/assets/icons/chip/card.svg';
+  static const String chipCheck = 'packages/core/assets/icons/chip/check.svg';
+  static const String chipGift = 'packages/core/assets/icons/chip/gift.svg';
+  static const String chipPin = 'packages/core/assets/icons/chip/pin.svg';
+  static const String chipShield = 'packages/core/assets/icons/chip/shield.svg';
+  static const String chipTruck = 'packages/core/assets/icons/chip/truck.svg';
   static const String iconsOffline = 'packages/core/assets/icons/offline.svg';
   static const String iconsOnline = 'packages/core/assets/icons/online.svg';
   static const String interOfl = 'packages/core/assets/fonts/inter/OFL.txt';
+  static const String onboardingFast =
+      'packages/core/assets/images/onboarding/fast.jpg';
+  static const String onboardingGenuine =
+      'packages/core/assets/images/onboarding/genuine.jpg';
+  static const String onboardingPay =
+      'packages/core/assets/images/onboarding/pay.jpg';
 }

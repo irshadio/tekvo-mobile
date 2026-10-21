@@ -9,6 +9,7 @@ import 'package:core/network/remote_client_provider.dart';
 import 'package:core/network/token_provider.dart';
 import 'package:core/network/unauthorized_handler.dart';
 import 'package:core/storage/local_store.dart';
+import 'package:core/storage/onboarding_store.dart';
 import 'package:core/storage/secure_store.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -48,6 +49,10 @@ void main() {
     expect(container.read(errorReporterProvider), isA<ErrorReporter>());
     expect(container.read(secureStoreProvider), isA<SecureStoreImpl>());
     expect(container.read(localStoreProvider), isA<LocalStoreImpl>());
+    expect(
+      container.read(onboardingStoreProvider),
+      isA<OnboardingStoreImpl>(),
+    );
     expect(container.read(tokenProviderProvider), isA<SecureTokenProvider>());
     expect(
       container.read(unauthorizedHandlerProvider),
@@ -76,5 +81,14 @@ void main() {
     expect(await container.read(secureStoreProvider).readAccessToken(), isNull);
     expect(await store.readAll('profile'), isEmpty);
     expect(await store.readAll('settings'), isNotEmpty);
+  });
+
+  test('ending the session keeps onboarding completed', () async {
+    final onboarding = container.read(onboardingStoreProvider);
+    await onboarding.markOnboardingCompleted();
+
+    await container.read(unauthorizedHandlerProvider).handleUnauthorized();
+
+    expect(await onboarding.hasCompletedOnboarding(), isTrue);
   });
 }

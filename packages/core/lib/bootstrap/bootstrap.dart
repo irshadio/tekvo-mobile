@@ -11,6 +11,7 @@ import 'package:core/network/remote_client_provider.dart';
 import 'package:core/network/token_provider.dart';
 import 'package:core/network/unauthorized_handler.dart';
 import 'package:core/storage/local_store.dart';
+import 'package:core/storage/onboarding_store.dart';
 import 'package:core/storage/secure_store.dart';
 import 'package:core/vendor/remote_client/remote_client.dart' as rc;
 import 'package:flutter/foundation.dart' show kDebugMode;
@@ -54,6 +55,9 @@ Future<List<Override>> buildCoreOverrides({
       ),
     ),
     localStoreProvider.overrideWith((ref) => LocalStoreImpl(db)),
+    onboardingStoreProvider.overrideWith(
+      (ref) => OnboardingStoreImpl(ref.watch(localStoreProvider)),
+    ),
 
     // Host names only: literal IPs "resolve" without a network. Uncached
     // so a probe after a network change sees the change.

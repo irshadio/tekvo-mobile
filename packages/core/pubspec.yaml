@@ -49,6 +49,8 @@ flutter:
     - assets/brand/
     - assets/fonts/inter/OFL.txt
     - assets/icons/
+    - assets/icons/chip/
+    - assets/images/onboarding/
   fonts:
     - family: Inter
       fonts:
