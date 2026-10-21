@@ -263,8 +263,14 @@ class _ProductViewState extends ConsumerState<ProductView>
           if (questions != null)
             ProductQuestionsSection(
               questions: questions,
-              onAll: () => _open(Routes.questions, arguments: product.id),
-              onAsk: () => _open(Routes.askQuestion, arguments: product.id),
+              onAll: () => _open(
+                Routes.questions,
+                arguments: (id: product.id, ask: false),
+              ),
+              onAsk: () => _open(
+                Routes.questions,
+                arguments: (id: product.id, ask: true),
+              ),
             ),
           if (product.alsoViewed.isNotEmpty)
             ProductAlsoViewedSection(

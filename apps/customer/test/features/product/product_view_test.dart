@@ -286,4 +286,17 @@ void main() {
       (id: _sample.id, filter: ReviewFilter.withPhotos),
     );
   });
+
+  testWidgets('Ask a question opens the questions with the sheet', (
+    tester,
+  ) async {
+    final pumped = await _pump(tester);
+
+    await _reveal(tester, find.text(_en.productAskQuestion));
+    await tester.tap(find.text(_en.productAskQuestion));
+    await tester.pumpAndSettle();
+
+    expect(pumped.opened.last.name, Routes.questions);
+    expect(pumped.opened.last.arguments, (id: _sample.id, ask: true));
+  });
 }
