@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/widgets/app_icon_button.dart';
@@ -31,8 +33,24 @@ class HomeHeader extends StatelessWidget {
   final VoidCallback onCart;
   final VoidCallback onSearch;
 
-  /// The header's height below the status bar, in design pixels.
-  static const double height = 126;
+  /// The header's height with the status bar: its top row grows with the
+  /// user's text size.
+  static double heightOf(BuildContext context) =>
+      context.viewPadding.top +
+      AppSpacing.sm.h +
+      _rowHeightOf(context) +
+      AppSpacing.sm.h +
+      _searchHeight.h +
+      AppSpacing.md.h;
+
+  static double _rowHeightOf(BuildContext context) => max(
+    _rowHeight.h,
+    context.textBox(16, size: 11) +
+        AppSpacing.xxs.h +
+        context.textBox(24, size: 16),
+  );
+
+  static const double _searchHeight = 52;
 
   static const double _rowHeight = 46;
   static const double _cartWidth = 48;
@@ -62,7 +80,7 @@ class HomeHeader extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
               child: SizedBox(
-                height: _rowHeight.h,
+                height: _rowHeightOf(context),
                 child: Row(
                   spacing: 10.w,
                   children: <Widget>[

@@ -69,7 +69,10 @@ class FlashDealsSection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: (ProductCard.height + _soldHeight).h,
+          height:
+              ProductCard.heightOf(context) +
+              _soldGaps.h +
+              context.textBox(16, size: 11),
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
@@ -99,8 +102,8 @@ class FlashDealsSection extends StatelessWidget {
     );
   }
 
-  /// The bar, its label and the gaps under a card.
-  static const double _soldHeight = 32;
+  /// The gaps and bar under a card, above the sold label.
+  static const double _soldGaps = 16;
 }
 
 class _SoldBar extends StatelessWidget {

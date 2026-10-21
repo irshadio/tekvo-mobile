@@ -94,7 +94,7 @@ class _HomeViewState extends ConsumerState<HomeView>
     final cartCount = ref.watch(
       cartViewModelProvider.select((cart) => cart.count),
     );
-    final headerHeight = context.viewPadding.top + HomeHeader.height.h;
+    final headerHeight = HomeHeader.heightOf(context);
     return Stack(
       children: <Widget>[
         MediaQuery.removePadding(

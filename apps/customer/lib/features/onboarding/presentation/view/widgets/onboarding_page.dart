@@ -15,6 +15,9 @@ class OnboardingPage extends StatelessWidget {
   final OnboardingSlide slide;
 
   static const double heroHeight = 400;
+
+  /// The room the footer over the page's foot takes.
+  static const double footerClearance = 120;
   static const double _circle = 340;
   static const double _circleTop = 20;
   static const double _imageWidth = 230;
@@ -30,91 +33,96 @@ class OnboardingPage extends StatelessWidget {
     final l10n = context.l10n;
     final colors = context.colors;
     final text = context.textTheme;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        SizedBox(
-          height: heroHeight.h,
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: <Widget>[
-              Positioned(
-                top: _circleTop.h,
-                child: Container(
-                  width: _circle.r,
-                  height: _circle.r,
-                  decoration: BoxDecoration(
-                    color: colors.primaryContainer,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-              Positioned(
-                top: _imageTop.h,
-                child: Container(
-                  width: _imageWidth.w,
-                  height: _imageHeight.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(_imageRadius.r),
-                    boxShadow: AppEffects.raisedImage,
-                    image: DecorationImage(
-                      image: AssetImage(slide.image),
-                      fit: BoxFit.cover,
+    // Scrolls when a small screen or large text needs more room than the
+    // design; the bottom padding keeps the words clear of the footer.
+    return SingleChildScrollView(
+      padding: EdgeInsets.only(bottom: footerClearance.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          SizedBox(
+            height: heroHeight.h,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: _circleTop.h,
+                  child: Container(
+                    width: _circle.r,
+                    height: _circle.r,
+                    decoration: BoxDecoration(
+                      color: colors.primaryContainer,
+                      shape: BoxShape.circle,
                     ),
                   ),
                 ),
-              ),
-              PositionedDirectional(
-                start: AppSpacing.xl.w,
-                top: _leadingChipTop.h,
-                child: OnboardingChipTile(
-                  icon: slide.leading.icon,
-                  label: slide.leading.label(l10n),
+                Positioned(
+                  top: _imageTop.h,
+                  child: Container(
+                    width: _imageWidth.w,
+                    height: _imageHeight.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(_imageRadius.r),
+                      boxShadow: AppEffects.raisedImage,
+                      image: DecorationImage(
+                        image: AssetImage(slide.image),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              PositionedDirectional(
-                end: AppSpacing.xl.w,
-                top: _trailingChipTop.h,
-                child: OnboardingChipTile(
-                  icon: slide.trailing.icon,
-                  label: slide.trailing.label(l10n),
+                PositionedDirectional(
+                  start: AppSpacing.xl.w,
+                  top: _leadingChipTop.h,
+                  child: OnboardingChipTile(
+                    icon: slide.leading.icon,
+                    label: slide.leading.label(l10n),
+                  ),
                 ),
-              ),
-            ],
+                PositionedDirectional(
+                  end: AppSpacing.xl.w,
+                  top: _trailingChipTop.h,
+                  child: OnboardingChipTile(
+                    icon: slide.trailing.icon,
+                    label: slide.trailing.label(l10n),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-            AppSpacing.xl.w,
-            AppSpacing.xl.h,
-            AppSpacing.xl.w,
-            0,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10.h,
-            children: <Widget>[
-              Text(
-                slide.kicker(l10n).toUpperCase(),
-                style: text.labelMedium?.copyWith(
-                  color: colors.primary,
-                  letterSpacing: _kickerTracking.sp,
+          Padding(
+            padding: EdgeInsets.fromLTRB(
+              AppSpacing.xl.w,
+              AppSpacing.xl.h,
+              AppSpacing.xl.w,
+              0,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 10.h,
+              children: <Widget>[
+                Text(
+                  slide.kicker(l10n).toUpperCase(),
+                  style: text.labelMedium?.copyWith(
+                    color: colors.primary,
+                    letterSpacing: _kickerTracking.sp,
+                  ),
                 ),
-              ),
-              Text(
-                slide.title(l10n),
-                style: text.headlineMedium?.copyWith(color: colors.onSurface),
-              ),
-              Text(
-                slide.body(l10n),
-                style: text.bodyLarge?.copyWith(
-                  color: colors.onSurfaceVariant,
+                Text(
+                  slide.title(l10n),
+                  style: text.headlineMedium?.copyWith(color: colors.onSurface),
                 ),
-              ),
-            ],
+                Text(
+                  slide.body(l10n),
+                  style: text.bodyLarge?.copyWith(
+                    color: colors.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

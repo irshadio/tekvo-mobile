@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/extensions/money_format.dart';
 import 'package:core/theme/app_spacing.dart';
@@ -21,13 +23,23 @@ class RecentlyViewed extends StatelessWidget {
   static const double _photo = 56;
   static const double _radius = 10;
   static const double _gap = 10;
+  static const double _padding = 7;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
     final text = context.textTheme;
+    // The design's height, or the two text lines and the padding once the
+    // text is larger.
+    final height = max(
+      _height.h,
+      _padding.h * 2 +
+          context.textBox(20, size: 14) +
+          AppSpacing.xxs.h +
+          context.textBox(16, size: 12),
+    );
     return SizedBox(
-      height: _height.h,
+      height: height,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
@@ -47,10 +59,10 @@ class RecentlyViewed extends StatelessWidget {
               onTap: () => onProduct(product.id),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(
-                  7.w,
-                  7.h,
+                  _padding.w,
+                  _padding.h,
                   15.w,
-                  7.h,
+                  _padding.h,
                 ),
                 child: Row(
                   spacing: _gap.w,

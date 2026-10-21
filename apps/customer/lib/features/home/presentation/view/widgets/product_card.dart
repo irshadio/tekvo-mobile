@@ -25,15 +25,33 @@ class ProductCard extends ConsumerWidget {
   final double width;
   final VoidCallback onOpen;
 
-  /// The card's height in design pixels at every width.
-  static const double height = 300;
+  /// The card's height: the photo and gaps in design pixels, and the words
+  /// as tall as their text at the user's text size.
+  static double heightOf(BuildContext context) =>
+      _photo.h +
+      _inset.h +
+      context.textBox(16, size: 12) +
+      AppSpacing.xs.h +
+      _nameHeight(context) +
+      AppSpacing.xs.h +
+      _priceHeight(context) +
+      _bottom.h;
+
+  static double _nameHeight(BuildContext context) =>
+      context.textBox(_nameLines * 20, size: 14);
+
+  /// The price over the old price.
+  static double _priceHeight(BuildContext context) =>
+      context.textBox(24, size: 16) + context.textBox(16, size: 12);
+
+  static const int _nameLines = 2;
+  static const double _bottom = 12;
 
   static const double _photo = 174;
   static const double _radius = 12;
   static const double _inset = 10;
   static const double _heart = 36;
   static const double _tintOpacity = 0.05;
-  static const double _lineBox = 40;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,7 +66,7 @@ class ProductCard extends ConsumerWidget {
     final radius = BorderRadius.circular(_radius.r);
     return SizedBox(
       width: width.w,
-      height: height.h,
+      height: heightOf(context),
       child: Material(
         color: colors.onSurface.withValues(alpha: _tintOpacity),
         borderRadius: radius,
@@ -109,7 +127,7 @@ class ProductCard extends ConsumerWidget {
                       count: product.ratingCount,
                     ),
                     SizedBox(
-                      height: _lineBox.h,
+                      height: _nameHeight(context),
                       child: Text(
                         product.name,
                         maxLines: 2,
@@ -118,7 +136,7 @@ class ProductCard extends ConsumerWidget {
                       ),
                     ),
                     SizedBox(
-                      height: _lineBox.h,
+                      height: _priceHeight(context),
                       // The old price may reach past the box, as designed.
                       child: OverflowBox(
                         alignment: AlignmentDirectional.topStart,

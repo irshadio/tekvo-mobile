@@ -24,7 +24,7 @@ class ProductRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: ProductCard.height.h,
+      height: ProductCard.heightOf(context),
       child: AnimatedSwitcher(
         duration: context.motion(_swap),
         child: products.isEmpty
