@@ -26,6 +26,7 @@ abstract final class Assets {
   static const String chipTruck = 'packages/core/assets/icons/chip/truck.svg';
   static const String heroBell = 'packages/core/assets/icons/hero/bell.svg';
   static const String heroPin = 'packages/core/assets/icons/hero/pin.svg';
+  static const String iconsBag = 'packages/core/assets/icons/bag.svg';
   static const String iconsBell = 'packages/core/assets/icons/bell.svg';
   static const String iconsBolt = 'packages/core/assets/icons/bolt.svg';
   static const String iconsCamera = 'packages/core/assets/icons/camera.svg';
@@ -48,6 +49,7 @@ abstract final class Assets {
       'packages/core/assets/icons/chevron_right.svg';
   static const String iconsClock = 'packages/core/assets/icons/clock.svg';
   static const String iconsClose = 'packages/core/assets/icons/close.svg';
+  static const String iconsEye = 'packages/core/assets/icons/eye.svg';
   static const String iconsFilter = 'packages/core/assets/icons/filter.svg';
   static const String iconsGamepad = 'packages/core/assets/icons/gamepad.svg';
   static const String iconsGlobe = 'packages/core/assets/icons/globe.svg';
