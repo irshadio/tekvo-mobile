@@ -136,11 +136,19 @@ class ProductOutlineButton extends StatelessWidget {
   const ProductOutlineButton({
     required this.label,
     required this.onPressed,
+    this.icon,
     super.key,
   });
 
   final String label;
-  final VoidCallback onPressed;
+
+  /// Null while the action cannot run, such as during a load.
+  final VoidCallback? onPressed;
+
+  /// An `Assets` icon before the label.
+  final String? icon;
+
+  static const double _icon = 18;
 
   static const double _outline = 1.5;
   static const double _radius = 10;
@@ -157,6 +165,14 @@ class ProductOutlineButton extends StatelessWidget {
       ),
       side: BorderSide(color: context.colors.outlineVariant, width: _outline),
     ),
-    child: Text(label),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      spacing: AppSpacing.sm.w,
+      children: <Widget>[
+        if (icon case final icon?)
+          ProductIcon(icon, size: _icon, color: context.colors.onSurface),
+        Text(label),
+      ],
+    ),
   );
 }

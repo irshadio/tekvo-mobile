@@ -33,8 +33,11 @@ abstract final class Routes {
   /// Takes a `SpecificationsRequest`: the product and the group to open on.
   static const String specifications = '/product/specifications';
 
-  /// Each takes the product's id.
+  /// Takes a `ReviewsRequest`: the product and the filter to start with.
   static const String reviews = '/product/reviews';
+
+  /// Each takes the product's id.
+  static const String writeReview = '/product/reviews/write';
   static const String questions = '/product/questions';
   static const String askQuestion = '/product/questions/ask';
 

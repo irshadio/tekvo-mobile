@@ -11,14 +11,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProductPageBar extends StatelessWidget {
   const ProductPageBar({
     required this.title,
+    this.subtitle,
     this.actions = const <Widget>[],
     this.bottom,
+    this.bottomGap = AppSpacing.xs,
     super.key,
   });
 
   final String title;
+
+  /// A line under a smaller title, such as the product's name.
+  final String? subtitle;
   final List<Widget> actions;
   final Widget? bottom;
+
+  /// The space between the top row and [bottom].
+  final double bottomGap;
 
   /// An action button sized for this bar.
   static Widget action({
@@ -62,17 +70,7 @@ class ProductPageBar extends StatelessWidget {
                   tooltip: MaterialLocalizations.of(context).backButtonTooltip,
                   onPressed: () => Navigator.of(context).maybePop(),
                 ),
-                Expanded(
-                  child: Semantics(
-                    header: true,
-                    child: Text(
-                      title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: context.textTheme.titleLarge,
-                    ),
-                  ),
-                ),
+                Expanded(child: _titles(context)),
                 ...actions,
               ],
             ),
@@ -80,7 +78,7 @@ class ProductPageBar extends StatelessWidget {
           if (bottom != null)
             Padding(
               padding: EdgeInsets.only(
-                top: AppSpacing.xs.h,
+                top: bottomGap.h,
                 bottom: AppSpacing.md.h,
               ),
               child: bottom,
@@ -89,6 +87,36 @@ class ProductPageBar extends StatelessWidget {
           const SizedBox(height: AppBorders.thin),
         ],
       ),
+    );
+  }
+
+  Widget _titles(BuildContext context) {
+    final text = context.textTheme;
+    final subtitle = this.subtitle;
+    final heading = Semantics(
+      header: true,
+      child: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: subtitle == null ? text.titleLarge : text.titleMedium,
+      ),
+    );
+    if (subtitle == null) return heading;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        heading,
+        Text(
+          subtitle,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: text.bodySmall?.copyWith(
+            color: context.colors.onSurfaceVariant,
+          ),
+        ),
+      ],
     );
   }
 }

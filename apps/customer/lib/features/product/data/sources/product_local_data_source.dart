@@ -158,7 +158,11 @@ final ProductDetails _novaXPro = ProductDetails(
   reviews: Reviews(
     shares: const <int>[78, 14, 4, 2, 2],
     mentions: const <ReviewMention>[
-      ReviewMention(label: 'With photos', count: 186),
+      ReviewMention(
+        label: 'With photos',
+        count: 186,
+        filter: ReviewFilter.withPhotos,
+      ),
       ReviewMention(label: 'Battery', count: 412),
       ReviewMention(label: 'Camera', count: 365),
       ReviewMention(label: 'Display', count: 298),

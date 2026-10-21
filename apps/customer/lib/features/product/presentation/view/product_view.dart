@@ -10,6 +10,7 @@ import 'package:core/sharing/share_service.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:core/theme/app_system_bars.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_reviews.dart';
 import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/domain/entities/product_specs.dart';
 import 'package:customer/features/product/presentation/view/specifications_view.dart';
@@ -251,7 +252,13 @@ class _ProductViewState extends ConsumerState<ProductView>
               ratingCount: product.ratingCount,
               helpful: choices.helpful,
               onToggleHelpful: pick.toggleHelpful,
-              onAllReviews: (_) => _open(Routes.reviews, arguments: product.id),
+              onAllReviews: (mention) => _open(
+                Routes.reviews,
+                arguments: (
+                  id: product.id,
+                  filter: mention?.filter ?? ReviewFilter.all,
+                ),
+              ),
             ),
           if (questions != null)
             ProductQuestionsSection(

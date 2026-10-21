@@ -12,6 +12,7 @@ import 'package:customer/features/onboarding/presentation/view/onboarding_view.d
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
+import 'package:customer/features/product/presentation/view/reviews_view.dart';
 import 'package:customer/features/product/presentation/view/specifications_view.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
@@ -83,6 +84,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     Routes.specifications => switch (settings.arguments) {
       final SpecificationsRequest request => pushRoute<void>(
         SpecificationsView(id: request.id, start: request.start),
+        settings,
+      ),
+      _ => materialRoute<void>(const NotFoundView(), settings),
+    },
+    Routes.reviews => switch (settings.arguments) {
+      final ReviewsRequest request => pushRoute<void>(
+        ReviewsView(id: request.id, filter: request.filter),
         settings,
       ),
       _ => materialRoute<void>(const NotFoundView(), settings),
