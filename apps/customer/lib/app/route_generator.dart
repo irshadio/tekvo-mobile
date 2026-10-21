@@ -1,6 +1,7 @@
 import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/route_transitions.dart';
 import 'package:core/utils/social_account.dart';
+import 'package:customer/app/customer_shell.dart';
 import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/features/auth/presentation/view/otp_view.dart';
 import 'package:customer/features/auth/presentation/view/verify_mobile_view.dart';
@@ -60,7 +61,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     },
     // Dissolves in after sign-up or Skip, as in the prototype.
     Routes.home => fadeRoute(
-      const MainView(),
+      const CustomerShell(),
       settings,
       duration: MainView.entryFade,
     ),

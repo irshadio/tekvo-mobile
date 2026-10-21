@@ -442,5 +442,104 @@
   "mainComingSoon": "This screen is on its way.",
   "@mainComingSoon": {
     "description": "A tab whose screen is not built yet: the note under its name."
+  },
+  "homeDeliverTo": "Deliver to · {eta}",
+  "@homeDeliverTo": {
+    "description": "Home header: when orders arrive, above the delivery area.",
+    "placeholders": {
+      "eta": {
+        "type": "String",
+        "example": "Today by 9 PM"
+      }
+    }
+  },
+  "homeNotifications": "Notifications",
+  "@homeNotifications": {
+    "description": "Home header: the notifications button."
+  },
+  "homeCart": "{count, plural, =0{Cart} =1{Cart, 1 item} other{Cart, {count} items}}",
+  "@homeCart": {
+    "description": "Home header: the cart button's screen-reader label.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeSearchHint": "Search phones, laptops, audio…",
+  "@homeSearchHint": {
+    "description": "Home: the search bar's hint."
+  },
+  "homeFilters": "Filters",
+  "@homeFilters": {
+    "description": "Home: the search bar's filter button."
+  },
+  "homeFreeDelivery": "Free delivery over {amount}",
+  "@homeFreeDelivery": {
+    "description": "Home trust strip: the free delivery threshold.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "AED 200"
+      }
+    }
+  },
+  "homeSameDay": "Same-day in {city}",
+  "@homeSameDay": {
+    "description": "Home trust strip: same-day delivery.",
+    "placeholders": {
+      "city": {
+        "type": "String",
+        "example": "Dubai"
+      }
+    }
+  },
+  "homeWarranty": "2-year warranty",
+  "@homeWarranty": {
+    "description": "Home trust strip: the warranty."
+  },
+  "homeReturns": "14-day returns",
+  "@homeReturns": {
+    "description": "Home trust strip: the returns window."
+  },
+  "homeSeeAll": "See all",
+  "@homeSeeAll": {
+    "description": "Home: link beside a section title to its full list."
+  },
+  "homeShopByCategory": "Shop by category",
+  "@homeShopByCategory": {
+    "description": "Home: the categories section's title."
+  },
+  "categoryPhones": "Phones",
+  "@categoryPhones": {
+    "description": "Category name."
+  },
+  "categoryLaptops": "Laptops",
+  "@categoryLaptops": {
+    "description": "Category name."
+  },
+  "categoryAudio": "Audio",
+  "@categoryAudio": {
+    "description": "Category name."
+  },
+  "categoryWatches": "Watches",
+  "@categoryWatches": {
+    "description": "Category name."
+  },
+  "categoryCameras": "Cameras",
+  "@categoryCameras": {
+    "description": "Category name."
+  },
+  "categoryGaming": "Gaming",
+  "@categoryGaming": {
+    "description": "Category name."
+  },
+  "categoryTvs": "TVs",
+  "@categoryTvs": {
+    "description": "Category name."
+  },
+  "categorySpeakers": "Speakers",
+  "@categorySpeakers": {
+    "description": "Category name."
   }
 }

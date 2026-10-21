@@ -60,6 +60,10 @@ void main() {
       Routes.profile,
       Routes.verifyMobile,
       Routes.home,
+      Routes.search,
+      Routes.notifications,
+      Routes.product,
+      Routes.productList,
     ]) {
       expect(
         onGenerateRoute(RouteSettings(name: name)),
