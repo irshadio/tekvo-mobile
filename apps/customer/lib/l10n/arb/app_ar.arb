@@ -61,5 +61,15 @@
   "signInTerms": "Terms of Service",
   "signInTermsJoin": " and ",
   "signInPrivacy": "Privacy Policy",
-  "signInTermsEnd": "."
+  "signInTermsEnd": ".",
+  "otpTitle": "Verify your number",
+  "otpSentTo": "Enter the {length}-digit code sent to ",
+  "otpEdit": "Edit",
+  "otpCodeLabel": "Verification code",
+  "otpResendIn": "Resend code in ",
+  "otpResend": "Resend code",
+  "otpResent": "We sent you a new code.",
+  "otpVerify": "Verify and continue",
+  "otpNoCode": "Didn’t get a code? ",
+  "otpTryAnother": "Try another number"
 }

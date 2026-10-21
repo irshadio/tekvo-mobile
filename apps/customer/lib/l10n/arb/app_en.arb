@@ -266,5 +266,50 @@
   "signInTermsEnd": ".",
   "@signInTermsEnd": {
     "description": "Sign in: the agreement note, text after the privacy link."
+  },
+  "otpTitle": "Verify your number",
+  "@otpTitle": {
+    "description": "Code entry: the screen's title."
+  },
+  "otpSentTo": "Enter the {length}-digit code sent to ",
+  "@otpSentTo": {
+    "description": "Code entry: text before the mobile number the code went to; ends with a space.",
+    "placeholders": {
+      "length": {
+        "type": "int"
+      }
+    }
+  },
+  "otpEdit": "Edit",
+  "@otpEdit": {
+    "description": "Code entry: link after the number that goes back to change it."
+  },
+  "otpCodeLabel": "Verification code",
+  "@otpCodeLabel": {
+    "description": "Code entry: screen-reader name of the code boxes."
+  },
+  "otpResendIn": "Resend code in ",
+  "@otpResendIn": {
+    "description": "Code entry: text before the countdown to resending; ends with a space."
+  },
+  "otpResend": "Resend code",
+  "@otpResend": {
+    "description": "Code entry: link that texts a new code once the countdown ends."
+  },
+  "otpResent": "We sent you a new code.",
+  "@otpResent": {
+    "description": "Code entry: message after a new code is texted."
+  },
+  "otpVerify": "Verify and continue",
+  "@otpVerify": {
+    "description": "Code entry: button that checks the code."
+  },
+  "otpNoCode": "Didn’t get a code? ",
+  "@otpNoCode": {
+    "description": "Code entry: text before the link to try another number; ends with a space."
+  },
+  "otpTryAnother": "Try another number",
+  "@otpTryAnother": {
+    "description": "Code entry: link that goes back to change the number."
   }
 }

@@ -1,3 +1,5 @@
+import 'package:core/utils/mobile_contact.dart';
+import 'package:country/country.dart';
 import 'package:customer/app/route_generator.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/routing/app_routes.dart';
@@ -27,6 +29,21 @@ void main() {
     expect(
       onGenerateRoute(const RouteSettings(name: Routes.signIn)),
       isA<PageRouteBuilder<void>>(),
+    );
+  });
+
+  test('the code entry pushes in for a number, and pops a bool', () {
+    final route = onGenerateRoute(
+      const RouteSettings(
+        name: Routes.otp,
+        arguments: MobileContact(country: Countries.are, number: '501234567'),
+      ),
+    );
+
+    expect(route, isA<PageRouteBuilder<bool>>());
+    expect(
+      onGenerateRoute(const RouteSettings(name: Routes.otp)),
+      isA<MaterialPageRoute<bool>>(),
     );
   });
 

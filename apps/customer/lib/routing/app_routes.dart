@@ -13,6 +13,9 @@ abstract final class Routes {
   /// the number.
   static const String otp = '/sign-in/code';
 
+  /// The new account's profile, after the code is verified.
+  static const String profile = '/sign-in/profile';
+
   /// The mobile number check after a Google or Apple sign-in.
   static const String verifyMobile = '/sign-in/verify-mobile';
   static const String home = '/home';
