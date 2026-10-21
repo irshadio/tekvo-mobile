@@ -5,6 +5,7 @@ import 'package:customer/features/home/data/repositories/home_repository_impl.da
 import 'package:customer/features/home/domain/entities/product.dart';
 import 'package:customer/features/home/presentation/view/widgets/product_card.dart';
 import 'package:customer/features/home/presentation/view/widgets/product_card_parts.dart';
+import 'package:customer/features/home/presentation/view/widgets/wishlist_heart_button.dart';
 import 'package:customer/l10n/generated/app_localizations.dart';
 import 'package:customer/l10n/generated/app_localizations_en.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +89,30 @@ void main() {
     await tester.tap(find.byTooltip(_en.productUnsave(_product.name)));
     await tester.pumpAndSettle();
     expect(container.read(wishlistViewModelProvider), isEmpty);
+  });
+
+  testWidgets('the heart pops when saved', (tester) async {
+    await _pump(tester);
+    double scale() => tester
+        .widget<ScaleTransition>(
+          find
+              .descendant(
+                of: find.byType(WishlistHeartButton),
+                matching: find.byType(ScaleTransition),
+              )
+              .first,
+        )
+        .scale
+        .value;
+
+    expect(scale(), 1);
+    await tester.tap(find.byType(WishlistHeartButton));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(scale(), greaterThan(1));
+
+    await tester.pumpAndSettle();
+    expect(scale(), 1);
   });
 
   testWidgets('tapping the card opens the product', (tester) async {

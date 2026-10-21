@@ -1,11 +1,10 @@
-import 'package:core/assets/assets.gen.dart';
 import 'package:core/presentation/extensions/context_extensions.dart';
 import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/view_model/wishlist_view_model.dart';
-import 'package:core/presentation/widgets/app_icon_button.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:customer/features/home/domain/entities/product.dart';
 import 'package:customer/features/home/presentation/view/widgets/product_card_parts.dart';
+import 'package:customer/features/home/presentation/view/widgets/wishlist_heart_button.dart';
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -50,7 +49,6 @@ class ProductCard extends ConsumerWidget {
   static const double _photo = 174;
   static const double _radius = 12;
   static const double _inset = 10;
-  static const double _heart = 36;
   static const double _tintOpacity = 0.05;
 
   @override
@@ -95,19 +93,11 @@ class ProductCard extends ConsumerWidget {
                     PositionedDirectional(
                       end: _inset.w,
                       top: _inset.h,
-                      child: AppIconButton(
-                        icon: saved
-                            ? Assets.iconsHeartFilled
-                            : Assets.iconsHeart,
-                        iconColor: saved
-                            ? context.appColors.commerceSale
-                            : null,
+                      child: WishlistHeartButton(
+                        saved: saved,
                         tooltip: saved
                             ? l10n.productUnsave(product.name)
                             : l10n.productSave(product.name),
-                        variant: AppIconButtonVariant.glass,
-                        size: _heart,
-                        iconSize: 22,
                         onPressed: () => ref
                             .read(wishlistViewModelProvider.notifier)
                             .toggle(product.id),
