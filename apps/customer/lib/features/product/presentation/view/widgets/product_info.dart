@@ -89,32 +89,36 @@ class ProductInfo extends StatelessWidget {
                   ),
                 ),
                 if (product.officialStore)
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppSpacing.s6.w,
-                      vertical: 3.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: colors.primaryContainer,
-                      borderRadius: BorderRadius.circular(AppRadius.xs.r),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      spacing: AppSpacing.xs.w,
-                      children: <Widget>[
-                        _icon(
-                          context,
-                          Assets.iconsShield,
-                          _shield,
-                          colors.onPrimaryContainer,
-                        ),
-                        Text(
-                          l10n.productOfficialStore,
-                          style: text.labelSmall?.copyWith(
-                            color: colors.onPrimaryContainer,
+                  InkWell(
+                    onTap: onStore,
+                    borderRadius: BorderRadius.circular(AppRadius.xs.r),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppSpacing.s6.w,
+                        vertical: 3.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: colors.primaryContainer,
+                        borderRadius: BorderRadius.circular(AppRadius.xs.r),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        spacing: AppSpacing.xs.w,
+                        children: <Widget>[
+                          _icon(
+                            context,
+                            Assets.iconsShield,
+                            _shield,
+                            colors.onPrimaryContainer,
                           ),
-                        ),
-                      ],
+                          Text(
+                            l10n.productOfficialStore,
+                            style: text.labelSmall?.copyWith(
+                              color: colors.onPrimaryContainer,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
               ],

@@ -1451,5 +1451,137 @@
   "productRestockNotify": "Notify me",
   "@productRestockNotify": {
     "description": "Out of stock: asks to hear when it is back."
+  },
+  "storeSearchHint": "Search in {brand} store",
+  "@storeSearchHint": {
+    "description": "Store: the search bar's hint.",
+    "placeholders": {
+      "brand": {
+        "type": "String"
+      }
+    }
+  },
+  "storeShare": "Share store",
+  "@storeShare": {
+    "description": "Store: shares the store."
+  },
+  "storeChat": "Chat with the store",
+  "@storeChat": {
+    "description": "Store: opens a chat with the store."
+  },
+  "storeFollow": "Follow",
+  "@storeFollow": {
+    "description": "Store: follows the store."
+  },
+  "storeFollowing": "Following",
+  "@storeFollowing": {
+    "description": "Store: once followed; unfollows."
+  },
+  "storeVerified": "Verified store",
+  "@storeVerified": {
+    "description": "Store: the badge by the name, read aloud."
+  },
+  "storeRating": "Store rating",
+  "@storeRating": {
+    "description": "Store: the rating stat."
+  },
+  "storePositive": "Positive",
+  "@storePositive": {
+    "description": "Store: the share of positive ratings."
+  },
+  "storeFollowers": "Followers",
+  "@storeFollowers": {
+    "description": "Store: how many follow it."
+  },
+  "storeShipsWithin": "Ships within",
+  "@storeShipsWithin": {
+    "description": "Store: how soon it ships."
+  },
+  "storeHours": "{hours} h",
+  "@storeHours": {
+    "description": "Store: hours, such as 24 h.",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "storePercent": "{percent}%",
+  "@storePercent": {
+    "description": "Store: a percentage.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "storeTabHome": "Home",
+  "@storeTabHome": {
+    "description": "Store: the first tab."
+  },
+  "storeTabProducts": "Products",
+  "@storeTabProducts": {
+    "description": "Store: the products tab."
+  },
+  "storeTabCategories": "Categories",
+  "@storeTabCategories": {
+    "description": "Store: the categories tab."
+  },
+  "storeTabReviews": "Reviews",
+  "@storeTabReviews": {
+    "description": "Store: the reviews tab."
+  },
+  "storeCoupons": "Store coupons",
+  "@storeCoupons": {
+    "description": "Store: the coupons section."
+  },
+  "storeCollect": "Collect",
+  "@storeCollect": {
+    "description": "Store: collects a coupon."
+  },
+  "storeCollected": "Collected",
+  "@storeCollected": {
+    "description": "Store: a coupon already collected."
+  },
+  "storeCouponCollected": "Coupon collected. It applies at checkout.",
+  "@storeCouponCollected": {
+    "description": "Store: after collecting a coupon."
+  },
+  "storeShopByCategory": "Shop by category",
+  "@storeShopByCategory": {
+    "description": "Store: the categories section."
+  },
+  "storeBestSellers": "Best sellers",
+  "@storeBestSellers": {
+    "description": "Store: the best sellers row."
+  },
+  "storeAllProducts": "All products",
+  "@storeAllProducts": {
+    "description": "Store: the product grid."
+  },
+  "storeItemCount": "{count} items",
+  "@storeItemCount": {
+    "description": "Store: how many products, already formatted.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "storeSortPopular": "Popular",
+  "@storeSortPopular": {
+    "description": "Store: sort by popularity."
+  },
+  "storeSortNew": "New arrivals",
+  "@storeSortNew": {
+    "description": "Store: sort by newest."
+  },
+  "storeSortPriceLow": "Price: low to high",
+  "@storeSortPriceLow": {
+    "description": "Store: sort by price."
+  },
+  "storeSortOnSale": "On sale",
+  "@storeSortOnSale": {
+    "description": "Store: only products on sale."
   }
 }

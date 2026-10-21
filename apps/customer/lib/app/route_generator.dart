@@ -20,6 +20,7 @@ import 'package:customer/features/product/presentation/view/specifications_view.
 import 'package:customer/features/product/presentation/view/write_review_view.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/splash/presentation/view/splash_view.dart';
+import 'package:customer/features/store/presentation/view/store_view.dart';
 import 'package:customer/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -118,6 +119,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         ),
         settings,
       ),
+      _ => materialRoute<void>(const NotFoundView(), settings),
+    },
+    Routes.store => switch (settings.arguments) {
+      final String brand => pushRoute<void>(StoreView(brand: brand), settings),
       _ => materialRoute<void>(const NotFoundView(), settings),
     },
     Routes.profile => pushRoute<void>(
