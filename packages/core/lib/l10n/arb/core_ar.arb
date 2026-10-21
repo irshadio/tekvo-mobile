@@ -39,5 +39,13 @@
   "productUnsave": "Remove {name} from wishlist",
   "productInCart": "In your cart, view cart",
   "seeAll": "See all",
-  "productNoneFound": "No products match this filter yet."
+  "productNoneFound": "No products match this filter yet.",
+  "categoryPhones": "Phones",
+  "categoryLaptops": "Laptops",
+  "categoryAudio": "Audio",
+  "categoryWatches": "Watches",
+  "categoryCameras": "Cameras",
+  "categoryGaming": "Gaming",
+  "categoryTvs": "TVs",
+  "categorySpeakers": "Speakers"
 }

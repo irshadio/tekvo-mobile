@@ -87,7 +87,7 @@ void main() {
   testWidgets('a category opens its products', (tester) async {
     final result = await _pump(tester);
 
-    await tester.tap(find.text(_en.categoryAudio));
+    await tester.tap(find.text(CoreLocalizationsEn().categoryAudio));
     await tester.pumpAndSettle();
 
     expect(result.opened.single, (
