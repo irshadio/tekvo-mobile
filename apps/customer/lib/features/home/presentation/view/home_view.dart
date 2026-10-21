@@ -32,6 +32,7 @@ import 'package:customer/features/home/presentation/view_model/recommended_view_
 import 'package:customer/l10n/app_l10n.dart';
 import 'package:customer/routing/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,7 +53,7 @@ class HomeView extends ConsumerStatefulWidget {
 }
 
 class _HomeViewState extends ConsumerState<HomeView>
-    with ViewReadyMixin<HomeView> {
+    with ViewReadyMixin<HomeView>, TickerProviderStateMixin<HomeView> {
   /// The room between the pinned header and the first chips.
   static const double _contentTop = AppSpacing.lg;
   static const double _sectionGap = 28;
@@ -95,36 +96,32 @@ class _HomeViewState extends ConsumerState<HomeView>
     final cartCount = ref.watch(
       cartViewModelProvider.select((cart) => cart.count),
     );
-    final headerHeight = HomeHeader.heightOf(context);
-    return Stack(
-      children: <Widget>[
-        MediaQuery.removePadding(
-          context: context,
-          removeTop: true,
-          child: CustomScrollView(
-            slivers: <Widget>[
-              SliverPadding(
-                padding: EdgeInsets.only(
-                  top: headerHeight + _contentTop.h,
-                  bottom: _sectionGap.h,
-                ),
-                sliver: SliverList.list(children: _sections(feed, saleLeft)),
-              ),
-            ],
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverPersistentHeader(
+          pinned: true,
+          floating: true,
+          delegate: _HeaderDelegate(
+            vsync: this,
+            expanded: HomeHeader.heightOf(context),
+            collapsed: HomeHeader.collapsedHeightOf(context),
+            header: (searchShown) => HomeHeader(
+              deliveryArea: feed.deliveryArea,
+              deliveryEta: feed.deliveryEta,
+              cartCount: cartCount,
+              searchShown: searchShown,
+              onNotifications: () => _open(Routes.notifications),
+              onCart: widget.onOpenCart,
+              onSearch: () => _open(Routes.search),
+            ),
           ),
         ),
-        Positioned(
-          left: 0,
-          right: 0,
-          top: 0,
-          child: HomeHeader(
-            deliveryArea: feed.deliveryArea,
-            deliveryEta: feed.deliveryEta,
-            cartCount: cartCount,
-            onNotifications: () => _open(Routes.notifications),
-            onCart: widget.onOpenCart,
-            onSearch: () => _open(Routes.search),
+        SliverPadding(
+          padding: EdgeInsets.only(
+            top: _contentTop.h,
+            bottom: _sectionGap.h,
           ),
+          sliver: SliverList.list(children: _sections(feed, saleLeft)),
         ),
       ],
     );
@@ -313,4 +310,52 @@ class _HomeViewState extends ConsumerState<HomeView>
       ),
     );
   }
+}
+
+/// The header as a sliver that stays pinned at its top row: its search
+/// slides away as the page scrolls down and back on any scroll up, snapping
+/// fully open or shut.
+class _HeaderDelegate extends SliverPersistentHeaderDelegate {
+  _HeaderDelegate({
+    required this.vsync,
+    required this.expanded,
+    required this.collapsed,
+    required this.header,
+  });
+
+  @override
+  final TickerProvider vsync;
+  final double expanded;
+  final double collapsed;
+  final Widget Function(double searchShown) header;
+
+  static const Duration _snap = Duration(milliseconds: 250);
+
+  @override
+  double get maxExtent => expanded;
+
+  @override
+  double get minExtent => collapsed;
+
+  @override
+  FloatingHeaderSnapConfiguration get snapConfiguration =>
+      FloatingHeaderSnapConfiguration(curve: Curves.easeOut, duration: _snap);
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    final range = maxExtent - minExtent;
+    final shown = range <= 0 ? 1.0 : (1 - shrinkOffset / range).clamp(0.0, 1.0);
+    return OverflowBox(
+      alignment: Alignment.topCenter,
+      maxHeight: double.infinity,
+      child: header(shown),
+    );
+  }
+
+  @override
+  bool shouldRebuild(_HeaderDelegate oldDelegate) => true;
 }

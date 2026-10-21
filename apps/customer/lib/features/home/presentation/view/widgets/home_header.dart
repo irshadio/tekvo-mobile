@@ -13,8 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-/// The pinned top of the home tab: where orders go, notifications, the cart
-/// with its count, and search.
+/// The top of the home tab: where orders go, notifications, the cart with
+/// its count, and search, of which [searchShown] (0 to 1) shows while the
+/// search slides away under the top row.
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     required this.deliveryArea,
@@ -23,6 +24,7 @@ class HomeHeader extends StatelessWidget {
     required this.onNotifications,
     required this.onCart,
     required this.onSearch,
+    this.searchShown = 1,
     super.key,
   });
 
@@ -32,15 +34,18 @@ class HomeHeader extends StatelessWidget {
   final VoidCallback onNotifications;
   final VoidCallback onCart;
   final VoidCallback onSearch;
+  final double searchShown;
 
-  /// The header's height with the status bar: its top row grows with the
-  /// user's text size.
+  /// The header's height with the status bar and search: its top row grows
+  /// with the user's text size.
   static double heightOf(BuildContext context) =>
+      collapsedHeightOf(context) + AppSpacing.sm.h + _searchHeight.h;
+
+  /// The header's height once search has slid away.
+  static double collapsedHeightOf(BuildContext context) =>
       context.viewPadding.top +
       AppSpacing.sm.h +
       _rowHeightOf(context) +
-      AppSpacing.sm.h +
-      _searchHeight.h +
       AppSpacing.md.h;
 
   static double _rowHeightOf(BuildContext context) => max(
@@ -75,7 +80,6 @@ class HomeHeader extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          spacing: AppSpacing.sm.h,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
@@ -179,9 +183,24 @@ class HomeHeader extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
-              child: HomeSearchBar(onTap: onSearch),
+            // Slides up under the top row as the page scrolls down.
+            ClipRect(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                heightFactor: searchShown,
+                child: Opacity(
+                  opacity: searchShown,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      AppSpacing.lg.w,
+                      AppSpacing.sm.h,
+                      AppSpacing.lg.w,
+                      0,
+                    ),
+                    child: HomeSearchBar(onTap: onSearch),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

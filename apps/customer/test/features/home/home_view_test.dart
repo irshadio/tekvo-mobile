@@ -4,6 +4,7 @@ import 'package:customer/features/home/domain/entities/shop_category.dart';
 import 'package:customer/features/home/home_overrides.dart';
 import 'package:customer/features/home/presentation/view/home_view.dart';
 import 'package:customer/features/home/presentation/view/widgets/hero_carousel.dart';
+import 'package:customer/features/home/presentation/view/widgets/home_header.dart';
 import 'package:customer/features/home/presentation/view/widgets/page_dots.dart';
 import 'package:customer/features/home/presentation/view_model/phone_filter_view_model.dart';
 import 'package:customer/l10n/generated/app_localizations.dart';
@@ -62,6 +63,24 @@ void main() {
     expect(find.text(_en.homeDeliverTo(feed.deliveryEta)), findsOneWidget);
     expect(find.text(_en.homeFreeDelivery('AED 200')), findsOneWidget);
     expect(find.text(feed.hero.first.title), findsOneWidget);
+  });
+
+  testWidgets('search slides away on scroll down and back on scroll up', (
+    tester,
+  ) async {
+    await _pump(tester);
+    double shown() =>
+        tester.widget<HomeHeader>(find.byType(HomeHeader)).searchShown;
+
+    expect(shown(), 1);
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -400));
+    await tester.pumpAndSettle();
+    expect(shown(), 0);
+    expect(find.text(_en.homeDeliverTo('Today by 9 PM')), findsOneWidget);
+
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, 30));
+    await tester.pumpAndSettle();
+    expect(shown(), 1);
   });
 
   testWidgets('a category opens its products', (tester) async {
