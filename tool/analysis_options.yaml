@@ -1,0 +1,6 @@
+include: ../analysis_options.yaml
+
+linter:
+  rules:
+    # The tools run on the Dart VM only, where 64-bit hash constants are exact.
+    avoid_js_rounded_ints: false

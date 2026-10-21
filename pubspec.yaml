@@ -9,6 +9,8 @@ workspace:
 
 dev_dependencies:
   melos: ^7.8.0
+  test: ^1.31.1
+  very_good_analysis: ^10.2.0
 
 melos:
   name: tekvo
@@ -22,6 +24,44 @@ melos:
       description: Generate localizations in every package with an l10n.yaml.
       run: melos exec --file-exists="l10n.yaml" -- flutter gen-l10n
 
+    tokens:
+      description: Regenerate the theme tokens from packages/core/tokens/tekvo_tokens.json.
+      run: dart run tool/generate_tokens.dart
+
+    tokens-check:
+      description: Fail if the generated token code is out of date.
+      run: dart run tool/generate_tokens.dart --check
+
+    analyze:
+      description: Analyze every package and the workspace tools.
+      steps:
+        - melos exec -c 1 -- flutter analyze --fatal-infos --no-pub
+        - dart analyze --fatal-infos tool test/tool
+
+    assets:
+      description: Regenerate the Assets constants from packages/core/assets/.
+      run: dart run tool/generate_assets.dart
+
+    format:
+      description: Format hand-written Dart (never vendor or generated files).
+      run: dart run tool/format.dart
+
+    boundaries:
+      description: Enforce import boundaries and design-token use.
+      run: dart run tool/check_boundaries.dart
+
+    loc:
+      description: Enforce the per-file line limit.
+      run: dart run tool/check_loc.dart
+
+    branding:
+      description: Fail on names that belong to other projects.
+      run: dart run tool/check_branding.dart
+
     test:
       description: Run tests in every package that has a test/ dir.
       run: melos exec --dir-exists="test" -- flutter test
+
+    gate:
+      description: Full quality gate; must pass before every commit.
+      run: dart run tool/gate.dart
