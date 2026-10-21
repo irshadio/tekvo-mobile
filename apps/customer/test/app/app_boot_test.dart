@@ -17,13 +17,20 @@ Widget _app(AppEnvironment env) => ProviderScope(
   child: App(title: env.appTitle('Tekvo')),
 );
 
+/// Long enough for the splash timeline to settle; its loader keeps looping,
+/// so the tests pump time rather than settle.
+const Duration _splashTimeline = Duration(milliseconds: 2500);
+
 void main() {
   testWidgets('starts at the splash with the flavour title', (tester) async {
     await tester.pumpWidget(_app(AppEnvironment.qa));
-    await tester.pumpAndSettle();
+    await tester.pump(_splashTimeline);
 
     expect(find.byType(SplashView), findsOneWidget);
-    expect(find.text('Tekvo QA'), findsOneWidget);
+    expect(
+      tester.widget<MaterialApp>(find.byType(MaterialApp)).title,
+      'Tekvo QA',
+    );
   });
 
   testWidgets('follows the system dark mode', (tester) async {
@@ -31,19 +38,19 @@ void main() {
     addTearDown(tester.platformDispatcher.clearPlatformBrightnessTestValue);
 
     await tester.pumpWidget(_app(AppEnvironment.prod));
-    await tester.pumpAndSettle();
+    await tester.pump(_splashTimeline);
 
     final context = tester.element(find.byType(SplashView));
     expect(Theme.of(context).brightness, Brightness.dark);
-    expect(find.text('Tekvo'), findsOneWidget);
   });
 
   testWidgets('an unknown route shows the not-found page', (tester) async {
     await tester.pumpWidget(_app(AppEnvironment.dev));
-    await tester.pumpAndSettle();
+    await tester.pump(_splashTimeline);
 
     rootNavigatorKey.currentState!.pushNamed<void>('/missing').ignore();
-    await tester.pumpAndSettle();
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
 
     expect(find.byType(NotFoundView), findsOneWidget);
   });

@@ -1,5 +1,6 @@
 import 'package:core/presentation/widgets/app_shell.dart';
 import 'package:customer/app/route_generator.dart';
+import 'package:customer/l10n/generated/app_localizations.dart';
 import 'package:customer/routing/app_routes.dart';
 import 'package:flutter/widgets.dart';
 
@@ -16,5 +17,6 @@ class App extends StatelessWidget {
     title: title,
     onGenerateRoute: onGenerateRoute,
     initialRoute: Routes.splash,
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
   );
 }

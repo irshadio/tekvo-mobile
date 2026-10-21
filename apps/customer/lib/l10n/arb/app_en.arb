@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "brandWordmark": "tekvo",
+  "@brandWordmark": {
+    "description": "Brand: the wordmark, in lower case; not translated."
+  },
+  "splashTagline": "Tech that moves you.",
+  "@splashTagline": {
+    "description": "Splash: the line under the wordmark."
+  },
+  "splashFooter": "Secure checkout · Fast delivery · 2-year warranty",
+  "@splashFooter": {
+    "description": "Splash: the promise line at the bottom of the screen."
+  }
+}
