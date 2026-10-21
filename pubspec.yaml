@@ -6,6 +6,7 @@ environment:
 
 workspace:
   - packages/core
+  - apps/customer
 
 dev_dependencies:
   melos: ^7.8.0
