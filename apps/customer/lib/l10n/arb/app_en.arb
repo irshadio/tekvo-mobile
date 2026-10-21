@@ -635,10 +635,6 @@
   "@productAdd": {
     "description": "A product card's add button."
   },
-  "productAdded": "Added to cart",
-  "@productAdded": {
-    "description": "A product card's add button once the product is in the cart."
-  },
   "productSave": "Save {name} to wishlist",
   "@productSave": {
     "description": "A product card's heart.",
@@ -714,5 +710,9 @@
   "homeFooterReturnsDetail": "Within 14 days",
   "@homeFooterReturnsDetail": {
     "description": "Home footer: the returns promise, detail."
+  },
+  "productInCart": "In your cart, view cart",
+  "@productInCart": {
+    "description": "A product card's check once the product is in the cart; opens the cart."
   }
 }

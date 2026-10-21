@@ -11,6 +11,7 @@ import 'package:core/theme/app_spacing.dart';
 import 'package:customer/features/home/domain/entities/home_feed.dart';
 import 'package:customer/features/home/domain/entities/product.dart';
 import 'package:customer/features/home/domain/entities/shop_category.dart';
+import 'package:customer/features/home/presentation/view/widgets/cart_shortcut.dart';
 import 'package:customer/features/home/presentation/view/widgets/category_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/deals_grid.dart';
 import 'package:customer/features/home/presentation/view/widgets/filter_chips.dart';
@@ -96,34 +97,37 @@ class _HomeViewState extends ConsumerState<HomeView>
     final cartCount = ref.watch(
       cartViewModelProvider.select((cart) => cart.count),
     );
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverPersistentHeader(
-          pinned: true,
-          floating: true,
-          delegate: _HeaderDelegate(
-            vsync: this,
-            expanded: HomeHeader.heightOf(context),
-            collapsed: HomeHeader.collapsedHeightOf(context),
-            header: (searchShown) => HomeHeader(
-              deliveryArea: feed.deliveryArea,
-              deliveryEta: feed.deliveryEta,
-              cartCount: cartCount,
-              searchShown: searchShown,
-              onNotifications: () => _open(Routes.notifications),
-              onCart: widget.onOpenCart,
-              onSearch: () => _open(Routes.search),
+    return CartShortcut(
+      onOpenCart: widget.onOpenCart,
+      child: CustomScrollView(
+        slivers: <Widget>[
+          SliverPersistentHeader(
+            pinned: true,
+            floating: true,
+            delegate: _HeaderDelegate(
+              vsync: this,
+              expanded: HomeHeader.heightOf(context),
+              collapsed: HomeHeader.collapsedHeightOf(context),
+              header: (searchShown) => HomeHeader(
+                deliveryArea: feed.deliveryArea,
+                deliveryEta: feed.deliveryEta,
+                cartCount: cartCount,
+                searchShown: searchShown,
+                onNotifications: () => _open(Routes.notifications),
+                onCart: widget.onOpenCart,
+                onSearch: () => _open(Routes.search),
+              ),
             ),
           ),
-        ),
-        SliverPadding(
-          padding: EdgeInsets.only(
-            top: _contentTop.h,
-            bottom: _sectionGap.h,
+          SliverPadding(
+            padding: EdgeInsets.only(
+              top: _contentTop.h,
+              bottom: _sectionGap.h,
+            ),
+            sliver: SliverList.list(children: _sections(feed, saleLeft)),
           ),
-          sliver: SliverList.list(children: _sections(feed, saleLeft)),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

@@ -141,16 +141,21 @@ class PriceBlock extends StatelessWidget {
   }
 }
 
-/// Adds the product to the cart; once added it shows a check.
+/// Adds the product to the cart; once added it shows a check that opens
+/// the cart.
 class AddToCartButton extends StatelessWidget {
   const AddToCartButton({
     required this.added,
     required this.onAdd,
+    this.onOpenCart,
     super.key,
   });
 
   final bool added;
   final VoidCallback onAdd;
+
+  /// What the check does; without it the check does nothing.
+  final VoidCallback? onOpenCart;
 
   static const double _size = 36;
   static const Duration _morph = Duration(milliseconds: 200);
@@ -161,14 +166,14 @@ class AddToCartButton extends StatelessWidget {
     final l10n = context.l10n;
     return Semantics(
       button: true,
-      label: added ? l10n.productAdded : l10n.productAdd,
+      label: added ? l10n.productInCart : l10n.productAdd,
       excludeSemantics: true,
       child: Material(
         color: colors.primary,
         shape: const CircleBorder(),
         child: InkWell(
           customBorder: const CircleBorder(),
-          onTap: added ? null : onAdd,
+          onTap: added ? onOpenCart : onAdd,
           child: SizedBox.square(
             dimension: _size.r,
             child: AnimatedSwitcher(

@@ -3,6 +3,7 @@ import 'package:core/presentation/view_model/wishlist_view_model.dart';
 import 'package:core/presentation/widgets/design_scale.dart';
 import 'package:customer/features/home/data/repositories/home_repository_impl.dart';
 import 'package:customer/features/home/domain/entities/product.dart';
+import 'package:customer/features/home/presentation/view/widgets/cart_shortcut.dart';
 import 'package:customer/features/home/presentation/view/widgets/product_card.dart';
 import 'package:customer/features/home/presentation/view/widgets/product_card_parts.dart';
 import 'package:customer/features/home/presentation/view/widgets/wishlist_heart_button.dart';
@@ -17,7 +18,10 @@ import '../../support/test_app.dart';
 final AppLocalizations _en = AppLocalizationsEn();
 const Product _product = HomeRepositoryImpl.pulseAncMax;
 
-Future<(ProviderContainer, List<String>)> _pump(WidgetTester tester) async {
+Future<(ProviderContainer, List<String>)> _pump(
+  WidgetTester tester, {
+  VoidCallback? onOpenCart,
+}) async {
   tester.view
     ..devicePixelRatio = 1
     ..physicalSize = DesignScale.designSize;
@@ -29,11 +33,14 @@ Future<(ProviderContainer, List<String>)> _pump(WidgetTester tester) async {
       container: container,
       child: testApp(
         home: Scaffold(
-          body: Center(
-            child: ProductCard(
-              product: _product,
-              width: 160,
-              onOpen: () => opened.add(_product.id),
+          body: CartShortcut(
+            onOpenCart: onOpenCart ?? () {},
+            child: Center(
+              child: ProductCard(
+                product: _product,
+                width: 160,
+                onOpen: () => opened.add(_product.id),
+              ),
             ),
           ),
         ),
@@ -55,10 +62,14 @@ void main() {
     expect(find.text('AED 1,399'), findsOneWidget);
   });
 
-  testWidgets('Add puts it in the cart once and turns into a check', (
+  testWidgets('Add puts it in the cart once; the check opens the cart', (
     tester,
   ) async {
-    final (container, _) = await _pump(tester);
+    var cartOpened = 0;
+    final (container, _) = await _pump(
+      tester,
+      onOpenCart: () => cartOpened++,
+    );
 
     await tester.tap(find.byType(AddToCartButton));
     await tester.pumpAndSettle();

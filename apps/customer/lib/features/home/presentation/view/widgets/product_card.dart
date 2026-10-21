@@ -3,6 +3,7 @@ import 'package:core/presentation/view_model/cart_view_model.dart';
 import 'package:core/presentation/view_model/wishlist_view_model.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:customer/features/home/domain/entities/product.dart';
+import 'package:customer/features/home/presentation/view/widgets/cart_shortcut.dart';
 import 'package:customer/features/home/presentation/view/widgets/product_card_parts.dart';
 import 'package:customer/features/home/presentation/view/widgets/wishlist_heart_button.dart';
 import 'package:customer/l10n/app_l10n.dart';
@@ -142,6 +143,7 @@ class ProductCard extends ConsumerWidget {
                                 onAdd: () => ref
                                     .read(cartViewModelProvider.notifier)
                                     .add(product.id),
+                                onOpenCart: CartShortcut.of(context),
                               ),
                             ],
                           ),

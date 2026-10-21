@@ -130,7 +130,6 @@
   "productRatingCount": "({count})",
   "productRating": "Rated {score} out of 5 by {count, plural, =1{1 person} other{{count} people}}",
   "productAdd": "Add to cart",
-  "productAdded": "Added to cart",
   "productSave": "Save {name} to wishlist",
   "productUnsave": "Remove {name} from wishlist",
   "homeBestInPhones": "Best in phones",
@@ -145,5 +144,6 @@
   "homeFooterDeliveryDetail": "Same day in UAE",
   "homeFooterWarrantyDetail": "On every device",
   "homeFooterReturns": "Easy returns",
-  "homeFooterReturnsDetail": "Within 14 days"
+  "homeFooterReturnsDetail": "Within 14 days",
+  "productInCart": "In your cart, view cart"
 }
