@@ -99,6 +99,19 @@ void main() {
     ]);
   });
 
+  testWidgets('flash deals count down and show how much has sold', (
+    tester,
+  ) async {
+    await _pump(tester);
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -500));
+    await tester.pump();
+
+    expect(find.text(_en.homeSold(72)), findsOneWidget);
+    expect(find.text('14'), findsWidgets);
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('36'), findsWidgets);
+  });
+
   testWidgets('swiping the hero moves the dots', (tester) async {
     await _pump(tester);
 

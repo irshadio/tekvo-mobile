@@ -9,8 +9,11 @@ import 'package:core/state/view_state.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:customer/features/home/domain/entities/home_feed.dart';
 import 'package:customer/features/home/presentation/view/widgets/category_grid.dart';
+import 'package:customer/features/home/presentation/view/widgets/deals_grid.dart';
+import 'package:customer/features/home/presentation/view/widgets/flash_deals_section.dart';
 import 'package:customer/features/home/presentation/view/widgets/hero_carousel.dart';
 import 'package:customer/features/home/presentation/view/widgets/home_header.dart';
+import 'package:customer/features/home/presentation/view/widgets/offers_row.dart';
 import 'package:customer/features/home/presentation/view/widgets/section_header.dart';
 import 'package:customer/features/home/presentation/view/widgets/trust_strip.dart';
 import 'package:customer/features/home/presentation/view_model/flash_sale_timer_view_model.dart';
@@ -50,6 +53,8 @@ class _HomeViewState extends ConsumerState<HomeView>
   void _open(String route, {Object? arguments}) =>
       unawaited(context.pushNamed<void>(route, arguments: arguments));
 
+  void _openProduct(String id) => _open(Routes.product, arguments: id);
+
   @override
   Widget build(BuildContext context) {
     ref
@@ -63,14 +68,16 @@ class _HomeViewState extends ConsumerState<HomeView>
         }
       });
     final state = ref.watch(homeViewModelProvider);
+    // Watched before the feed arrives, so the countdown it starts is kept.
+    final saleLeft = ref.watch(flashSaleTimerViewModelProvider);
     return ViewStateSwitcher<HomeFeed>(
       state: state,
       onRetry: _load,
-      onData: _page,
+      onData: (feed) => _page(feed, saleLeft),
     );
   }
 
-  Widget _page(HomeFeed feed) {
+  Widget _page(HomeFeed feed, Duration saleLeft) {
     final cartCount = ref.watch(
       cartViewModelProvider.select((cart) => cart.count),
     );
@@ -87,7 +94,7 @@ class _HomeViewState extends ConsumerState<HomeView>
                   top: headerHeight + _contentTop.h,
                   bottom: _sectionGap.h,
                 ),
-                sliver: SliverList.list(children: _sections(feed)),
+                sliver: SliverList.list(children: _sections(feed, saleLeft)),
               ),
             ],
           ),
@@ -109,7 +116,7 @@ class _HomeViewState extends ConsumerState<HomeView>
     );
   }
 
-  List<Widget> _sections(HomeFeed feed) {
+  List<Widget> _sections(HomeFeed feed, Duration saleLeft) {
     final l10n = context.l10n;
     final gap = SizedBox(height: _sectionGap.h);
     final side = EdgeInsets.symmetric(horizontal: AppSpacing.lg.w);
@@ -118,8 +125,8 @@ class _HomeViewState extends ConsumerState<HomeView>
       gap,
       HeroCarousel(
         promos: feed.hero,
-        flashSaleRemaining: ref.watch(flashSaleTimerViewModelProvider),
-        onPromo: (promo) => _open(Routes.product, arguments: promo.id),
+        flashSaleRemaining: saleLeft,
+        onPromo: (promo) => _openProduct(promo.id),
       ),
       gap,
       Padding(
@@ -134,6 +141,36 @@ class _HomeViewState extends ConsumerState<HomeView>
             CategoryGrid(
               onCategory: (category) =>
                   _open(Routes.productList, arguments: category),
+            ),
+          ],
+        ),
+      ),
+      gap,
+      FlashDealsSection(
+        deals: feed.flashDeals,
+        remaining: saleLeft,
+        onSeeAll: widget.onOpenExplore,
+        onProduct: _openProduct,
+      ),
+      gap,
+      Padding(
+        padding: side,
+        child: OffersRow(offers: feed.offers),
+      ),
+      gap,
+      Padding(
+        padding: side,
+        child: Column(
+          spacing: AppSpacing.md.h,
+          children: <Widget>[
+            SectionHeader(
+              title: l10n.homeDealsByCategory,
+              onSeeAll: widget.onOpenExplore,
+            ),
+            DealsGrid(
+              tiles: feed.dealTiles,
+              onTile: (tile) =>
+                  _open(Routes.productList, arguments: tile.category),
             ),
           ],
         ),
