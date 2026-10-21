@@ -1,5 +1,18 @@
 # Tekvo mobile
 
+<p>
+<a href="https://figmcp.web.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/irshadio/figmcp/main/.github/assets/wordmark-dark.svg">
+  <img src="https://raw.githubusercontent.com/irshadio/figmcp/main/.github/assets/wordmark-light.svg" alt="figmcp" height="40">
+</picture>
+</a>
+</p>
+
+Designed in Figma and turned into Flutter with
+[figmcp](https://figmcp.web.app), which reads the open Figma file locally,
+with no Figma API calls.
+
 Flutter apps for Tekvo, an electronics e-commerce platform in the UAE:
 
 - **Customer app** (`apps/customer`, `com.tekvo.customer`): browse, search,
