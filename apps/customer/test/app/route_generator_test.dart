@@ -23,12 +23,20 @@ void main() {
     expect(skipped, isA<MaterialPageRoute<void>>());
   });
 
+  test('sign in pushes in, as in the prototype', () {
+    expect(
+      onGenerateRoute(const RouteSettings(name: Routes.signIn)),
+      isA<PageRouteBuilder<void>>(),
+    );
+  });
+
   test('every route name opens a page', () {
     for (final name in [
       Routes.splash,
       Routes.onboarding,
       Routes.locationPermission,
       Routes.notificationPermission,
+      Routes.signIn,
     ]) {
       expect(
         onGenerateRoute(RouteSettings(name: name)),

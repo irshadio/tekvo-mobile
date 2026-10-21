@@ -1,5 +1,6 @@
 import 'package:core/presentation/widgets/not_found_view.dart';
 import 'package:core/routing/route_transitions.dart';
+import 'package:customer/features/auth/presentation/view/login_view.dart';
 import 'package:customer/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
@@ -33,6 +34,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       ),
       _ => materialRoute<void>(const NotificationPermissionView(), settings),
     },
+    Routes.signIn => pushRoute<void>(
+      const LoginView(),
+      settings,
+      duration: LoginView.entryDuration,
+    ),
     _ => materialRoute<void>(const NotFoundView(), settings),
   };
 }

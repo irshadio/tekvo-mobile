@@ -8,4 +8,12 @@ abstract final class Routes {
   /// Takes a `NotificationEntry`, which sets how the screen comes in.
   static const String notificationPermission = '/permissions/notifications';
   static const String signIn = '/sign-in';
+
+  /// Takes the `MobileContact` the code was sent to; pops `true` to change
+  /// the number.
+  static const String otp = '/sign-in/code';
+
+  /// The mobile number check after a Google or Apple sign-in.
+  static const String verifyMobile = '/sign-in/verify-mobile';
+  static const String home = '/home';
 }
