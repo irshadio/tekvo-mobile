@@ -13,6 +13,7 @@ import 'package:customer/features/onboarding/presentation/view/onboarding_view.d
 import 'package:customer/features/permissions/presentation/view/location_permission_view.dart';
 import 'package:customer/features/permissions/presentation/view/notification_permission_view.dart';
 import 'package:customer/features/product/presentation/view/product_view.dart';
+import 'package:customer/features/product/presentation/view/specifications_view.dart';
 import 'package:customer/features/product/product_overrides.dart';
 import 'package:customer/features/registration/presentation/view/profile_view.dart';
 import 'package:customer/features/registration/registration_overrides.dart';
@@ -44,6 +45,7 @@ final Map<String, Widget> _screens = {
   'profile': const ProfileView(account: _account),
   'home': const CustomerShell(),
   'product': ProductView(id: 'nova-x-pro', onOpenCart: (_) {}),
+  'specifications': const SpecificationsView(id: 'nova-x-pro'),
 };
 
 const Map<String, Size> _sizes = <String, Size>{

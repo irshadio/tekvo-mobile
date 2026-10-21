@@ -30,8 +30,10 @@ abstract final class Routes {
   /// Takes the brand's store name.
   static const String store = '/store';
 
-  /// Each takes the product's id.
+  /// Takes a `SpecificationsRequest`: the product and the group to open on.
   static const String specifications = '/product/specifications';
+
+  /// Each takes the product's id.
   static const String reviews = '/product/reviews';
   static const String questions = '/product/questions';
   static const String askQuestion = '/product/questions/ask';

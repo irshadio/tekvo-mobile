@@ -10,6 +10,9 @@ import 'package:core/sharing/share_service.dart';
 import 'package:core/theme/app_spacing.dart';
 import 'package:core/theme/app_system_bars.dart';
 import 'package:customer/features/product/domain/entities/product_details.dart';
+import 'package:customer/features/product/domain/entities/product_specifications.dart';
+import 'package:customer/features/product/domain/entities/product_specs.dart';
+import 'package:customer/features/product/presentation/view/specifications_view.dart';
 import 'package:customer/features/product/presentation/view/widgets/added_toast.dart';
 import 'package:customer/features/product/presentation/view/widgets/product_bottom_bar.dart';
 import 'package:customer/features/product/presentation/view/widgets/product_bundle_section.dart';
@@ -186,6 +189,10 @@ class _ProductViewState extends ConsumerState<ProductView>
     );
   }
 
+  /// Opens a [SpecificationsRequest] for the product.
+  void _openSpecs(String id, SpecGroupKind? start) =>
+      _open(Routes.specifications, arguments: (id: id, start: start));
+
   void _add(List<String> ids) {
     ids.forEach(ref.read(cartViewModelProvider.notifier).add);
     ref.read(addedToastViewModelProvider.notifier).show();
@@ -229,8 +236,13 @@ class _ProductViewState extends ConsumerState<ProductView>
             ProductHighlightsSection(
               highlights: product.highlights,
               specs: product.specs,
-              onAllSpecs: () =>
-                  _open(Routes.specifications, arguments: product.id),
+              onAllSpecs: () => _openSpecs(product.id, null),
+              onHighlight: (kind) => _openSpecs(product.id, switch (kind) {
+                HighlightKind.display => SpecGroupKind.display,
+                HighlightKind.camera => SpecGroupKind.camera,
+                HighlightKind.battery => SpecGroupKind.battery,
+                HighlightKind.connectivity => SpecGroupKind.connectivity,
+              }),
             ),
           if (reviews != null)
             ProductReviewsSection(

@@ -6,6 +6,7 @@ import 'package:customer/features/product/domain/entities/product_delivery.dart'
 import 'package:customer/features/product/domain/entities/product_details.dart';
 import 'package:customer/features/product/domain/entities/product_options.dart';
 import 'package:customer/features/product/domain/entities/product_reviews.dart';
+import 'package:customer/features/product/domain/entities/product_specifications.dart';
 import 'package:customer/features/product/domain/entities/product_specs.dart';
 
 /// Stand-in until the catalogue is served: every product is the design's
@@ -14,6 +15,8 @@ class ProductLocalDataSource {
   const ProductLocalDataSource();
 
   ProductDetails details(String id) => _novaXPro;
+
+  ProductSpecifications specifications(String id) => _novaXProSpecs;
 }
 
 /// The design's sample product, the Nova X Pro.
@@ -246,6 +249,116 @@ final ProductDetails _novaXPro = ProductDetails(
       rating: 4.6,
       ratingCount: 1100,
       tag: SaleTag(20),
+    ),
+  ],
+);
+
+const ProductSpecifications _novaXProSpecs = ProductSpecifications(
+  id: 'nova-x-pro',
+  name: 'Nova X Pro 5G',
+  variant: '256 GB, 12 GB RAM · Titanium Black',
+  image: Assets.productsNovaXPro,
+  rating: 4.7,
+  ratingCount: 2318,
+  price: Money.units(3499),
+  freeDelivery: true,
+  overview:
+      'Nova X Pro 5G pairs a 6.7-inch 120 Hz LTPO display with a 200 MP '
+      'triple camera and an all-day 5,000 mAh battery. A titanium frame '
+      'keeps it light at 205 g, and 65 W charging gets you to 50% in 15 '
+      'minutes.',
+  features: <String>[
+    '200 MP main camera with 5× optical zoom',
+    'Brightest Nova display yet: 2,600 nits peak',
+    'IP68 water and dust resistance',
+    '7 years of software updates',
+  ],
+  groups: <SpecGroup>[
+    SpecGroup(
+      kind: SpecGroupKind.general,
+      title: 'General',
+      rows: <Spec>[
+        Spec(label: 'Brand', value: 'Nova'),
+        Spec(label: 'Model', value: 'NX-P256 · 2026'),
+        Spec(label: 'Software', value: 'Android 15 · 7 years of updates'),
+        Spec(label: 'SIM', value: 'Dual nano-SIM + eSIM'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.display,
+      title: 'Display',
+      chip: 'Display',
+      rows: <Spec>[
+        Spec(label: 'Size', value: '6.7 inches'),
+        Spec(label: 'Type', value: 'LTPO OLED, 1–120 Hz'),
+        Spec(label: 'Resolution', value: '1440 × 3120 px'),
+        Spec(label: 'Brightness', value: '2,600 nits peak'),
+        Spec(label: 'Protection', value: 'Armor glass, front and back'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.performance,
+      title: 'Performance',
+      chip: 'Performance',
+      rows: <Spec>[
+        Spec(label: 'Processor', value: 'Octa-core 3.3 GHz, 3 nm'),
+        Spec(label: 'Memory', value: '12 GB RAM'),
+        Spec(label: 'Storage', value: '256 GB UFS 4.0'),
+        Spec(label: 'Expandable', value: 'No'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.camera,
+      title: 'Camera',
+      chip: 'Camera',
+      rows: <Spec>[
+        Spec(label: 'Main', value: '200 MP, f/1.7, OIS'),
+        Spec(label: 'Ultra-wide', value: '50 MP, 120°'),
+        Spec(label: 'Telephoto', value: '12 MP, 5× optical'),
+        Spec(label: 'Front', value: '32 MP, autofocus'),
+        Spec(label: 'Video', value: '8K 30 fps · 4K 120 fps'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.battery,
+      title: 'Battery & charging',
+      chip: 'Battery',
+      rows: <Spec>[
+        Spec(label: 'Capacity', value: '5,000 mAh'),
+        Spec(label: 'Wired', value: '65 W · 50% in 15 min'),
+        Spec(label: 'Wireless', value: '15 W · 5 W reverse'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.connectivity,
+      title: 'Connectivity',
+      rows: <Spec>[
+        Spec(label: 'Network', value: '5G, 4G LTE'),
+        Spec(label: 'Wi-Fi', value: 'Wi-Fi 7'),
+        Spec(label: 'Bluetooth', value: '5.4'),
+        Spec(label: 'NFC', value: 'Yes'),
+        Spec(label: 'Port', value: 'USB-C 3.2'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.design,
+      title: 'Design',
+      chip: 'Design',
+      rows: <Spec>[
+        Spec(label: 'Dimensions', value: '162.3 × 76.8 × 8.2 mm'),
+        Spec(label: 'Weight', value: '205 g'),
+        Spec(label: 'Frame', value: 'Titanium'),
+        Spec(label: 'Rating', value: 'IP68'),
+      ],
+    ),
+    SpecGroup(
+      kind: SpecGroupKind.inTheBox,
+      title: 'In the box & warranty',
+      rows: <Spec>[
+        Spec(label: 'In the box', value: 'Phone, USB-C cable, SIM tool'),
+        Spec(label: 'Warranty', value: '2 years, Nova UAE'),
+        Spec(label: 'Returns', value: '15 days, free pickup'),
+      ],
     ),
   ],
 );
